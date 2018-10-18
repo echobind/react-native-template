@@ -1,0 +1,41 @@
+fastlane_version '2.105.2'
+
+# before_all do
+#   ensure_git_branch
+#   ensure_git_status_clean
+#   git_pull
+# end
+
+platform :ios do
+  # iOS Lanes
+  desc 'Fetch certificates and provisioning profiles'
+  lane :certificates do
+    match(app_identifier: 'com.weplayed.mobile', type: 'development', readonly: true)
+  end
+
+  desc 'generate iOS appiconset from master image'
+  lane :icon do
+    appicon(
+      appicon_devices: [:iphone, :ios_marketing],
+      appicon_path: "ios/WePlayed/Images.xcassets"
+    )
+  end
+end
+
+platform :android do
+  desc 'generate Android launch icon from master image'
+  lane :icon do
+    android_appicon(
+      appicon_image_file: 'fastlane/metadata/app_icon_android.png',
+      appicon_icon_types: [:launcher],
+      appicon_path: 'android/app/src/main/res/mipmap'
+    )
+
+    android_appicon(
+      appicon_image_file: 'fastlane/metadata/app_icon_android.png',
+      appicon_icon_types: [:notification],
+      appicon_path: 'android/app/src/main/res/drawable',
+      appicon_filename: 'ic_notification'
+    )
+  end
+end

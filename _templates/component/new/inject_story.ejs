@@ -1,0 +1,8 @@
+---
+inject: true
+to: storybook/stories/index.ts
+skip_if: components/<%= name %>
+append: true
+---
+<% formattedName = name -%>
+import '../../src/components/<%= formattedName %>/stories'

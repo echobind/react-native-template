@@ -1,0 +1,16 @@
+{
+  "test": "jest",
+  "test:watch": "jest --changedSince=master --watch",
+  "test:e2e": "RN_SRC_EXT=e2e.js detox build --configuration ios.sim.debug && detox test --configuration ios.sim.debug",
+  "test:e2e:ci": "RN_SRC_EXT=e2e.js detox build --configuration ios.sim.release && detox test --configuration ios.sim.release --cleanup",
+  "lint": "tslint -p .",
+  "precommit": "lint-staged",
+  "storybook": "storybook start -p 7007",
+  "g:component": "hygen component new --name",
+  "g:screen": "hygen screen new --name",
+  "g:util": "hygen util new --name",
+  "ios": "react-native run-ios --simulator='iPhone X'",
+  "preandroid": "adb reverse tcp:3030 tcp:3030 && adb reverse tcp:9090 tcp:9090",
+  "android": "react-native run-android",
+  "simulators": "xcrun simctl list"
+}

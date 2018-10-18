@@ -1,0 +1,59 @@
+---
+to: src/screens/<%= name %>/component.tsx
+---
+<% const comp = name -%>
+<% if(componentType === 'Class') { -%>
+import styled from '@emotion/native';
+import React, { Component } from 'react';
+import { Screen } from '../../components/Screen';
+import { Text } from '../../components/Text';
+
+interface Props {
+  myProp: string;
+}
+
+interface State {
+  myStateValue?: boolean;
+}
+
+const INITIAL_STATE: State = {
+  myStateValue: true,
+};
+
+const Container = styled(Screen)`
+  background-color: green;
+`;
+
+export class <%= comp %> extends Component<Props, State> {
+  public state = INITIAL_STATE;
+
+  public render() {
+    return (
+      <Container>
+        <Text><%= comp %> Screen</Text>
+      </Container>
+    );
+  }
+}
+<% } else { %>
+import styled from '@emotion/native';
+import React, { SFC } from 'react';
+import { View } from 'react-native';
+import { Screen } from '../../components/Screen';
+
+interface Props {
+  wpNav: WPNavigation;
+}
+
+const Container = styled(Screen)`
+  background-color: green;
+`;
+
+export const <%= comp %>: SFC<Props> = () => {
+  return (
+    <Container>
+      <Text><%= comp %> Screen</Text>
+    </Container>
+  )
+};
+<% } -%>
