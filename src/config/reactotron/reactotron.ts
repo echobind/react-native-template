@@ -1,7 +1,7 @@
-import { onSnapshot } from 'mobx-state-tree';
-import { mst } from 'reactotron-mst';
+// import { onSnapshot } from 'mobx-state-tree';
+// import { mst } from 'reactotron-mst';
 import Tron, { trackGlobalErrors } from 'reactotron-react-native';
-import { RootStoreType } from '../../models';
+// import { RootStoreType } from '../../models';
 
 type BaseTron = typeof Tron;
 
@@ -57,11 +57,12 @@ if (__DEV__) {
 }
 
 class Reactotron {
-  private rootStore: RootStoreType | null = null;
+  // private rootStore: RootStoreType | null = null;
 
+  // sets root store for MobX
   public setRootStore(rootStore: any, initialData: any) {
     if (__DEV__) {
-      this.rootStore = rootStore as RootStoreType;
+      // this.rootStore = rootStore as RootStoreType;
       const name = 'ROOT STORE';
 
       Tron.display({
@@ -70,12 +71,12 @@ class Reactotron {
         preview: 'Initial State',
       });
 
-      onSnapshot(rootStore, snapshot => {
-        Tron.display({ name, value: snapshot, preview: 'New State' });
-      });
+      // onSnapshot(rootStore, snapshot => {
+      //   Tron.display({ name, value: snapshot, preview: 'New State' });
+      // });
 
       // tslint:disable-next-line
-      (console.tron as ReactotronWithPlugins).trackMstNode(rootStore);
+      // (console.tron as ReactotronWithPlugins).trackMstNode(rootStore);
     }
   }
 
@@ -83,7 +84,6 @@ class Reactotron {
     if (__DEV__) {
       Tron.configure({
         name: require('../../../package.json').name,
-        // TODO: ENV
         host: 'localhost',
       });
 
@@ -91,13 +91,13 @@ class Reactotron {
       Tron.useReactNative();
 
       // MST setup
-      const RX = /postProcessSnapshot|@APPLY_SNAPSHOT/;
+      // const RX = /postProcessSnapshot|@APPLY_SNAPSHOT/;
 
-      Tron.use(
-        mst({
-          // filter: event => RX.test(event.name) === false,
-        }),
-      ).use(trackGlobalErrors());
+      // Tron.use(
+      //   mst({
+      //     // filter: event => RX.test(event.name) === false,
+      //   }),
+      // ).use(trackGlobalErrors());
 
       Tron.connect();
       Tron.clear();

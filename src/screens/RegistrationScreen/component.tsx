@@ -12,7 +12,7 @@ interface Props {
   style?: ViewStyle;
 }
 
-export class IntroScreen extends Component<Props> {
+export class RegistrationScreen extends Component<Props> {
   public render() {
     return (
       <Background source={backgroundImage} resizeMode="cover">

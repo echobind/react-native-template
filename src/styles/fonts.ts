@@ -1,22 +1,22 @@
 const bold = {
-  fontFamily: 'Blockletter'
+  fontFamily: 'Blockletter',
 };
 
 const regular = {
-  fontFamily: 'Archivo-Regular'
+  fontFamily: 'Archivo-Regular',
 };
 
 const semibold = {
-  fontFamily: 'Archivo-SemiBold'
+  fontFamily: 'Archivo-SemiBold',
 };
 
 const medium = {
-  fontFamily: 'Archivo-Medium'
+  fontFamily: 'Archivo-Medium',
 };
 
 export const fonts = {
   regular,
   semibold,
   bold,
-  medium
+  medium,
 };

@@ -20,6 +20,12 @@ packageJson.rnpm = require('./rnpm.json');
 console.log('\n📝  Writing package.json...');
 writeFile('../package.json', JSON.stringify(packageJson, null, 2));
 
+console.log('\n🛠  Setting up fastlane and installing app icons...');
+const bundleDirectory = path.join(__dirname, '../');
+execSync('bundle install', { cwd: bundleDirectory });
+execSync('bundle exec fastlane ios icon', { cwd: bundleDirectory });
+execSync('bundle exec fastlane android icon', { cwd: bundleDirectory });
+
 console.log('\n🗑  Removing cruft...');
 deleteFile('../.flowconfig');
 deleteFile('jest.json');
@@ -37,5 +43,6 @@ console.log('** PostInstall Notes: **');
 console.log(
   "1. Ensure you've set up Detox dependencies as instructed here: https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies",
 );
-console.log('2. ');
+console.log('2. Add custom fonts to src/assets/fonts and run `react-native link`');
+console.log('3. ?');
 console.log('\n\n');

@@ -5,13 +5,13 @@ import {
   createSwitchNavigator,
 } from 'react-navigation';
 import { RegistrationScreen } from '../../src/screens/RegistrationScreen';
+import { Screen } from '../components/Screen';
+import { Text } from '../components/Text';
 import { IntroScreen } from '../screens/IntroScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { colors } from '../styles';
-import { Screen } from '../components/Screen';
-import { Text } from '../components/Text';
 
-const createFakeScreen = (text, backgroundColor) => (
+const createFakeScreen = (text, backgroundColor) => () => (
   <Screen backgroundColor={backgroundColor}>
     <Text>Tab {text}</Text>
   </Screen>

@@ -2,12 +2,11 @@
 import React, { Component } from 'react';
 // import SplashScreen from 'react-native-splash-screen';
 // import { setupRootStore } from './src/config/setup-root-store';
+import './src/config/reactotron';
 import { createRootNav } from './src/navigation/RootNavigator';
 import Storybook from './storybook';
 
-interface State {
-  // rootStore?: RootStoreType;
-}
+interface State {}
 
 class App extends Component<{}, State> {
   // public async componentDidMount() {
@@ -30,7 +29,8 @@ class App extends Component<{}, State> {
     //   return null;
     // }
 
-    const RootNav = createRootNav(rootStore);
+    // const RootNav = createRootNav(rootStore);
+    const RootNav = createRootNav({ user: { isLoggedIn: false } });
 
     return (
       // <Provider rootStore={rootStore}>
