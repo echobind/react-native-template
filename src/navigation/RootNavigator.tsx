@@ -2,121 +2,72 @@ import React from 'react';
 import {
   createBottomTabNavigator,
   createStackNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
 } from 'react-navigation';
 import { RegistrationScreen } from '../../src/screens/RegistrationScreen';
 import { IntroScreen } from '../screens/IntroScreen';
 import { LoginScreen } from '../screens/LoginScreen';
-import { SettingsScreen } from '../screens/SettingsScreen';
 import { colors } from '../styles';
+import { Screen } from '../components/Screen';
+import { Text } from '../components/Text';
+
+const createFakeScreen = (text, backgroundColor) => (
+  <Screen backgroundColor={backgroundColor}>
+    <Text>Tab {text}</Text>
+  </Screen>
+);
 
 /**
  * Base Nav contains the tab navigation screen at the bottom of the login stack.
  */
 const HomeNav = createBottomTabNavigator(
   {
-    Discover: {
-      screen: DiscoverScreen,
+    Tab1: {
+      screen: createFakeScreen('Tab 1', colors.black),
       navigationOptions: {
-        tabBarTestID: 'discoverTab',
-        tabBarIcon: ({ focused, tintColor }) => {
-          // image size needs to be a bit smaller
-          const size = (focused ? TAB_ICON_FOCUSED_SIZE : TAB_ICON_SIZE) - 3;
-
-          return (
-            <Image
-              source={DiscoverIcon}
-              style={{
-                width: size,
-                height: size,
-                tintColor
-              }}
-            />
-          );
-        }
-      }
+        tabBarTestID: 'tab1',
+        // tabBarIcon: ({ tintColor }) => <Icon name="search" size={32} color={tintColor} />,
+      },
     },
-    Search: {
-      screen: SearchScreen,
+    Tab2: {
+      screen: createFakeScreen('Tab 2', colors.gray),
       navigationOptions: {
-        tabBarTestID: 'searchTab',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <Icon
-            name="search"
-            size={focused ? TAB_ICON_FOCUSED_SIZE : TAB_ICON_SIZE}
-            color={tintColor}
-          />
-        )
-      }
+        tabBarTestID: 'tab2',
+        // tabBarIcon: ({ tintColor }) => <Icon name="search" size={32} color={tintColor} />,
+      },
     },
-    Favorites: {
-      screen: FavoritesScreen,
-      navigationOptions: {
-        tabBarTestID: 'favoritesTab',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <Icon
-            name="favorite"
-            size={focused ? TAB_ICON_FOCUSED_SIZE : TAB_ICON_SIZE}
-            color={tintColor}
-          />
-        )
-      }
-    },
-    Settings: {
-      screen: SettingsScreen,
-      navigationOptions: {
-        tabBarTestID: 'settingsTab',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <Icon
-            name="settings"
-            size={focused ? TAB_ICON_FOCUSED_SIZE : TAB_ICON_SIZE}
-            color={tintColor}
-          />
-        )
-      }
-    }
   },
   {
-    initialRouteName: 'Discover',
+    initialRouteName: 'Tab1',
     headerMode: 'none',
     tabBarOptions: {
       activeTintColor: colors.white,
       inactiveTintColor: colors.lightGray,
       labelStyle: {
-        fontSize: 12
+        fontSize: 12,
       },
       style: {
-        backgroundColor: colors.darkBlue,
+        backgroundColor: colors.blue,
         paddingVertical: 10,
-        height: 70
-      }
-    }
-  }
+        height: 70,
+      },
+    },
+  },
 );
 
 /**
  * AppNav is the primary stack visible to a logged-in user.
- * To use a drawer nav, just swap it out here.
  */
 const AppNav = createStackNavigator(
   {
     Home: {
-      screen: HomeNav
+      screen: HomeNav,
     },
-    Tab1: {
-      screen: Tab1
-    },
-    Tab2: {
-      screen: Tab2
-    },
-    Tab3: {
-      screen: Tab3
-    }
   },
   {
     headerMode: 'none',
-    initialRouteName: 'Home'
-  }
+    initialRouteName: 'Home',
+  },
 );
 
 /**
@@ -125,16 +76,16 @@ const AppNav = createStackNavigator(
 const OnboardingStack = createStackNavigator(
   {
     Onboarding1: {
-      screen: Onboarding1
+      screen: createFakeScreen('Onboarding 1', colors.blue),
     },
     Onboarding2: {
-      screen: Onboarding2
-    }
+      screen: createFakeScreen('Onboarding 2', colors.white),
+    },
   },
   {
     headerMode: 'none',
-    initialRouteName: 'Onboarding1'
-  }
+    initialRouteName: 'Onboarding1',
+  },
 );
 
 /**
@@ -149,31 +100,31 @@ const GuestNav = createStackNavigator(
     Intro: {
       screen: IntroScreen,
       navigationOptions: {
-        header: null
-      }
+        header: null,
+      },
     },
     Onboard: {
       screen: OnboardingStack,
       navigationOptions: {
-        header: null
-      }
+        header: null,
+      },
     },
     Login: {
       screen: LoginScreen,
       navigationOptions: {
-        header: null
-      }
+        header: null,
+      },
     },
     Registration: {
       screen: RegistrationScreen,
       navigationOptions: {
-        header: null
-      }
-    }
+        header: null,
+      },
+    },
   },
   {
-    initialRouteName: 'Intro'
-  }
+    initialRouteName: 'Intro',
+  },
 );
 
 /**
@@ -184,11 +135,11 @@ export const createRootNav = ({ user }: any) => {
   return createSwitchNavigator(
     {
       AppNav,
-      GuestNav
+      GuestNav,
     },
     {
       // TODO: update this to your logged in method!
-      initialRouteName: user.isLoggedIn ? 'AppNav' : 'GuestNav'
-    }
+      initialRouteName: user.isLoggedIn ? 'AppNav' : 'GuestNav',
+    },
   );
 };

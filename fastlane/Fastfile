@@ -10,14 +10,14 @@ platform :ios do
   # iOS Lanes
   desc 'Fetch certificates and provisioning profiles'
   lane :certificates do
-    match(app_identifier: 'com.weplayed.mobile', type: 'development', readonly: true)
+    match(app_identifier: 'com.HelloWorld.mobile', type: 'development', readonly: true)
   end
 
   desc 'generate iOS appiconset from master image'
   lane :icon do
     appicon(
       appicon_devices: [:iphone, :ios_marketing],
-      appicon_path: "ios/WePlayed/Images.xcassets"
+      appicon_path: "ios/HelloWorld/Images.xcassets"
     )
   end
 end
