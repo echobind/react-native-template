@@ -9,11 +9,14 @@ import { View, ViewStyle } from 'react-native';
 import { colors } from '../../styles';
 
 interface Props {
+  /** prop info **/
   cool: boolean;
+  /** prop info **/
   style: ViewStyle;
 }
 
 interface State {
+  /** state info **/
   myStateValue?: boolean;
 }
 
@@ -25,6 +28,9 @@ const Container = styled(View)`
   flex: 1;
 `
 
+/**
+ * Component docs: what does this component do?
+ */
 export class <%= comp %> extends Component<Props, State> {
   public static readonly defaultProps: Props = { cool: true };
   public state = INITIAL_STATE;
@@ -43,10 +49,15 @@ import { View, ViewStyle } from 'react-native';
 import styles from "./styles";
 
 interface Props {
+  /** prop info **/
   cool: boolean;
+  /** prop info **/
   style: ViewStyle;
 }
 
+/**
+ * Component docs: what does this component do?
+ */
 export const <%= comp %>: SFC<Props> = ({ cool = true, children }) => (
   <View {...props}>
     {children}

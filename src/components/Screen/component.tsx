@@ -18,16 +18,15 @@ const PaddedView = styled.View`
 `;
 
 interface ScreenProps {
+  /** the background color of the screen */
   backgroundColor?: string;
+  /** main part of the screen */
   children?: ReactNode;
+  /** view styles to override the base */
   style?: ViewStyle;
 }
 
-export const Screen: SFC<ScreenProps> = ({
-  backgroundColor,
-  children,
-  style,
-}) => (
+export const Screen: SFC<ScreenProps> = ({ backgroundColor, children, style }) => (
   <SafeView backgroundColor={backgroundColor} style={style}>
     <PaddedView style={style}>{children}</PaddedView>
   </SafeView>

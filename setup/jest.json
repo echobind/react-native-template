@@ -7,10 +7,5 @@
   },
   "testRegex": "(/__tests__/.*|(test|spec))\\.(ts|tsx|js)$",
   "testPathIgnorePatterns": ["\\.snap$", "e2e", "<rootDir>/node_modules/"],
-  "cacheDirectory": ".jest/cache",
-  "setupFiles": [
-    "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
-    "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
-    "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js"
-  ]
+  "cacheDirectory": ".jest/cache"
 }
