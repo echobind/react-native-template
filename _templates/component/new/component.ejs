@@ -3,9 +3,9 @@ to: src/components/<%= name %>/component.tsx
 ---
 <% const comp = name -%>
 <% if(componentType === 'Class') { -%>
+import styled from '@emotion/native';
 import React, { Component } from 'react';
 import { View, ViewStyle } from 'react-native';
-import styled from '@emotion/native';
 import { colors } from '../../styles';
 
 interface Props {

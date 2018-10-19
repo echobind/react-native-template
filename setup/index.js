@@ -34,6 +34,7 @@ deleteFile('lintStaged.json');
 deleteFile('rnpm.json');
 deleteFile('scripts.json');
 deleteFile('index.js');
+deleteFile('../App.js');
 deleteDirectory('.');
 
 console.log(`\n✅  Setup completed!`);
