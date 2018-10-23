@@ -1,4 +1,5 @@
 module.exports = {
+  // should only be required for < 0.57
   // getTransformModulePath() {
   //   return require.resolve('react-native-typescript-transformer');
   // },
