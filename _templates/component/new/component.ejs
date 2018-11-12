@@ -54,14 +54,22 @@ interface Props {
   style: ViewStyle;
 }
 
+const DEFAULT_PROPS: Props = {
+  cool: true,
+  style: {},
+}
+
 /**
  * Component docs: what does this component do?
  */
-export const <%= comp %>: SFC<Props> = ({ cool = true, children }) => (
-  <View {...props}>
-    {children}
-  </View>
-);
+export const <%= comp %>: SFC<Props> = (props = DEFAULT_PROPS) => {
+  const { children, ...viewProps } = props;
+  return (
+    <View {...viewProps}>
+      {children}
+    </View>
+  );
+};
 <% } -%>
 
 export default <%= comp %>;
