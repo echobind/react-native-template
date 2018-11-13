@@ -20,7 +20,12 @@
     "sourceMap": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
-    "lib": ["es7"]
+    "lib": ["es7"],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
   },
   "exclude": ["node_modules"],
   "include": ["src", "test", "storybook"],
