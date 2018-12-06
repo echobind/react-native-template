@@ -33,7 +33,7 @@ export class IntroScreen extends Component<Props> {
       <Background source={bgImage} resizeMode="cover">
         <StatusBar barStyle="light-content" />
         <StyledScreen backgroundColor={colors.transparent} style={this.props.style}>
-          <StyledText>Welcome to the intro Screen!</StyledText>
+          <StyledText testID="introScreenText">Welcome to the intro Screen!</StyledText>
         </StyledScreen>
       </Background>
     );

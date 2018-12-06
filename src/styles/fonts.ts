@@ -1,17 +1,17 @@
 const bold = {
-  fontFamily: 'Blockletter',
+  fontFamily: 'Helvetica',
 };
 
 const regular = {
-  fontFamily: 'Archivo-Regular',
+  fontFamily: 'Helvetica',
 };
 
 const semibold = {
-  fontFamily: 'Archivo-SemiBold',
+  fontFamily: 'Helvetica',
 };
 
 const medium = {
-  fontFamily: 'Archivo-Medium',
+  fontFamily: 'Helvetica',
 };
 
 export const fonts = {
