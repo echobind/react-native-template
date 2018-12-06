@@ -27,6 +27,7 @@ execSync('bundle exec fastlane ios icon', { cwd: bundleDirectory });
 execSync('bundle exec fastlane android icon', { cwd: bundleDirectory });
 
 console.log('\n🗑  Removing cruft...');
+deleteFile('../.babelrc'); // metro bundler version uses babel.config.js
 deleteFile('../.flowconfig');
 deleteFile('jest.json');
 deleteFile('detox.json');
