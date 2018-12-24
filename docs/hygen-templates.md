@@ -1,6 +1,6 @@
 # Hygen Templates
 
-Templates can be found in the `_templates` directory at the root of the project. They are customizable generators that are meant to evolve alongside the code.
+Templates can be found in the `_templates` directory at the root of the project. They are customizable generators that are meant to evolve alongside your code.
 
 Out of the box, we've wired up:
 
@@ -11,5 +11,5 @@ Out of the box, we've wired up:
   - Create a screen file that uses a general Screen wrapper component.
 - A util generator (`yarn g:util happy). This will:
   - Create a simple util function with a corresponding jest test. This will fail by default to encourage you to write them!
-- An E2E generator (`yarn g:e2e "My cool e2e test"). This will:
-  - Create a detox test in the `e2e` directory
+- An E2E generator (`yarn g:e2e "My cool e2e test"`). This will:
+  - Create a detox test in the `e2e` directory.
