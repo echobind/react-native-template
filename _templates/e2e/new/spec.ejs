@@ -1,0 +1,14 @@
+---
+to: e2e/<%= h.inflection.camelize(name) %>.spec.js
+---
+describe('<%= h.inflection.titleize(name) %>', () => {
+  beforeEach(async () => {
+    await device.reloadReactNative();
+  });
+
+  describe('on load', () => {
+    it('shows the expected text', async () => {
+      await expect(element(by.id('what'))).toExist();
+    });
+  });
+});
