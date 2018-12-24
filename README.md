@@ -32,8 +32,11 @@ CI / Deployment:
 
 1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
 2. Install Ruby and a version manager (like RVM or rbenv) if you don't already have them on your machine:
+
    Ruby: `$ brew install ruby`
+
    For RVM: `\curl -sSL https://get.rvm.io | bash`
+
    For rbenv: `brew install rbenv` ... and then setup your shell: `rbenv init`.
 
    Close your terminal and open a new one.
