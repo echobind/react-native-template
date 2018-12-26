@@ -38,6 +38,9 @@ deleteFile('index.js');
 deleteFile('../App.js');
 deleteDirectory('.');
 
+console.log('\n📝 Committing project...');
+execSync('git add . && git commit -m "Initialize new React Native project."');
+
 console.log(`\n✅  Setup completed!`);
 
 console.log('\n\n------------------------');
