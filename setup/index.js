@@ -29,17 +29,13 @@ execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
 console.log('\n🗑  Removing cruft...');
 deleteFile('../.babelrc'); // metro bundler version uses babel.config.js
 deleteFile('../.flowconfig');
-deleteFile('jest.json');
-deleteFile('detox.json');
-deleteFile('lintStaged.json');
-deleteFile('rnpm.json');
-deleteFile('scripts.json');
-deleteFile('index.js');
 deleteFile('../App.js');
-deleteDirectory('.');
+deleteFile('../.gitattributes'); // not sure why this is here?
+execSync('rm -rf setup', { cwd: rootDirectory });
+execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
 console.log('\n📝 Committing project...');
-execSync('git add . && git commit -m "Initialize new React Native project."', {
+execSync('git init && git add . && git commit -m "Initialize new React Native project."', {
   cwd: rootDirectory,
 });
 
