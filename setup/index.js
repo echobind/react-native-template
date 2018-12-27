@@ -21,10 +21,10 @@ console.log('\n📝  Writing package.json...');
 writeFile('../package.json', JSON.stringify(packageJson, null, 2));
 
 console.log('\n🛠  Setting up fastlane and installing app icons...');
-const bundleDirectory = path.join(__dirname, '../');
-execSync('bundle install', { cwd: bundleDirectory });
-execSync('bundle exec fastlane ios icon', { cwd: bundleDirectory });
-execSync('bundle exec fastlane android icon', { cwd: bundleDirectory });
+const rootDirectory = path.join(__dirname, '../');
+execSync('bundle install', { cwd: rootDirectory });
+execSync('bundle exec fastlane ios icon', { cwd: rootDirectory });
+execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
 
 console.log('\n🗑  Removing cruft...');
 deleteFile('../.babelrc'); // metro bundler version uses babel.config.js
@@ -37,6 +37,11 @@ deleteFile('scripts.json');
 deleteFile('index.js');
 deleteFile('../App.js');
 deleteDirectory('.');
+
+console.log('\n📝 Committing project...');
+execSync('git add . && git commit -m "Initialize new React Native project."', {
+  cwd: rootDirectory,
+});
 
 console.log(`\n✅  Setup completed!`);
 
