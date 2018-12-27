@@ -57,3 +57,6 @@ fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle
+
+# misc
+.jest
