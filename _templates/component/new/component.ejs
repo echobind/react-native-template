@@ -11,8 +11,8 @@ import { colors } from '../../styles';
 interface Props {
   /** prop info */
   cool: boolean;
-  /** prop info */
-  style: ViewStyle;
+  /** prop info **/
+  style?: ViewStyle;
 }
 
 interface State {
@@ -32,7 +32,7 @@ const Container = styled(View)`
  * Component docs: what does this component do?
  */
 export class <%= comp %> extends Component<Props, State> {
-  public static readonly defaultProps: Props = { cool: true };
+  public static readonly defaultProps: Partial<Props> = { cool: true };
   public state = INITIAL_STATE;
 
   public render() {
@@ -50,13 +50,12 @@ import { View, ViewStyle } from 'react-native';
 interface Props {
   /** prop info */
   cool: boolean;
-  /** prop info */
-  style: ViewStyle;
+  /** prop info **/
+  style?: ViewStyle;
 }
 
-const DEFAULT_PROPS: Props = {
+const DEFAULT_PROPS: Partial<Props> = {
   cool: true,
-  style: {},
 }
 
 /**

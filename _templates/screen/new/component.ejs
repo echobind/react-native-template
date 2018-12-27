@@ -1,5 +1,5 @@
 ---
-to: src/screens/<%= name %>/component.tsx
+to: src/screens/<%= h.inflection.classify(name) %>/component.tsx
 ---
 <% const comp = name -%>
 <% if(componentType === 'Class') { -%>

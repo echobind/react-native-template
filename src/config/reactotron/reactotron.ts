@@ -1,7 +1,4 @@
-// import { onSnapshot } from 'mobx-state-tree';
-// import { mst } from 'reactotron-mst';
 import Tron, { trackGlobalErrors } from 'reactotron-react-native';
-// import { RootStoreType } from '../../models';
 
 type BaseTron = typeof Tron;
 
@@ -89,15 +86,6 @@ class Reactotron {
 
       // hookup middleware
       Tron.useReactNative();
-
-      // MST setup
-      // const RX = /postProcessSnapshot|@APPLY_SNAPSHOT/;
-
-      // Tron.use(
-      //   mst({
-      //     // filter: event => RX.test(event.name) === false,
-      //   }),
-      // ).use(trackGlobalErrors());
 
       Tron.connect();
       Tron.clear();

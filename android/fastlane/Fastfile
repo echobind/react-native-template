@@ -1,0 +1,95 @@
+default_platform(:android)
+
+properties = {
+  # assumes keystore is at the root of the android app
+  "android.injected.signing.store.file" => "android.keystore",
+  "android.injected.signing.store.password" => ENV['ANDROID_KEY_PASSWORD'],
+  "android.injected.signing.key.alias" => ENV['ANDROID_KEY_ALIAS'],
+  "android.injected.signing.key.password" => ENV['ANDROID_KEY_PASSWORD']
+}
+
+
+platform :android do
+  ########################################################################
+  # Adhoc Lane
+  ########################################################################
+  desc "Signed alpha build"
+  lane :adhoc do |options|
+    ########################
+    # Build the app
+    ########################
+    increment_version_code(version_code: options[:build_number])
+
+    gradle(
+      task: "clean assembleRelease",
+      properties: properties,
+      print_command: false
+    )
+
+    ########################
+    # Upload to App Center
+    ########################
+    distribute = options[:distribute].to_s != 'false'
+
+    if distribute
+      appcenter_upload(
+        apk: "./app/build/outputs/apk/release/app-release.apk"
+      )
+
+      if ENV['SLACK_URL']
+        group = ENV['APPCENTER_DISTRIBUTE_GROUP'] || 'Collaborators'
+        slack(message: "Successfully distributed *Android* build *#{options[:build_number]}* to the *#{group}* group on App Center")
+      end
+    end
+  end
+
+  ########################################################################
+  # Beta Lane
+  ########################################################################
+  desc "Deploy a new version to Google Play"
+  lane :beta do |options|
+    ########################
+    # Build the app
+    ########################
+    increment_version_code(version_code: options[:build_number])
+
+    gradle(
+      task: "clean assembleRelease",
+      properties: properties,
+      print_command: false
+    )
+
+    ########################
+    # Deploy to Google Play
+    ########################
+    upload_to_play_store(track: "internal") # production, beta, alpha, internal, rollout
+  end
+
+  error do |lane, exception|
+    if ENV['SLACK_URL']
+      slack(
+        message: exception.message,
+        success: false
+      )
+    end
+  end
+
+  # There is a plugin called increment_version_code but writing this avoids another dependency
+  def increment_version_code(options={})
+    version_code_regex = /versionCode\s+(\d+)/
+
+    # This path structure assumes we have seperate ios and android fastlane setups (android/fastlane)
+    Dir.glob("../**/app/build.gradle") do |path|
+      UI.message(" -> Found a build.gradle file at path: (#{path})!")
+      build_gradle = File.read(path)
+      current_version_code = build_gradle[version_code_regex, 1].to_i
+      new_version_code = options[:version_code] || current_version_code + 1
+      UI.message(" -> Setting versionCode to: #{new_version_code}")
+      build_gradle[version_code_regex, 1] = new_version_code.to_s
+
+      f = File.new(path, 'w')
+      f.write(build_gradle)
+      f.close
+    end
+  end
+end

@@ -1,0 +1,147 @@
+version: 2.1
+
+orbs:
+  react-native: echobind/react-native@0.1.1
+
+workflows:
+  version: 2
+
+  ##################################################################
+  # The main workflow, run on push to every branch
+  ##################################################################
+  main:
+    jobs:
+      - react-native/node:
+          name: node
+          filters:
+            branches:
+              ignore:
+                - master
+                - beta
+                - production
+
+      - react-native/android:
+          name: android
+          requires:
+            - node
+          filters:
+            branches:
+              ignore:
+                - master
+                - beta
+                - production
+          build:
+            - run:
+                name: fastlane adhoc android
+                working_directory: android
+                command: bundle exec fastlane adhoc distribute:false build_number:${CIRCLE_BUILD_NUM}
+
+      - react-native/ios:
+          name: ios
+          requires:
+            - node
+          filters:
+            branches:
+              ignore:
+                - master
+                - beta
+                - production
+          build:
+            - run:
+                name: fastlane adhoc ios
+                working_directory: ios
+                command: bundle exec fastlane adhoc distribute:false build_number:${CIRCLE_BUILD_NUM}
+
+  ##################################################################
+  # The alpha workflow, run on push to master
+  # used for internal testing
+  ##################################################################
+  alpha:
+    jobs:
+      - react-native/node:
+          name: node (alpha)
+          filters:
+            branches:
+              only: master
+      - react-native/android:
+          name: android (alpha)
+          requires:
+            - node (alpha)
+          filters:
+            branches:
+              only: master
+          build:
+            - run:
+                name: fastlane beta android
+                working_directory: android
+                command: |
+                  # APPCENTER_DISTRIBUTE_GROUP=Internal \
+                  APPCENTER_OWNER_NAME=HelloWorld \
+                  APPCENTER_APP_NAME=HelloWorld-Android \
+                  bundle exec fastlane adhoc build_number:${CIRCLE_BUILD_NUM}
+      - react-native/ios:
+          name: ios (alpha)
+          requires:
+            - node (alpha)
+          filters:
+            branches:
+              only: master
+          build:
+            - run:
+                name: fastlane adhoc ios
+                working_directory: ios
+                command: |
+                  # APPCENTER_DISTRIBUTE_GROUP=Internal \
+                  APPCENTER_OWNER_NAME=HelloWorld \
+                  APPCENTER_APP_NAME=HelloWorld-iOS \
+                  bundle exec fastlane adhoc build_number:${CIRCLE_BUILD_NUM}
+
+  ##################################################################
+  # The beta workflow, run on push to beta
+  # used for beta testing
+  ##################################################################
+  beta:
+    jobs:
+      - react-native/node:
+          name: node (beta)
+          filters:
+            branches:
+              only: beta
+      - react-native/android:
+          name: android (beta)
+          requires:
+            - node (beta)
+          filters:
+            branches:
+              only: beta
+          build:
+            - run:
+                name: fastlane beta android
+                working_directory: android
+                command: |
+                  bundle exec fastlane beta build_number:${CIRCLE_BUILD_NUM}
+
+  ##################################################################
+  # The production workflow, run on push to production
+  # used for App Store / Google Play deploy
+  ##################################################################
+  production:
+    jobs:
+      - react-native/node:
+          name: node (production)
+          filters:
+            branches:
+              only: production
+      - react-native/android:
+          name: android (production)
+          requires:
+            - node (production)
+          filters:
+            branches:
+              only: production
+          build:
+            - run:
+                name: fastlane beta android
+                working_directory: android
+                command: |
+                  bundle exec fastlane production build_number:${CIRCLE_BUILD_NUM}

@@ -22,7 +22,7 @@ export class RegistrationScreen extends Component<Props> {
           backgroundColor="rgba(0, 0, 0, 0.20)"
           barStyle="light-content"
         />
-        <Text testID="introScreenText">Intro Screen!</Text>
+        <Text testID="introScreenText">Registration Screen!</Text>
       </Background>
     );
   }
