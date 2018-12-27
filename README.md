@@ -50,3 +50,11 @@ CI / Deployment:
 ## Configuration
 
 [Customize Generator Templates](./docs/hygen-templates.md)
+[Setup CircleCI](./docs/circle-ci.md)
+
+---
+
+## Local Development
+
+- Generate a new app against your local repo using the `file://` option of `--template`:
+  `react-native init --template=file://path/to/my/repo`
