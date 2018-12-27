@@ -2,9 +2,9 @@
 
 Our Recommended template for React Native projects.
 
-## Includes
+## Included
 
-Libraries:
+📓 Libraries:
 
 - React Native 0.57
 - TypeScript
@@ -13,19 +13,19 @@ Libraries:
 - Detox for E2E tests
 - Emotion Native for styling
 
-Dev Productivity:
+🏆 Dev Productivity:
 
-- Hygen templates to easily generate components, screens, and utils with tests and stories
-- reactotron
-- vscode settings for common overrides
-- default scripts for icon generation
-- global styles
-- react-nativation preconfigured with a few common setups
+- [Hygen](http://www.hygen.io/) templates to easily generate components, screens, and utils with tests and stories.
+- Reactotron pre-configured for [React Native](https://github.com/infinitered/reactotron/blob/master/docs/quick-start-react-native.md) and [Storybook](https://github.com/infinitered/reactotron/blob/master/docs/plugin-storybook.md)
+- vscode settings for common overrides (🎨 Colors, formatOnSave and rulers width that matches prettier)
+- default Fastlane scripts for icon generation
+- global styles and colors
+- react-navigation preconfigured with a common setup
 
-CI / Deployment:
+🤖 CI / Deployment:
 
-- CircleCI preconfigured for fast build times
-- Fastlane lanes for alpha, beta, and production releases. These should be run on CI!
+- CircleCI preconfigured for React Native. Fast build times!
+- Fastlane lanes for alpha, beta, and production releases. These should be run on CI only!
 - AppCenter integration for easy alpha distribution
 
 ## Setup
@@ -47,14 +47,16 @@ CI / Deployment:
 
 ---
 
-## Configuration
+## Docs
 
-[Customize Generator Templates](./docs/hygen-templates.md)
-[Setup CircleCI](./docs/circle-ci.md)
+- [Customize Generator Templates](./docs/hygen-templates.md)
+- [Navigation](./docs/navigation.md)
+- [Setup CircleCI](./docs/circle-ci.md)
 
 ---
 
 ## Local Development
 
 - Generate a new app against your local repo using the `file://` option of `--template`:
+
   `react-native init --template=file://path/to/my/repo`

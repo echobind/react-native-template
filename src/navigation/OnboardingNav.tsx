@@ -1,4 +1,4 @@
-import { createFakeScreen } from './RootNavigator';
+import { createFakeScreen } from './RootNav';
 import { createStackNavigator } from 'react-navigation';
 import { colors } from '../styles';
 
