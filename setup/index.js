@@ -26,6 +26,9 @@ execSync('bundle install', { cwd: rootDirectory });
 execSync('bundle exec fastlane ios icon', { cwd: rootDirectory });
 execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
 
+console.log('\n🌊  Setting up splash screens...');
+execSync('yarn hygen setup splashscreen');
+
 console.log('\n🗑  Removing cruft...');
 deleteFile('../.babelrc'); // metro bundler version uses babel.config.js
 deleteFile('../.flowconfig');
@@ -35,9 +38,12 @@ execSync('rm -rf setup', { cwd: rootDirectory });
 execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
 console.log('\n📝 Committing project...');
-execSync('git init && git add . && git commit -m "Initialize new React Native project."', {
-  cwd: rootDirectory,
-});
+execSync(
+  'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
+  {
+    cwd: rootDirectory,
+  },
+);
 
 console.log(`\n✅  Setup completed!`);
 
