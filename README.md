@@ -51,6 +51,7 @@ Our Recommended template for React Native projects.
 
 - [Customize Generator Templates](./docs/hygen-templates.md)
 - [Navigation](./docs/navigation.md)
+- [Splash Screens](./docs/splashscreens.md)
 - [Setup CircleCI](./docs/circle-ci.md)
 
 ---
