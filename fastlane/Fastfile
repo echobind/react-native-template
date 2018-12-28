@@ -34,7 +34,7 @@ platform :android do
     android_appicon(
       appicon_image_file: 'fastlane/metadata/app_icon_android.png',
       appicon_icon_types: [:notification],
-      appicon_path: 'android/app/src/main/res/drawable',
+      appicon_path: 'android/app/src/main/res/mipmap',
       appicon_filename: 'ic_notification'
     )
   end
