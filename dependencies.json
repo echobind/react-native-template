@@ -2,5 +2,6 @@
   "@emotion/native": "^9.2.9",
   "react-emotion": "^9.2.12",
   "react-native": "^0.57.8",
-  "react-navigation": "^2.18.0"
+  "react-navigation": "^2.18.0",
+  "react-native-splash-screen": "^3.1.1"
 }
