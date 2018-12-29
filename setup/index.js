@@ -27,6 +27,7 @@ execSync('bundle exec fastlane ios icon', { cwd: rootDirectory });
 execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
 
 console.log('\n🌊  Setting up splash screens...');
+execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
 execSync('yarn hygen setup splashscreen');
 
 console.log('\n🗑  Removing cruft...');
@@ -51,8 +52,7 @@ console.log('\n\n------------------------');
 console.log('** PostInstall Notes: **');
 console.log('------------------------\n\n');
 console.log(
-  "1. Ensure you've set up Detox dependencies as instructed here: https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies",
+  "* Ensure you've set up Detox dependencies as instructed here: https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies",
 );
-console.log('\n2. Add custom fonts to src/assets/fonts and run `react-native link`');
-console.log('\n3. TODO');
+console.log('\n* Check out the docs folder to customize and finalize your app!');
 console.log('\n');
