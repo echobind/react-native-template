@@ -1,4 +1,4 @@
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { GuestNav } from './GuestNav';
 
 import { MainNav } from './MainNav';
@@ -29,7 +29,7 @@ export interface CreateRootNavParams {
 }
 
 export const createRootNav = ({ currentUser }: CreateRootNavParams) => {
-  return createSwitchNavigator(
+  const rootNav = createSwitchNavigator(
     {
       AppNav,
       GuestNav,
@@ -38,4 +38,6 @@ export const createRootNav = ({ currentUser }: CreateRootNavParams) => {
       initialRouteName: currentUser ? 'AppNav' : 'GuestNav',
     },
   );
+
+  return createAppContainer(rootNav)
 };

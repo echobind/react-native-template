@@ -31,7 +31,7 @@ class App extends Component<{}, State> {
     }
 
     // Generate the root nav of the app based on presence of a user (restored in setup functions above)
-    const currentUser = null;
+    const currentUser = false;
     const RootNav = createRootNav({ currentUser });
 
     return (
