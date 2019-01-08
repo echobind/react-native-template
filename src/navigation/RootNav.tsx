@@ -1,15 +1,7 @@
-import React from 'react';
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { GuestNav } from './GuestNav';
-import { Screen } from '../components/Screen';
-import { Text } from '../components/Text';
-import { MainNav } from './MainNav';
 
-export const createFakeScreen = (text, backgroundColor) => () => (
-  <Screen backgroundColor={backgroundColor}>
-    <Text>Tab {text}</Text>
-  </Screen>
-);
+import { MainNav } from './MainNav';
 
 /**
  * AppNav is the primary stack visible to a logged-in user.
@@ -37,7 +29,7 @@ export interface CreateRootNavParams {
 }
 
 export const createRootNav = ({ currentUser }: CreateRootNavParams) => {
-  return createSwitchNavigator(
+  const rootNav = createSwitchNavigator(
     {
       AppNav,
       GuestNav,
@@ -46,4 +38,6 @@ export const createRootNav = ({ currentUser }: CreateRootNavParams) => {
       initialRouteName: currentUser ? 'AppNav' : 'GuestNav',
     },
   );
+
+  return createAppContainer(rootNav)
 };

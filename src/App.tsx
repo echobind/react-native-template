@@ -1,10 +1,10 @@
 // import { Provider } from 'mobx-react';
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import React, { Component } from 'react';
-// import SplashScreen from 'react-native-splash-screen';
+import SplashScreen from 'react-native-splash-screen';
 import Storybook from '../storybook';
 import './config/reactotron';
-import { createRootNav } from './navigation/RootNavigator';
+import { createRootNav } from './navigation/RootNav';
 
 interface State {
   removeWhenYouveAddedStateManagement?: true;
@@ -31,7 +31,7 @@ class App extends Component<{}, State> {
     }
 
     // Generate the root nav of the app based on presence of a user (restored in setup functions above)
-    const currentUser = null;
+    const currentUser = false;
     const RootNav = createRootNav({ currentUser });
 
     return (
@@ -59,7 +59,7 @@ class App extends Component<{}, State> {
       throw error;
     } finally {
       // Now that everything is hydrated, hide the splashscreen
-      // SplashScreen.hide();
+      SplashScreen.hide();
     }
   }
 }

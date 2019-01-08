@@ -1,5 +1,5 @@
 ---
-to: ios/TemplateTest/Base.lproj/LaunchScreen.xib
+to: ios/HelloWorld/Base.lproj/LaunchScreen.xib
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
