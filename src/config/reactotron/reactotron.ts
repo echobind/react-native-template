@@ -85,7 +85,9 @@ class Reactotron {
       });
 
       // hookup middleware
-      Tron.useReactNative();
+      Tron.useReactNative({
+        storybook: true
+      });
 
       Tron.connect();
       Tron.clear();
