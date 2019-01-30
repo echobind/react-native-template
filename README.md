@@ -21,6 +21,7 @@ Our Recommended template for React Native projects.
 - default Fastlane scripts for icon generation
 - global styles and colors
 - react-navigation preconfigured with a common setup
+- tc39 [optional-chaining proposal](https://github.com/tc39/proposal-optional-chaining) enabled
 
 🤖 CI / Deployment:
 
