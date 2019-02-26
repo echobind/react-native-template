@@ -2,9 +2,10 @@
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import Storybook from '../storybook';
-import './config/reactotron';
 import { createRootNav } from './navigation/RootNav';
+
+import './config/reactotron';
+import Storybook from '../storybook';
 
 interface State {
   removeWhenYouveAddedStateManagement?: true;
