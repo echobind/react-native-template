@@ -1,6 +1,6 @@
 ---
 inject: true
-to: android/app/src/main/java/com/<%= 'HelloWorld'.toLowerCase() %>/MainActivity.java
+to: android/app/src/main/java/<%= bundleIdentifer.split('.').join('/').toLowerCase() %>/MainActivity.java
 after: public class MainActivity extends ReactActivity
 skip_if: protected void onCreate
 ---
