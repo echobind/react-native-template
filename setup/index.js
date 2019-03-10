@@ -38,12 +38,9 @@ execSync('rm -rf setup', { cwd: rootDirectory });
 execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
 console.log('\n📱 Setting initial version @0.0.1 ...');
-execSync(
-  'yarn add -D react-native-version && ./node_modules/.bin/react-native-version  --never-increment-build && yarn remove react-native-version',
-  {
-    cwd: rootDirectory,
-  },
-);
+execSync('npx react-native-version --never-increment-build', {
+  cwd: rootDirectory,
+});
 
 console.log('\n📝 Committing project...');
 execSync(
