@@ -30,8 +30,9 @@ Our Recommended template for React Native projects.
 
 ## Setup
 
-1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
-2. Install Ruby and a version manager (like RVM or rbenv) if you don't already have them on your machine:
+1. Install the react-native-cli package: `yarn add global react-native-cli`
+2. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
+3. Install Ruby and a version manager (like RVM or rbenv) if you don't already have them on your machine:
 
    Ruby: `$ brew install ruby`
 
@@ -41,9 +42,9 @@ Our Recommended template for React Native projects.
 
    Close your terminal and open a new one.
 
-3. Install GraphicsMagick `brew install graphicsmagick`.
-4. Run `bundle install`.
-5. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`.
+4. Install GraphicsMagick `brew install graphicsmagick`.
+5. Run `bundle install`.
+6. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`.
 
 ---
 
