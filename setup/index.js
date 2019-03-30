@@ -31,12 +31,16 @@ execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirecto
 execSync('yarn hygen setup splashscreen');
 
 console.log('\n🗑  Removing cruft...');
-deleteFile('../.babelrc'); // metro bundler version uses babel.config.js
 deleteFile('../.flowconfig');
 deleteFile('../App.js');
 deleteFile('../.gitattributes'); // not sure why this is here?
 execSync('rm -rf setup', { cwd: rootDirectory });
 execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
+
+console.log('\n📱 Setting initial version @0.0.1 ...');
+execSync('npx react-native-version --never-increment-build', {
+  cwd: rootDirectory,
+});
 
 console.log('\n📝 Committing project...');
 execSync(
