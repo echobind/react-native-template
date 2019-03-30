@@ -10,7 +10,6 @@ Our Recommended template for React Native projects.
 - TypeScript
 - react-navigation
 - Storybook 4
-- Detox for E2E tests
 - Emotion Native for styling
 
 🏆 Dev Productivity:

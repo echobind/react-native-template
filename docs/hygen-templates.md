@@ -12,4 +12,3 @@ Out of the box, we've wired up:
 - A util generator (`yarn g:util happy). This will:
   - Create a simple util function with a corresponding jest test. This will fail by default to encourage you to write them!
 - An E2E generator (`yarn g:e2e "My cool e2e test"`). This will:
-  - Create a detox test in the `e2e` directory.
