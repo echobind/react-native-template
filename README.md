@@ -30,7 +30,7 @@ Our Recommended template for React Native projects.
 
 ## Setup
 
-1. Install the react-native-cli package: `yarn add global react-native-cli`
+1. Install the react-native-cli package if you haven't already: `yarn global add react-native-cli`
 2. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
 3. Install Ruby and a version manager (like RVM or rbenv) if you don't already have them on your machine:
 
