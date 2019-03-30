@@ -2,7 +2,7 @@
   "@emotion/native": "^10.0.6",
   "@emotion/core": "^10.0.6",
   "react-native": "^0.59.2",
-  "react-navigation": "^3.0.9",
+  "react-navigation": "^3.5.1",
   "react-native-splash-screen": "^3.1.1",
-  "react-native-gesture-handler": "^1.0.12"
+  "react-native-gesture-handler": "^1.1.0"
 }
