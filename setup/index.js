@@ -9,29 +9,6 @@ async function setup() {
   const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
   const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
 
-  console.log('🔄  Setting up...');
-
-  // add our update to package.json
-  const scripts = require('./scripts.json');
-  packageJson.scripts = { ...packageJson.scripts, ...scripts };
-  packageJson.jest = require('./jest.json');
-  packageJson.detox = require('./detox.json');
-  packageJson['lint-staged'] = require('./lintStaged.json');
-  packageJson.rnpm = require('./rnpm.json');
-
-  console.log('\n📝  Writing package.json...');
-  writeFile('../package.json', JSON.stringify(packageJson, null, 2));
-
-  console.log('\n🛠  Setting up fastlane and installing app icons...');
-  const rootDirectory = path.join(__dirname, '../');
-  execSync('bundle install', { cwd: rootDirectory });
-  execSync('bundle exec fastlane ios icon', { cwd: rootDirectory });
-  execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
-
-  console.log('\n🌊  Setting up splash screens...');
-  execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
-  execSync('yarn hygen setup splashscreen');
-
   console.log('\n📝  Configuring project display name and bundle identifier...');
   const { displayName, bundleIdentifer } = await prompt([
     {
@@ -52,19 +29,54 @@ async function setup() {
     message: `Continue with => App Display Name: ${displayName} | App Bundle Identifer: ${bundleIdentifer}`,
   });
 
-  if (confirmed) {
-    console.log('\n Updating project display name and bundle identifier...');
-    execSync(`./node_modules/.bin/react-native-rename ${displayName} -b ${bundleIdentifer}`, {
-      cwd: rootDirectory,
-    });
-
-    execSync(
-      `fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
-      { cwd: rootDirectory },
-    );
-  } else {
-    console.log('\n Skipping update of project display name and bundle identifer...');
+  if (!confirmed) {
+    console.log('\n Cannot continue without choosing a display name and app bundle identifier...');
+    console.log('\n Exiting setup...');
   }
+
+  console.log('🔄  Setting up...');
+  // add our update to package.json
+  const scripts = require('./scripts.json');
+  packageJson.scripts = { ...packageJson.scripts, ...scripts };
+  packageJson.jest = require('./jest.json');
+  packageJson.detox = require('./detox.json');
+  packageJson['lint-staged'] = require('./lintStaged.json');
+  packageJson.rnpm = require('./rnpm.json');
+
+  console.log('\n📝  Writing package.json...');
+  writeFile('../package.json', JSON.stringify(packageJson, null, 2));
+
+  console.log('\n🛠  Setting up fastlane and installing app icons...');
+  const rootDirectory = path.join(__dirname, '../');
+  execSync('bundle install', { cwd: rootDirectory });
+  execSync('bundle exec fastlane ios icon', { cwd: rootDirectory });
+  execSync('bundle exec fastlane android icon', { cwd: rootDirectory });
+
+  console.log('\n Updating project display name and bundle identifier...');
+  execSync(`npx react-native-rename ${displayName} -b ${bundleIdentifer}`, {
+    cwd: rootDirectory,
+  });
+
+  execSync(
+    `fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
+    { cwd: rootDirectory },
+  );
+
+  console.log('\n🌊  Setting up splash screens...');
+  execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
+  console.log(
+    `Renaming .... mv /ios/HelloWorldTests/HelloWorldTests.m /ios/${displayName}Tests/${displayName}Tests.m`,
+  );
+
+  execSync(
+    `mv /ios/${displayName}/HelloWorldTests.m /ios/${displayName}Tests/${displayName}Tests.m`,
+    {
+      cwd: rootDirectory,
+    },
+  );
+  execSync(
+    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
+  );
 
   console.log('\n🗑  Removing cruft...');
   deleteFile('../.flowconfig');
