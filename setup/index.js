@@ -37,26 +37,25 @@ deleteFile('../.gitattributes'); // not sure why this is here?
 execSync('rm -rf setup', { cwd: rootDirectory });
 execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
+console.log('\n📝 Committing project...');
+execSync('git init && git add . && git commit -m "Initialize new React Native project."', {
+  cwd: rootDirectory,
+});
+
 console.log('\n📱 Setting initial version @0.0.1 ...');
 execSync('npx react-native-version --never-increment-build', {
   cwd: rootDirectory,
 });
 
-console.log('\n📝 Committing project...');
-execSync(
-  'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
-  {
-    cwd: rootDirectory,
-  },
-);
+console.log('\n📝 Committing changes...');
+execSync('git add . && git commit -m "Set proper initial symver version"', {
+  cwd: rootDirectory,
+});
 
 console.log(`\n✅  Setup completed!`);
 
 console.log('\n\n------------------------');
 console.log('** PostInstall Notes: **');
 console.log('------------------------\n\n');
-console.log(
-  "* Ensure you've set up Detox dependencies as instructed here: https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies",
-);
 console.log('\n* Check out the docs folder to customize and finalize your app!');
 console.log('\n');
