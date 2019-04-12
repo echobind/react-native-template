@@ -1,8 +1,6 @@
 {
   "test": "jest",
   "test:watch": "jest --changedSince=master --watch",
-  "test:e2e": "RN_SRC_EXT=e2e.js detox build --configuration ios.sim.debug && detox test --configuration ios.sim.debug",
-  "test:e2e:ci": "RN_SRC_EXT=e2e.js detox build --configuration ios.sim.release && detox test --configuration ios.sim.release --cleanup",
   "lint": "tslint -p .",
   "storybook": "storybook start -p 7007",
   "g:component": "hygen component new --name",
