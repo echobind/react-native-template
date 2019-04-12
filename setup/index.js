@@ -64,16 +64,7 @@ async function setup() {
 
   console.log('\n🌊  Setting up splash screens...');
   execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
-  console.log(
-    `Renaming .... mv /ios/HelloWorldTests/HelloWorldTests.m /ios/${displayName}Tests/${displayName}Tests.m`,
-  );
 
-  execSync(
-    `mv /ios/${displayName}/HelloWorldTests.m /ios/${displayName}Tests/${displayName}Tests.m`,
-    {
-      cwd: rootDirectory,
-    },
-  );
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
