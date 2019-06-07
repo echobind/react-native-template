@@ -112,14 +112,12 @@ async function setup() {
         cwd: rootDirectory,
       },
     );
-  }
 
-  console.log('\n📱 Setting initial version @0.0.1 ...');
-  execSync('npx react-native-version --never-increment-build', {
-    cwd: rootDirectory,
-  });
+    console.log('\n📱 Setting initial version @0.0.1 ...');
+    execSync('npx react-native-version --never-increment-build', {
+      cwd: rootDirectory,
+    });
 
-  if (shouldInitializeGitRepository) {
     console.log('\n📝 Committing changes...');
     execSync('git add . && git commit -m "Set proper initial symver version"', {
       cwd: rootDirectory,
