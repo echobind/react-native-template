@@ -34,6 +34,12 @@ async function setup() {
     console.log('\n Exiting setup...');
   }
 
+  const { shouldInitializeGitRepository } = await prompt({
+    type: 'confirm',
+    name: 'shouldInitializeGitRepository',
+    message: 'Would you like to initialize this project as a git repository?',
+  });
+
   console.log('🔄  Setting up...');
   // add our update to package.json
   const scripts = require('./scripts.json');
@@ -75,23 +81,27 @@ async function setup() {
   execSync('rm -rf setup', { cwd: rootDirectory });
   execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
-  console.log('\n📝 Committing project...');
-  execSync(
-    'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
-    {
-      cwd: rootDirectory,
-    },
-  );
+  if (shouldInitializeGitRepository) {
+    console.log('\n📝 Committing project...');
+    execSync(
+      'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
+      {
+        cwd: rootDirectory,
+      },
+    );
+  }
 
   console.log('\n📱 Setting initial version @0.0.1 ...');
   execSync('npx react-native-version --never-increment-build', {
     cwd: rootDirectory,
   });
 
-  console.log('\n📝 Committing changes...');
-  execSync('git add . && git commit -m "Set proper initial symver version"', {
-    cwd: rootDirectory,
-  });
+  if (shouldInitializeGitRepository) {
+    console.log('\n📝 Committing changes...');
+    execSync('git add . && git commit -m "Set proper initial symver version"', {
+      cwd: rootDirectory,
+    });
+  }
 
   console.log(`\n✅  Setup completed!`);
 
