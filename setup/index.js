@@ -73,6 +73,8 @@ async function setup() {
     { cwd: rootDirectory },
   );
 
+  // we have to manually unlink native dependencies since react-native link is run automatically
+  // in the react-native init setup
   if (shouldInitializeCocoapods) {
     console.log('\n☕  Un-linking native modules...');
     execSync('react-native unlink react-native-splash-screen', { cwd: rootDirectory });
