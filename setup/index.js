@@ -76,7 +76,7 @@ async function setup() {
   // we have to manually unlink native dependencies since react-native link is run automatically
   // in the react-native init setup
   if (shouldInitializeCocoapods) {
-    console.log('\n🔗🔨  Un-linking native modules...');
+    console.log('\n🔗💥🔨  Un-linking native modules...');
     execSync('react-native unlink react-native-splash-screen', { cwd: rootDirectory });
 
     console.log('\n☕  Initializing Cocoapods...');
@@ -86,13 +86,13 @@ async function setup() {
     execSync('react-native link react-native-splash-screen', { cwd: rootDirectory });
   }
 
-  console.log('\n🌊  Setting up ios splash screens...');
+  console.log('\n🍎🌊  Setting up ios splash screens...');
   execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
 
-  console.log('\n🌊  Setting up android splash screens...');
+  console.log('\n🤖🌊  Setting up android splash screens...');
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen android --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
