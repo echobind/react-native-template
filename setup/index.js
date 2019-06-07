@@ -40,6 +40,12 @@ async function setup() {
     message: 'Would you like to initialize this project as a git repository?',
   });
 
+  const { shouldInitializeCocoapods } = await prompt({
+    type: 'confirm',
+    name: 'shouldInitializeCocoapods',
+    message: 'Would you like to use cocoapods in the ios app?',
+  });
+
   console.log('🔄  Setting up...');
   // add our update to package.json
   const scripts = require('./scripts.json');
@@ -67,11 +73,26 @@ async function setup() {
     { cwd: rootDirectory },
   );
 
-  console.log('\n🌊  Setting up splash screens...');
-  execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
+  if (shouldInitializeCocoapods) {
+    console.log('\n☕  Un-linking native modules...');
+    execSync('react-native unlink react-native-splash-screen', { cwd: rootDirectory });
 
+    console.log('\n☕  Initializing Cocoapods...');
+    execSync('cd ios && pod init', { cwd: rootDirectory });
+
+    console.log('\n☕  Re-linking native modules...');
+    execSync('react-native link react-native-splash-screen', { cwd: rootDirectory });
+  }
+
+  console.log('\n🌊  Setting up ios splash screens...');
+  execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
   execSync(
-    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
+    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
+  );
+
+  console.log('\n🌊  Setting up android splash screens...');
+  execSync(
+    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen android --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
 
   console.log('\n🗑  Removing cruft...');
