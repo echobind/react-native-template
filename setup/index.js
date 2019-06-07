@@ -76,13 +76,13 @@ async function setup() {
   // we have to manually unlink native dependencies since react-native link is run automatically
   // in the react-native init setup
   if (shouldInitializeCocoapods) {
-    console.log('\n☕  Un-linking native modules...');
+    console.log('\n🔗🔨  Un-linking native modules...');
     execSync('react-native unlink react-native-splash-screen', { cwd: rootDirectory });
 
     console.log('\n☕  Initializing Cocoapods...');
     execSync('cd ios && pod init', { cwd: rootDirectory });
 
-    console.log('\n☕  Re-linking native modules...');
+    console.log('\n🔗✨  Re-linking native modules...');
     execSync('react-native link react-native-splash-screen', { cwd: rootDirectory });
   }
 
