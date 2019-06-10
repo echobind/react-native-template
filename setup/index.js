@@ -86,6 +86,9 @@ async function setup() {
     console.log('\n🔗✨  Re-linking native modules...');
     execSync('react-native link react-native-splash-screen', { cwd: rootDirectory });
     execSync('react-native link react-native-gesture-handler', { cwd: rootDirectory });
+
+    console.log('\n☕  Installing Cocoapods...');
+    execSync('cd ios && pod install', { cwd: rootDirectory });
   }
 
   console.log('\n🍎🌊  Setting up ios splash screens...');
