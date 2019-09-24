@@ -1,4 +1,7 @@
 {
+  "@storybook/addon-ondevice-backgrounds": "^4.1.3",
+  "@storybook/addons": "^4.1.3",
+  "@storybook/react-native": "^4.1.3",
   "enquirer": "^2.3.0",
   "husky": "^1.2.1",
   "hygen": "^2.0.4",
