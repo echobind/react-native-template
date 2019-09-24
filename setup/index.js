@@ -41,10 +41,13 @@ async function setup() {
   packageJson.jest = require('./jest.json');
   packageJson.detox = require('./detox.json');
   packageJson['lint-staged'] = require('./lintStaged.json');
-  packageJson.rnpm = require('./rnpm.json');
 
-  console.log('\n📝  Writing package.json...');
+  // add react-native.config file
+  const reactNativeConfig = require('./react-native.config.js');
+
+  console.log('\n📝  Writing package.json and react-native.config.js...');
   writeFile('../package.json', JSON.stringify(packageJson, null, 2));
+  writeFile('../react-native.config.js', reactNativeConfig);
 
   console.log('\n🛠  Setting up fastlane and installing app icons...');
   const rootDirectory = path.join(__dirname, '../');
