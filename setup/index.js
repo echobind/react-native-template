@@ -41,7 +41,6 @@ async function setup() {
   packageJson.jest = require('./jest.json');
   packageJson.detox = require('./detox.json');
   packageJson['lint-staged'] = require('./lintStaged.json');
-  packageJson.rnpm = require('./rnpm.json');
 
   console.log('\n📝  Writing package.json...');
   writeFile('../package.json', JSON.stringify(packageJson, null, 2));
