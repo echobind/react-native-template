@@ -69,6 +69,9 @@ async function setup() {
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
 
+  console.log('\n🥜  Installing ios pods...');
+  execSync('cd ios && pod install', { cwd: rootDirectory });
+
   console.log('\n🗑  Removing cruft...');
   deleteFile('../.flowconfig');
   deleteFile('../App.js');
