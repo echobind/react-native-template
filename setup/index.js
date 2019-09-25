@@ -75,7 +75,7 @@ async function setup() {
 
   if (shouldInitializeCocoapods) {
     console.log('\n☕  Installing Cocoapods...');
-    execSync('cd ios && pod install', { cwd: rootDirectory });
+    execSync('bundle exec pod install', { cwd: 'ios' });
   }
 
   console.log('\n🍎🌊  Setting up ios splash screens...');
