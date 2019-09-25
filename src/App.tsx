@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { createRootNav } from './navigation/RootNav';
 
-import './config/reactotron';
 import Storybook from '../storybook';
 
 interface State {
@@ -66,4 +65,4 @@ class App extends Component<{}, State> {
 }
 
 // tslint:disable-next-line
-export default (__DEV__ ? console.tron.storybookSwitcher(Storybook)(App) : App);
+export default App;
