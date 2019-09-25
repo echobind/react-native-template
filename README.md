@@ -21,7 +21,7 @@
   <a href="https://github.com/echobind/react-native-template-echobind/graphs/contributors/">
     <img alt="number of contributors." src="https://img.shields.io/github/contributors/echobind/react-native-template-echobind.svg" />
   </a>
-  <img alt="license." src="https://img.shields.io/github/license/echobind/react-native-template-echobind.svg" />
+  <img alt="License." src="https://img.shields.io/github/license/echobind/react-native-template-echobind">
 </div>
 
 <hr>
