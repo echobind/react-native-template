@@ -8,8 +8,6 @@ async function setup() {
   const deleteFile = fileName => fs.unlinkSync(path.join(__dirname, fileName));
   const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
   const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
-  const copyFile = (sourceFile, targetFile) =>
-    fs.copyFileSync(path.resolve(__dirname, sourceFile), targetFile);
 
   console.log('\n📝  Configuring project display name and bundle identifier...');
   const { displayName, bundleIdentifer } = await prompt([
@@ -44,12 +42,8 @@ async function setup() {
   packageJson.detox = require('./detox.json');
   packageJson['lint-staged'] = require('./lintStaged.json');
 
-  // add react-native.config file
-  const reactNativeConfig = require('./react-native.config.js');
-
-  console.log('\n📝  Writing package.json and react-native.config.js...');
+  console.log('\n📝  Writing package.json...');
   writeFile('../package.json', JSON.stringify(packageJson, null, 2));
-  copyFile('./react-native.config.js', './react-native.config.js');
 
   console.log('\n🛠  Setting up fastlane and installing app icons...');
   const rootDirectory = path.join(__dirname, '../');
