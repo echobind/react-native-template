@@ -19,7 +19,7 @@ async function setup() {
     {
       type: 'input',
       name: 'bundleIdentifer',
-      message: 'App Bundle Identifier (com.projectname.mobile):',
+      message: `App Bundle Identifier (com.${displayName.toLowerCase()}.mobile):`,
     },
   ]);
 
@@ -73,20 +73,7 @@ async function setup() {
     { cwd: rootDirectory },
   );
 
-  // we have to manually unlink native dependencies since react-native link is run automatically
-  // in the react-native init setup
   if (shouldInitializeCocoapods) {
-    console.log('\n🔗💥🔨  Un-linking native modules...');
-    execSync('react-native unlink react-native-splash-screen', { cwd: rootDirectory });
-    execSync('react-native unlink react-native-gesture-handler', { cwd: rootDirectory });
-
-    console.log('\n☕  Initializing Cocoapods...');
-    execSync('cd ios && pod init', { cwd: rootDirectory });
-
-    console.log('\n🔗✨  Re-linking native modules...');
-    execSync('react-native link react-native-splash-screen', { cwd: rootDirectory });
-    execSync('react-native link react-native-gesture-handler', { cwd: rootDirectory });
-
     console.log('\n☕  Installing Cocoapods...');
     execSync('cd ios && pod install', { cwd: rootDirectory });
   }
