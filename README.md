@@ -37,6 +37,7 @@
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Usage](#usage)
+- [CI/Deployment](#ci-/-deployment)
 - [Docs](#docs)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
@@ -65,13 +66,6 @@ Here at Echobind, we value developer productivity. After having built lots of Re
 - default Fastlane scripts for icon generation
 - global styles and colors
 - `react-navigation` preconfigured with a common setup
-
-🤖 CI / Deployment:
-
-- CircleCI preconfigured for React Native. Fast build times!
-- Fastlane lanes for alpha, beta, and production releases. These should be run on CI only!
-- AppCenter integration for easy alpha distribution
-  There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
 We hope it saves you as much time as it saves us! 👍
 
@@ -116,6 +110,16 @@ In order to use this template, follow these steps:
 2. Change directories into your new app: `cd MyApp`
 3. Run `bundle install`
 4. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`
+
+## CI / Deployment:
+
+In order to set up CI/Deployment, we've created custom hygen templates to save you time. These live in our [`hygen-templates-echobind` repository](https://github.com/echobind/hygen-echobind-templates). You'll find installation instructions, which will allow you to set up the following:
+
+- CircleCI preconfigured for React Native. Fast build times!
+- Fastlane lanes for alpha, beta, and production releases. These should be run on CI only!
+- AppCenter integration for easy alpha distribution
+
+For more info, please follow the [instructions](https://github.com/echobind/hygen-echobind-templates) in that repo.
 
 ## Docs
 
