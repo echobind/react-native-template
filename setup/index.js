@@ -11,7 +11,7 @@ async function setup() {
 
   console.log('\n🤔 Checking system setup and prerequisites...');
   try {
-    execSync('solidarity --verbose', { stdio: 'inherit' });
+    execSync('yarn solidarity --verbose', { stdio: 'inherit' });
   } catch {
     // Bail if solidarity checks fail
     return;
