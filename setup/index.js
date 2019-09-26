@@ -19,7 +19,7 @@ async function setup() {
     {
       type: 'input',
       name: 'bundleIdentifer',
-      message: 'App Bundle Identifier (com.projectname.mobile):',
+      message: `App Bundle Identifier (com.${displayName.toLowerCase()}.mobile):`,
     },
   ]);
 
@@ -33,6 +33,12 @@ async function setup() {
     console.log('\n Cannot continue without choosing a display name and app bundle identifier...');
     console.log('\n Exiting setup...');
   }
+
+  const { shouldInitializeGitRepository } = await prompt({
+    type: 'confirm',
+    name: 'shouldInitializeGitRepository',
+    message: 'Would you like to initialize this project as a git repository?',
+  });
 
   console.log('🔄  Setting up...');
   // add our update to package.json
@@ -60,11 +66,18 @@ async function setup() {
     { cwd: rootDirectory },
   );
 
-  console.log('\n🌊  Setting up splash screens...');
-  execSync('rm -rf ios/HelloWorld/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
+  console.log('\n☕  Installing Cocoapods...');
+  execSync('bundle exec pod install', { cwd: 'ios' });
 
+  console.log('\n🍎🌊  Setting up ios splash screens...');
+  execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
   execSync(
-    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
+    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
+  );
+
+  console.log('\n🤖🌊  Setting up android splash screens...');
+  execSync(
+    `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen android --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
 
   console.log('\n🗑  Removing cruft...');
@@ -74,23 +87,25 @@ async function setup() {
   execSync('rm -rf setup', { cwd: rootDirectory });
   execSync('rm -rf .git', { cwd: rootDirectory }); // blow away old repo if there
 
-  console.log('\n📝 Committing project...');
-  execSync(
-    'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
-    {
+  if (shouldInitializeGitRepository) {
+    console.log('\n📝 Committing project...');
+    execSync(
+      'rm -rf .git && git init && git add . && git commit -m "Initialize new React Native project."',
+      {
+        cwd: rootDirectory,
+      },
+    );
+
+    console.log('\n📱 Setting initial version @0.0.1 ...');
+    execSync('npx react-native-version --never-increment-build', {
       cwd: rootDirectory,
-    },
-  );
+    });
 
-  console.log('\n📱 Setting initial version @0.0.1 ...');
-  execSync('npx react-native-version --never-increment-build', {
-    cwd: rootDirectory,
-  });
-
-  console.log('\n📝 Committing changes...');
-  execSync('git add . && git commit -m "Set proper initial symver version"', {
-    cwd: rootDirectory,
-  });
+    console.log('\n📝 Committing changes...');
+    execSync('git add . && git commit -m "Set proper initial symver version"', {
+      cwd: rootDirectory,
+    });
+  }
 
   console.log(`\n✅  Setup completed!`);
 
