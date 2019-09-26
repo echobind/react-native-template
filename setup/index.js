@@ -9,6 +9,14 @@ async function setup() {
   const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
   const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
 
+  console.log('\n🤔 Checking system setup and prerequisites...');
+  try {
+    execSync('solidarity --verbose', { stdio: 'inherit' });
+  } catch {
+    // Bail if solidarity checks fail
+    return;
+  }
+
   console.log('\n📝  Configuring project display name and bundle identifier...');
   const { displayName, bundleIdentifer } = await prompt([
     {
