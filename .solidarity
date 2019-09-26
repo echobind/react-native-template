@@ -20,7 +20,7 @@
       {
         "rule": "cli",
         "binary": "ruby",
-        "semver": "2.5.1",
+        "semver": ">=2.0.0",
         "error": "Ruby is required to run Cocoapods and Fastlane. We recommend installing Ruby with a version manager (https://github.com/echobind/react-native-template-echobind#prerequisites)"
       },
       {
@@ -31,12 +31,12 @@
       {
         "rule": "cli",
         "binary": "pod",
-        "semver": "1.7.1",
+        "semver": ">=1.7.0",
         "error": "Cocopods is required to be installed as of React Native 0.60"
       },
       {
         "rule": "cli",
-        "binary": "convert",
+        "binary": "gm",
         "error": "GraphicsMagick is needed to generate icons and splashscreens. Please run `brew install graphicsmagick`",
       }
     ],
@@ -84,14 +84,14 @@
       {
         "rule": "cli",
         "binary": "xcodebuild",
-        "semver": "11.0",
+        "semver": "^11.0",
         "platform": "darwin",
         "error": "XCode {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
       },
       {
         "rule": "cli",
         "binary": "xcrun",
-        "semver": "48.0",
+        "semver": "^48.0",
         "platform": "darwin",
         "error": "XCode developer tools {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
       }
