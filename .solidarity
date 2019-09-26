@@ -84,7 +84,7 @@
       {
         "rule": "cli",
         "binary": "xcodebuild",
-        "semver": "^11.0",
+        "semver": ">=10.2",
         "platform": "darwin",
         "error": "XCode {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
       },
