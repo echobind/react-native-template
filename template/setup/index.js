@@ -8,25 +8,6 @@ async function setup() {
   const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
   const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
 
-  console.log('\n📝  Configuring project display name and bundle identifier...');
-  const fs = require('fs');
-  const path = require('path');
-  const { execSync } = require('child_process');
-  const { prompt } = require('enquirer');
-
-  async function setup() {
-    const deleteFile = fileName => fs.unlinkSync(path.join(__dirname, fileName));
-    const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
-    const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
-
-    console.log('\n📝  Configuring project display name and bundle identifier...');
-    const { displayName } = await prompt({
-      type: 'input',
-      name: 'displayName',
-      message: 'App Display Name',
-      initial: 'HelloWorld',
-    });
-
   console.log('\n🤔 Checking system setup and prerequisites...');
   try {
     execSync('yarn solidarity --verbose', { stdio: 'inherit' });
@@ -37,10 +18,10 @@ async function setup() {
 
   console.log('\n📝  Configuring project display name and bundle identifier...');
   const { displayName } = await prompt({
-    type: "input",
-    name: "displayName",
-    message: "App Display Name (ProjectName):",
-    initial: "HelloWorld"
+    type: 'input',
+    name: 'displayName',
+    message: 'App Display Name (ProjectName):',
+    initial: 'HelloWorld',
   });
 
   const { bundleIdentifer } = await prompt({
@@ -54,19 +35,6 @@ async function setup() {
     type: 'confirm',
     name: 'confirmed',
     message: `Continue with => App Display Name: ${displayName} | App Bundle Identifer: ${bundleIdentifer}`,
-  });
-
-  if (!confirmed) {
-    console.log(
-      '\n Cannot continue without choosing a display name and app bundle identifier...',
-    );
-    console.log('\n Exiting setup...');
-  }
-
-  const { shouldInitializeGitRepository } = await prompt({
-    type: 'confirm',
-    name: 'shouldInitializeGitRepository',
-    message: 'Would you like to initialize this project as a git repository?',
   });
 
   if (!confirmed) {
