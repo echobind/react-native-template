@@ -1,8 +1,8 @@
 {
-  "name": "template",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "hello-world",
+  "version": "0.0.1",
+  "description": "a React Native app bootstrapped with the Echobind template",
+  "private": true,
   "scripts": {
     "test": "jest",
     "test:watch": "jest --changedSince=master --watch",
@@ -78,7 +78,5 @@
     ],
     "cacheDirectory": ".jest/cache"
   },
-  "lint-staged": {
-    
-  }
+  "lint-staged": {}
 }
