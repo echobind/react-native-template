@@ -40,12 +40,6 @@ async function setup() {
     message: 'Would you like to initialize this project as a git repository?',
   });
 
-  const { shouldInitializeCocoapods } = await prompt({
-    type: 'confirm',
-    name: 'shouldInitializeCocoapods',
-    message: 'Would you like to use cocoapods in the ios app?',
-  });
-
   console.log('🔄  Setting up...');
   // add our update to package.json
   const scripts = require('./scripts.json');
@@ -73,10 +67,8 @@ async function setup() {
     { cwd: rootDirectory },
   );
 
-  if (shouldInitializeCocoapods) {
-    console.log('\n☕  Installing Cocoapods...');
-    execSync('bundle exec pod install', { cwd: 'ios' });
-  }
+  console.log('\n☕  Installing Cocoapods...');
+  execSync('bundle exec pod install', { cwd: 'ios' });
 
   console.log('\n🍎🌊  Setting up ios splash screens...');
   execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
