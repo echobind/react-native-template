@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json.schemastore.org/solidaritySchema",
+  "requirements": {
+    "Node": [
+      {
+        "rule": "cli",
+        "binary": "node",
+        "semver": "^10.16.0"
+      }
+    ],
+    "Yarn": [
+      {
+        "rule": "cli",
+        "binary": "yarn",
+        "version": "--version",
+        "semver": "^1.17.3"
+      }
+    ],
+    "Cocoapods and Fastlane": [
+      {
+        "rule": "cli",
+        "binary": "ruby",
+        "semver": "2.5.1",
+        "error": "Ruby is required to run Cocoapods and Fastlane"
+      },
+      {
+        "rule": "cli",
+        "binary": "bundle"
+      },
+      {
+        "rule": "cli",
+        "binary": "pod",
+        "semver": "1.7.1",
+        "error": "Cocopods is required to be installed as of React Native 0.60"
+      },
+      {
+        "rule": "cli",
+        "binary": "convert",
+        "error": "GraphicsMagick is not installed. Please run `brew install graphicsmagick`",
+      }
+    ],
+    "Android": [
+      {
+        "rule": "cli",
+        "binary": "emulator"
+      },
+      {
+        "rule": "cli",
+        "binary": "android"
+      },
+      {
+        "rule": "env",
+        "variable": "ANDROID_HOME",
+        "error": "The ANDROID_HOME environment variable must be set to your local SDK.  Refer to getting started docs for help."
+      }
+    ],
+    "Watchman": [
+      {
+        "rule": "cli",
+        "binary": "watchman",
+        "error": "Please install watchman on this machine. Refer to the official Watchman installation instructions for additional help.",
+        "platform": [
+          "darwin",
+          "linux"
+        ]
+      }
+    ],
+    "React Native": [
+      {
+        "rule": "cli",
+        "binary": "react-native",
+        "semver": "2.0.1"
+      },
+      {
+        "rule": "cli",
+        "binary": "react-native",
+        "semver": "^0.60.1",
+        "line": "2"
+      }
+    ],
+    "Xcode": [
+      {
+        "rule": "cli",
+        "binary": "xcodebuild",
+        "semver": "11.0",
+        "platform": "darwin"
+      },
+      {
+        "rule": "cli",
+        "binary": "xcrun",
+        "semver": "48.0",
+        "platform": "darwin"
+      }
+    ],
+  }
+}
