@@ -1,6 +1,6 @@
 # CircleCI
 
-This project is configured to use CircleCI out of the box. It requires a small amount of setup first:
+These instructions assume you have followed the installation instructions our [`hygen-templates-echobind` repository](https://github.com/echobind/hygen-echobind-templates).
 
 ## Setup CircleCI to build
 

@@ -1,9 +1,0 @@
-git_url("git@github.com:HelloWorld/mobile-app-certs.git")
-
-type("development") # The default type, can be: appstore, adhoc, enterprise or development
-
-app_identifier(["com.HelloWorld.mobile"])
-# team_id("")
-
-# For all available options run `fastlane match --help`
-# Remove the # in the beginning of the line to enable the other options

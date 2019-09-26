@@ -39,7 +39,6 @@ async function setup() {
   const scripts = require('./scripts.json');
   packageJson.scripts = { ...packageJson.scripts, ...scripts };
   packageJson.jest = require('./jest.json');
-  packageJson.detox = require('./detox.json');
   packageJson['lint-staged'] = require('./lintStaged.json');
 
   console.log('\n📝  Writing package.json...');
@@ -98,9 +97,6 @@ async function setup() {
   console.log('\n\n------------------------');
   console.log('** PostInstall Notes: **');
   console.log('------------------------\n\n');
-  console.log(
-    "* Ensure you've set up Detox dependencies as instructed here: https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies",
-  );
   console.log('\n* Check out the docs folder to customize and finalize your app!');
   console.log('\n');
 }
