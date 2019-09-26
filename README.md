@@ -59,17 +59,17 @@ Here at Echobind, we value developer productivity. After having built lots of Re
 🏆 Dev Productivity:
 
 - [Hygen](http://www.hygen.io/) templates to easily generate components, screens, and utils with tests and stories.
-- Reactotron pre-configured for [React Native](https://github.com/infinitered/reactotron/blob/master/docs/quick-start-react-native.md) and [Storybook](https://github.com/infinitered/reactotron/blob/master/docs/plugin-storybook.md)
 - vscode settings for common overrides (🎨 Colors, formatOnSave and rulers width that matches prettier)
 - default Fastlane scripts for icon generation
 - global styles and colors
 - `react-navigation` preconfigured with a common setup
+- Pre-configured scripts in `package.json` to start the app & deal with simulators
+- Setup `lint-staged` to run eslint checks on `precommit`
+- Setup the app for TypeScript
 
 We hope it saves you as much time as it saves us! 👍
 
 ### Built With
-
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 - [React Native `0.61.1`](https://github.com/facebook/react-native)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -79,26 +79,23 @@ This section should list any major frameworks that you built your project using.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-In order to use this template properly, you'll need to first do the following:
+While not required, we recommend using a version manager for Ruby and Node. Some popular version managers are:
 
-1. Install the react-native-cli package if you haven't already: `yarn global add react-native-cli`
-2. Install Ruby and a version manager (like RVM or rbenv) if you don't already have them on your machine:
+** Ruby **
 
-   Ruby: `$ brew install ruby`
+- (chruby)[https://github.com/postmodern/chruby]
+- (rbenv)[https://github.com/rbenv/rbenv]
 
-   For RVM: `\curl -sSL https://get.rvm.io | bash`
+** Node **
 
-   For rbenv: `brew install rbenv` ... and then setup your shell: `rbenv init`.
+- [nodenv](https://github.com/nodenv/nodenv)
+- [nvm](https://github.com/nvm-sh/nvm)
 
-   Close your terminal and open a new one.
+Follow the install docs for the version manager of your choice.
 
-3. Install GraphicsMagick: `brew install graphicsmagick`. (used to generate splash screens)
-4. Install [Cocoapods](https://guides.cocoapods.org/using/getting-started.html#installation): `sudo gem install cocoapods`
+During the setup proceess, we will automatically check the versions on your machine and prompt you to install anything you're missing.
 
 ### Usage
 
@@ -106,8 +103,15 @@ In order to use this template, follow these steps:
 
 1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
 2. Change directories into your new app: `cd MyApp`
-3. Run `bundle install`
-4. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`
+3. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`
+
+During the setup process we will do the following:
+
+- Setup a display name for your app
+- Setup a bundle identifier (ex: com.myapp.mobile)
+- Use [Solidarity](https://github.com/infinitered/solidarity) to ensure your environment has all expected dependencies installed
+- Run `bundle install` and `pod install` so you don't have to
+- Setup placeholder icon and a splash screen
 
 ## CI / Deployment:
 

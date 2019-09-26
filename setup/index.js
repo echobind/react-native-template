@@ -9,6 +9,14 @@ async function setup() {
   const deleteDirectory = dirName => fs.rmdirSync(path.join(__dirname, dirName));
   const writeFile = (fileName, data) => fs.writeFileSync(path.join(__dirname, fileName), data);
 
+  console.log('\n🤔 Checking system setup and prerequisites...');
+  try {
+    execSync('yarn solidarity --verbose', { stdio: 'inherit' });
+  } catch {
+    // Bail if solidarity checks fail
+    return;
+  }
+
   console.log('\n📝  Configuring project display name and bundle identifier...');
   const { displayName, bundleIdentifer } = await prompt([
     {
@@ -32,6 +40,7 @@ async function setup() {
   if (!confirmed) {
     console.log('\n Cannot continue without choosing a display name and app bundle identifier...');
     console.log('\n Exiting setup...');
+    return;
   }
 
   const { shouldInitializeGitRepository } = await prompt({
@@ -62,7 +71,7 @@ async function setup() {
   });
 
   execSync(
-    `fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
+    `bundle exec fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
     { cwd: rootDirectory },
   );
 

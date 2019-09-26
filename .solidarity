@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json.schemastore.org/solidaritySchema",
+  "requirements": {
+    "Node": [
+      {
+        "rule": "cli",
+        "binary": "node",
+        "semver": "^10.16.0"
+      }
+    ],
+    "Yarn": [
+      {
+        "rule": "cli",
+        "binary": "yarn",
+        "version": "--version",
+        "semver": "^1.17.3"
+      }
+    ],
+    "Cocoapods and Fastlane": [
+      {
+        "rule": "cli",
+        "binary": "ruby",
+        "semver": ">=2.0.0",
+        "error": "Ruby is required to run Cocoapods and Fastlane. We recommend installing Ruby with a version manager (https://github.com/echobind/react-native-template-echobind#prerequisites)"
+      },
+      {
+        "rule": "cli",
+        "binary": "bundle",
+        "error": "Bundler is used to install RubyGems"
+      },
+      {
+        "rule": "cli",
+        "binary": "pod",
+        "semver": ">=1.7.0",
+        "error": "Cocopods is required to be installed as of React Native 0.60"
+      },
+      {
+        "rule": "cli",
+        "binary": "gm",
+        "error": "GraphicsMagick is needed to generate icons and splashscreens. Please run `brew install graphicsmagick`",
+      }
+    ],
+    "Android": [
+      {
+        "rule": "cli",
+        "binary": "emulator"
+      },
+      {
+        "rule": "cli",
+        "binary": "android"
+      },
+      {
+        "rule": "env",
+        "variable": "ANDROID_HOME",
+        "error": "The ANDROID_HOME environment variable must be set to your local SDK. (https://facebook.github.io/react-native/docs/getting-started)"
+      }
+    ],
+    "Watchman": [
+      {
+        "rule": "cli",
+        "binary": "watchman",
+        "error": "Please install watchman on this machine. (https://facebook.github.io/watchman/docs/install.html#buildinstall)",
+        "platform": [
+          "darwin",
+          "linux"
+        ]
+      }
+    ],
+    "React Native": [
+      {
+        "rule": "cli",
+        "binary": "react-native",
+        "semver": "2.0.1"
+      },
+      {
+        "rule": "cli",
+        "binary": "react-native",
+        "semver": "^0.61.1",
+        "line": 2,
+        "error": "react-native@{{wantedVersion}} is required (you have {{installedVersion}}). Check your `package.json` and run `yarn install`."
+      }
+    ],
+    "Xcode": [
+      {
+        "rule": "cli",
+        "binary": "xcodebuild",
+        "semver": ">=10.2",
+        "platform": "darwin",
+        "error": "XCode {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
+      },
+      {
+        "rule": "cli",
+        "binary": "xcrun",
+        "semver": "^48.0",
+        "platform": "darwin",
+        "error": "XCode developer tools {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
+      }
+    ],
+  }
+}
