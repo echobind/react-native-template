@@ -40,6 +40,7 @@ async function setup() {
   if (!confirmed) {
     console.log('\n Cannot continue without choosing a display name and app bundle identifier...');
     console.log('\n Exiting setup...');
+    return;
   }
 
   console.log('🔄  Setting up...');
@@ -65,7 +66,7 @@ async function setup() {
   });
 
   execSync(
-    `fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
+    `bundle exec fastlane run update_app_identifier app_identifier:"${bundleIdentifer}" plist_path:"${displayName}/Info.plist" xcodeproj:"ios/${displayName}.xcodeproj"`,
     { cwd: rootDirectory },
   );
 
