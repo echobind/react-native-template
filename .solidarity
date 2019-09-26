@@ -36,7 +36,7 @@
       },
       {
         "rule": "cli",
-        "binary": "convert",
+        "binary": "gm",
         "error": "GraphicsMagick is needed to generate icons and splashscreens. Please run `brew install graphicsmagick`",
       }
     ],
