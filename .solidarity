@@ -66,20 +66,6 @@
         ]
       }
     ],
-    "React Native": [
-      {
-        "rule": "cli",
-        "binary": "react-native",
-        "semver": "2.0.1"
-      },
-      {
-        "rule": "cli",
-        "binary": "react-native",
-        "semver": "^0.61.1",
-        "line": 2,
-        "error": "react-native@{{wantedVersion}} is required (you have {{installedVersion}}). Check your `package.json` and run `yarn install`."
-      }
-    ],
     "Xcode": [
       {
         "rule": "cli",
