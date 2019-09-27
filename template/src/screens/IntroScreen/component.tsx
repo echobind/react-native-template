@@ -1,5 +1,5 @@
 import styled from '@emotion/native';
-import React, { Component } from 'react';
+import React, { Component, FC } from 'react';
 import { ImageBackground, StatusBar, StyleSheet, View, ViewStyle } from 'react-native';
 import bgImage from '../../assets/images/background.png';
 import { Screen } from '../../components/Screen';
@@ -27,15 +27,13 @@ const StyledText = styled(Text)`
 /**
  * First screen a logged out user sees, welcoming them to the app.
  */
-export class IntroScreen extends Component<Props> {
-  public render() {
-    return (
-      <Background source={bgImage} resizeMode="cover">
-        <StatusBar barStyle="light-content" />
-        <StyledScreen backgroundColor={colors.transparent} style={this.props.style}>
-          <StyledText testID="introScreenText">Welcome to the intro Screen!</StyledText>
-        </StyledScreen>
-      </Background>
-    );
-  }
+export const IntroScreen: FC<Props> = ({ style }) => {
+  return (
+    <Background source={bgImage} resizeMode="cover">
+      <StatusBar barStyle="light-content" />
+      <StyledScreen backgroundColor={colors.transparent} style={style}>
+        <StyledText testID="introScreenText">Welcome to the intro Screen!</StyledText>
+      </StyledScreen>
+    </Background>
+  );
 }
