@@ -1,11 +1,11 @@
 ---
-to: src/components/<%= name %>/stories.tsx
+to: src/components/<%= name %>/<%= name %>.stories.tsx
 ---
 <% const comp = name -%>
-import { storiesOf } from "@storybook/react-native";
-import React from "react";
-import { <%= comp %> } from "./component";
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
+import { <%= comp %> } from './<%= comp %>';
 
-storiesOf("components/<%= comp %>", module).add("Default", () => (
+storiesOf('components/<%= comp %>', module).add('Default', () => (
   <<%= comp %> />
 ));

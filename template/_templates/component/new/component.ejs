@@ -1,50 +1,8 @@
 ---
-to: src/components/<%= name %>/component.tsx
+to: src/components/<%= name %>/<%= name %>.tsx
 ---
 <% const comp = name -%>
-<% if(componentType === 'Class') { -%>
-import styled from '@emotion/native';
-import React, { Component } from 'react';
-import { View, ViewStyle } from 'react-native';
-import { colors } from '../../styles';
-
-interface Props {
-  /** prop info */
-  cool: boolean;
-  /** prop info **/
-  style?: ViewStyle;
-}
-
-interface State {
-  /** state info */
-  myStateValue?: boolean;
-}
-
-const INITIAL_STATE: State = {
-  myStateValue: true,
-};
-
-const Container = styled(View)`
-  flex: 1;
-`
-
-/**
- * Component docs: what does this component do?
- */
-export class <%= comp %> extends Component<Props, State> {
-  public static readonly defaultProps: Partial<Props> = { cool: true };
-  public state = INITIAL_STATE;
-
-  public render() {
-    return (
-      <View style={styles.container}>
-        {this.props.children}
-      </View>
-    );
-  }
-}
-<% } else { %>
-import React, { SFC } from "react";
+import React, { FC } from 'react';
 import { View, ViewStyle } from 'react-native';
 
 interface Props {
@@ -61,7 +19,7 @@ const DEFAULT_PROPS: Partial<Props> = {
 /**
  * Component docs: what does this component do?
  */
-export const <%= comp %>: SFC<Props> = (props = DEFAULT_PROPS) => {
+export const <%= comp %>: FC<Props> = (props = DEFAULT_PROPS) => {
   const { children, ...viewProps } = props;
   return (
     <View {...viewProps}>
@@ -69,6 +27,5 @@ export const <%= comp %>: SFC<Props> = (props = DEFAULT_PROPS) => {
     </View>
   );
 };
-<% } -%>
 
 export default <%= comp %>;
