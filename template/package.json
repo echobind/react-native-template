@@ -4,9 +4,11 @@
   "description": "a React Native app bootstrapped with the Echobind template",
   "private": true,
   "scripts": {
+    "start": "react-native start",
     "test": "jest",
     "test:watch": "jest --changedSince=master --watch",
     "lint": "tslint -p .",
+    "release": "bundle exec fastlane run react_native_release",
     "storybook": "storybook start -p 7007",
     "g:component": "hygen component new --name",
     "g:screen": "hygen screen new --name",
