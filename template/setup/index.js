@@ -28,7 +28,7 @@ async function setup() {
     type: 'input',
     name: 'bundleIdentifer',
     message: 'App Bundle Identifier',
-    initial: displayName.toLowerCase() || 'helloworld',
+    initial: `com.${displayName.toLowerCase()}.mobile` || 'com.helloworld.mobile',
   });
 
   const { confirmed } = await prompt({
