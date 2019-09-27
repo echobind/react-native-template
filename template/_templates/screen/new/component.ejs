@@ -2,44 +2,8 @@
 to: src/screens/<%= h.inflection.classify(name) %>/component.tsx
 ---
 <% const comp = name -%>
-<% if(componentType === 'Class') { -%>
 import styled from '@emotion/native';
-import React, { Component } from 'react';
-import { Screen } from '../../components/Screen';
-import { Text } from '../../components/Text';
-
-interface Props {
-  /** prop info */
-  myProp: string;
-}
-
-interface State {
-  /** state info */
-  myStateValue?: boolean;
-}
-
-const INITIAL_STATE: State = {
-  myStateValue: true,
-};
-
-const Container = styled(Screen)`
-  background-color: green;
-`;
-
-export class <%= comp %> extends Component<Props, State> {
-  public state = INITIAL_STATE;
-
-  public render() {
-    return (
-      <Container>
-        <Text><%= comp %> Screen</Text>
-      </Container>
-    );
-  }
-}
-<% } else { %>
-import styled from '@emotion/native';
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { View } from 'react-native';
 import { Screen } from '../../components/Screen';
 
@@ -52,11 +16,10 @@ const Container = styled(Screen)`
   background-color: green;
 `;
 
-export const <%= comp %>: SFC<Props> = () => {
+export const <%= comp %>: FC<Props> = () => {
   return (
     <Container>
       <Text><%= comp %> Screen</Text>
     </Container>
   )
 };
-<% } -%>
