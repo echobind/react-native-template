@@ -44,8 +44,10 @@
 ## Quickstart
 
 ```shell
-# with npx
+# with npx and the github repo
 npx react-native init MyApp --template=https://github.com/echobind/react-native-template
+# with npx and the npm package
+npx --ignore-existing react-native init MyApp --template=@echobind/react-native-template
 
 # with yarn & the react-native cli
 yarn global add react-native-cli
