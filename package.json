@@ -1,4 +1,7 @@
 {
-  "name": "react-native-template-echobind",
-  "version": "0.0.1"
+  "name": "@echobind/react-native-template",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  }
 }
