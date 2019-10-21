@@ -58,5 +58,8 @@ fastlane/screenshots
 # Bundle artifact
 *.jsbundle
 
+# CocoaPods
+/ios/Pods/
+
 # misc
 .jest
