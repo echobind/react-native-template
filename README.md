@@ -43,15 +43,22 @@
 
 ## Quickstart
 
+To get started with our template, run one of the following commands:
 ```shell
-# with npx and the github repo
-npx react-native init MyApp --template=https://github.com/echobind/react-native-template
-# with npx and the npm package
-npx --ignore-existing react-native init MyApp --template=@echobind/react-native-template
+# using npx, install our latest version from npm
+npx react-native init MyApp --template=@echobind/react-native-template
 
-# with yarn & the react-native cli
+# using npx and the github repo directly
+npx react-native init MyApp --template=https://github.com/echobind/react-native-template
+
+# using yarn & the react-native cli
 yarn global add react-native-cli
 react-native init MyApp --template=https://github.com/echobind/react-native-template
+```
+
+If you see an error after installing using the first option, pass the flag `--ignore-existing` and run:
+```shell
+npx --ignore-existing react-native init MyApp --template=@echobind/react-native-template
 ```
 
 ## About The Project
