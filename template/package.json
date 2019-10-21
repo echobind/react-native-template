@@ -1,0 +1,83 @@
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "description": "a React Native app bootstrapped with the Echobind template",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --changedSince=master --watch",
+    "lint": "tslint -p .",
+    "storybook": "storybook start -p 7007",
+    "g:component": "hygen component new --name",
+    "g:screen": "hygen screen new --name",
+    "g:util": "hygen util new --name",
+    "g:e2e": "hygen e2e new --name",
+    "ios": "react-native run-ios --simulator='iPhone X'",
+    "preandroid": "adb reverse tcp:3030 tcp:3030 && adb reverse tcp:9090 tcp:9090",
+    "android": "react-native run-android",
+    "simulators": "xcrun simctl list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/native": "^10.0.6",
+    "@emotion/core": "^10.0.6",
+    "react": "16.9.0",
+    "react-native": "^0.61.0",
+    "react-navigation": "^3.5.1",
+    "react-native-splash-screen": "^3.1.1",
+    "react-native-gesture-handler": "^1.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-ondevice-backgrounds": "^4.1.3",
+    "@storybook/addons": "^4.1.3",
+    "@storybook/react-native": "^4.1.3",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.7",
+    "@types/react": "^16.9.0",
+    "@types/react-native": "^0.60.15",
+    "enquirer": "^2.3.0",
+    "husky": "^1.2.1",
+    "hygen": "^2.0.4",
+    "jest": "24.9.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2",
+    "typescript-styled-plugin": "^0.13.0",
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.4.0",
+    "solidarity": "^2.3.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "isolatedModules": false
+        }
+      }
+    },
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "e2e",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
+  },
+  "lint-staged": {}
+}

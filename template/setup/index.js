@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const packageJson = require('../package.json');
 const { prompt } = require('enquirer');
 
 async function setup() {
@@ -18,18 +17,19 @@ async function setup() {
   }
 
   console.log('\n📝  Configuring project display name and bundle identifier...');
-  const { displayName, bundleIdentifer } = await prompt([
-    {
-      type: 'input',
-      name: 'displayName',
-      message: 'App Display Name (ProjectName):',
-    },
-    {
-      type: 'input',
-      name: 'bundleIdentifer',
-      message: `App Bundle Identifier (com.${displayName.toLowerCase()}.mobile):`,
-    },
-  ]);
+  const { displayName } = await prompt({
+    type: 'input',
+    name: 'displayName',
+    message: 'App Display Name (ProjectName):',
+    initial: 'HelloWorld',
+  });
+
+  const { bundleIdentifer } = await prompt({
+    type: 'input',
+    name: 'bundleIdentifer',
+    message: 'App Bundle Identifier',
+    initial: displayName.toLowerCase() || 'helloworld',
+  });
 
   const { confirmed } = await prompt({
     type: 'confirm',
@@ -50,14 +50,6 @@ async function setup() {
   });
 
   console.log('🔄  Setting up...');
-  // add our update to package.json
-  const scripts = require('./scripts.json');
-  packageJson.scripts = { ...packageJson.scripts, ...scripts };
-  packageJson.jest = require('./jest.json');
-  packageJson['lint-staged'] = require('./lintStaged.json');
-
-  console.log('\n📝  Writing package.json...');
-  writeFile('../package.json', JSON.stringify(packageJson, null, 2));
 
   console.log('\n🛠  Setting up fastlane and installing app icons...');
   const rootDirectory = path.join(__dirname, '../');
@@ -79,7 +71,9 @@ async function setup() {
   execSync('bundle exec pod install', { cwd: 'ios' });
 
   console.log('\n🍎🌊  Setting up ios splash screens...');
-  execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', { cwd: rootDirectory });
+  execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', {
+    cwd: rootDirectory,
+  });
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
