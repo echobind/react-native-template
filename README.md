@@ -1,4 +1,4 @@
-# `react-native-template-echobind`
+# `react-native-template`
 
 <br />
 <p align="center">
@@ -6,22 +6,22 @@
     <img src="https://camo.githubusercontent.com/d22763c73585cf5d4cf87534659689c2a6b3f214/68747470733a2f2f7265732d332e636c6f7564696e6172792e636f6d2f6372756e6368626173652d70726f64756374696f6e2f696d6167652f75706c6f61642f635f6c7061642c685f3235362c775f3235362c665f6175746f2c715f6175746f3a65636f2f76313439393437333135312f68326b3233696f6f3479687230676a746f636d792e6a7067" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">react-native-template-echobind</h3>
+  <h3 align="center">react-native-template</h3>
 
   <p align="center">
     Our Recommended template for React Native projects.
     <br />
     <br />
-    <a href="https://github.com/echobind/react-native-template-echobind/issues">Report Bug</a>
+    <a href="https://github.com/echobind/react-native-template/issues">Report Bug</a>
     ·
-    <a href="https://github.com/echobind/react-native-template-echobind/issues">Request Feature</a>
+    <a href="https://github.com/echobind/react-native-template/issues">Request Feature</a>
   </p>
 </p>
 <div align="center">
-  <a href="https://github.com/echobind/react-native-template-echobind/graphs/contributors/">
-    <img alt="number of contributors." src="https://img.shields.io/github/contributors/echobind/react-native-template-echobind.svg" />
+  <a href="https://github.com/echobind/react-native-template/graphs/contributors/">
+    <img alt="number of contributors." src="https://img.shields.io/github/contributors/echobind/react-native-template.svg" />
   </a>
-  <img alt="License." src="https://img.shields.io/github/license/echobind/react-native-template-echobind">
+  <img alt="License." src="https://img.shields.io/github/license/echobind/react-native-template">
 </div>
 
 <hr>
@@ -45,11 +45,11 @@
 
 ```shell
 # with npx
-npx react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind
+npx react-native init MyApp --template=https://github.com/echobind/react-native-template
 
 # with yarn & the react-native cli
 yarn global add react-native-cli
-react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind
+react-native init MyApp --template=https://github.com/echobind/react-native-template
 ```
 
 ## About The Project
@@ -101,7 +101,7 @@ During the setup proceess, we will automatically check the versions on your mach
 
 In order to use this template, follow these steps:
 
-1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template-echobind`
+1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template`
 2. Change directories into your new app: `cd MyApp`
 3. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`
 
