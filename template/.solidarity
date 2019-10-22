@@ -91,7 +91,7 @@
       {
         "rule": "cli",
         "binary": "xcrun",
-        "semver": "^48.0",
+        "semver": ">=43.0",
         "platform": "darwin",
         "error": "XCode developer tools {{wantedVersion}} is required (you have {{installedVersion}}). Please download from https://developer.apple.com/download/more"
       }
