@@ -5,7 +5,7 @@
       {
         "rule": "cli",
         "binary": "node",
-        "semver": "^10.16.0"
+        "semver": ">=10.16.0"
       }
     ],
     "Yarn": [
@@ -13,7 +13,7 @@
         "rule": "cli",
         "binary": "yarn",
         "version": "--version",
-        "semver": "^1.17.3"
+        "semver": ">=1.17.3"
       }
     ],
     "Cocoapods and Fastlane": [
@@ -37,7 +37,7 @@
       {
         "rule": "cli",
         "binary": "gm",
-        "error": "GraphicsMagick is needed to generate icons and splashscreens. Please run `brew install graphicsmagick`",
+        "error": "GraphicsMagick is needed to generate icons and splashscreens. Please run 'brew install graphicsmagick'",
       }
     ],
     "Android": [
@@ -70,7 +70,7 @@
       {
         "rule": "cli",
         "binary": "react-native",
-        "semver": "2.0.1"
+        "semver": ">=2.0.1"
       },
       {
         "rule": "cli",
