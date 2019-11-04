@@ -130,16 +130,16 @@ In order to set up CI/Deployment, we've created custom hygen templates to save y
 - Fastlane lanes for alpha, beta, and production releases. These should be run on CI only!
 - AppCenter integration for easy alpha distribution
 
-After installing those, head into the "Setup CircleCI" docs in [`./docs/circle-ci.md`](./docs/circle-ci.md), which will walk you through the installation.
+After installing those, head into the "Setup CircleCI" docs in [`./docs/circle-ci.md`](./template/docs/circle-ci.md), which will walk you through the installation.
 
 For more info, please follow the [instructions](https://github.com/echobind/hygen-echobind-templates) in the `hygen-templates-echobind` repo.
 
 ## Docs
 
-- [Customize Generator Templates](./docs/hygen-templates.md)
-- [Navigation](./docs/navigation.md)
-- [Splash Screens](./docs/splashscreens.md)
-- [Setup CircleCI](./docs/circle-ci.md)
+- [Customize Generator Templates](./template/docs/hygen-templates.md)
+- [Navigation](./template/docs/navigation.md)
+- [Splash Screens](./template/docs/splashscreens.md)
+- [Setup CircleCI](./template/docs/circle-ci.md)
 
 ## Contributing
 
