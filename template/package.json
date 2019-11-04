@@ -15,7 +15,11 @@
     "ios": "react-native run-ios --simulator='iPhone X'",
     "preandroid": "adb reverse tcp:3030 tcp:3030 && adb reverse tcp:9090 tcp:9090",
     "android": "react-native run-android",
-    "simulators": "xcrun simctl list"
+    "simulators": "xcrun simctl list",
+    "e2e:ios-debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug --cleanup",
+    "e2e:ios": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
+    "e2e:android-debug": "detox build -c android.emu.debug && detox test -c android.emu.debug -l trace --cleanup",
+    "e2e:android": "detox build -c android.emu.release && detox test -c android.emu.release -l trace --cleanup"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +41,7 @@
     "@types/node": "^12.7.7",
     "@types/react": "^16.9.0",
     "@types/react-native": "^0.60.15",
+    "detox": "^14.5.1",
     "enquirer": "^2.3.0",
     "husky": "^1.2.1",
     "hygen": "^2.0.4",
@@ -79,5 +84,42 @@
     ],
     "cacheDirectory": ".jest/cache"
   },
-  "lint-staged": {}
+  "lint-staged": {},
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/HelloWorld.app",
+        "build": "xcodebuild -workspace ios/helloworld.xcworkspace -scheme HelloWorld -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone 11 Pro"
+        }
+      },
+      "ios.sim.release": {
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/HelloWorld.app",
+        "build": "xcodebuild -workspace ios/helloworld.xcworkspace -scheme HelloWorld -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "device": {
+          "type": "iPhone 11 Pro"
+        }
+      },
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Pixel_2_API_28"
+        }
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Pixel_2_API_28"
+        }
+      }
+    },
+    "test-runner": "jest"
+  }
 }

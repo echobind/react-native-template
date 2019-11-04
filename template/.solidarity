@@ -80,6 +80,14 @@
         "error": "react-native@{{wantedVersion}} is required (you have {{installedVersion}}). Check your `package.json` and run `yarn install`."
       }
     ],
+    "Detox": [
+      {
+        "rule": "cli",
+        "binary": "applesimutils",
+        "semver": ">=0.7.4",
+        "fix": "brew tap wix/brew && brew install applesimutils"
+      }
+    ],
     "Xcode": [
       {
         "rule": "cli",
