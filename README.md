@@ -85,6 +85,7 @@ We hope it saves you as much time as it saves us! 👍
 - [`react-navigation`](https://reactnavigation.org/)
 - [Storybook 4](https://storybook.js.org/)
 - [`@emotion/native`](https://github.com/emotion-js/emotion/tree/master/packages/native) for styling
+- [Detox](https://github.com/wix/Detox/) for e2e integration testing
 
 ## Getting Started
 
@@ -121,6 +122,7 @@ During the setup process we will do the following:
 - Use [Solidarity](https://github.com/infinitered/solidarity) to ensure your environment has all expected dependencies installed
 - Run `bundle install` and `pod install` so you don't have to
 - Setup placeholder icon and a splash screen
+- Setup the first integration test which can be run with the scripts from your package.json with `yarn e2e:ios-debug` or `yarn e2e:android-debug` (android emulator must be setup and open)
 
 ## CI / Deployment:
 
