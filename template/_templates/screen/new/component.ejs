@@ -1,10 +1,11 @@
 ---
-to: src/screens/<%= h.inflection.classify(name) %>/component.tsx
+to: src/screens/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>.tsx
 ---
-<% const comp = name -%>
+<% const comp = h.inflection.transform(name, ['undasherize', 'classify']) -%>
 <% if(componentType === 'Class') { -%>
-import styled from '@emotion/native';
 import React, { Component } from 'react';
+import styled from '@emotion/native';
+
 import { Screen } from '../../components/Screen';
 import { Text } from '../../components/Text';
 
@@ -22,41 +23,34 @@ const INITIAL_STATE: State = {
   myStateValue: true,
 };
 
-const Container = styled(Screen)`
-  background-color: green;
-`;
-
 export class <%= comp %> extends Component<Props, State> {
   public state = INITIAL_STATE;
 
   public render() {
     return (
-      <Container>
+      <Screen backgroundColor="green">
         <Text><%= comp %> Screen</Text>
-      </Container>
+      </Screen>
     );
   }
 }
 <% } else { %>
-import styled from '@emotion/native';
 import React, { SFC } from 'react';
-import { View } from 'react-native';
+import styled from '@emotion/native';
+
 import { Screen } from '../../components/Screen';
+import { Text } from '../../components/Text';
 
 interface Props {
   /** prop info */
   myProp: string;
 }
 
-const Container = styled(Screen)`
-  background-color: green;
-`;
-
 export const <%= comp %>: SFC<Props> = () => {
   return (
-    <Container>
+    <Screen backgroundColor="green">
       <Text><%= comp %> Screen</Text>
-    </Container>
-  )
+    </Screen>
+  );
 };
 <% } -%>
