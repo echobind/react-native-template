@@ -1,11 +1,12 @@
 ---
-to: src/components/<%= name %>/stories.tsx
+to: src/components/<%= h.inflection.undasherize(name) %>/<%= h.inflection.undasherize(name) %>.stories.tsx
 ---
-<% const comp = name -%>
-import { storiesOf } from "@storybook/react-native";
-import React from "react";
-import { <%= comp %> } from "./component";
+<% const formattedName = h.inflection.undasherize(name) -%>
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
 
-storiesOf("components/<%= comp %>", module).add("Default", () => (
-  <<%= comp %> />
+import { <%= formattedName %> } from './component';
+
+storiesOf('components/<%= comp %>', module).add('Default', () => (
+  <<%= formattedName %> />
 ));
