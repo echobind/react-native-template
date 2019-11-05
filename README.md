@@ -111,7 +111,7 @@ During the setup proceess, we will automatically check the versions on your mach
 
 In order to use this template, follow these steps:
 
-1. Initialize a new react-native app: `react-native init MyApp --template=https://github.com/echobind/react-native-template`
+1. Initialize a new react-native app: `npx react-native init MyApp --template=https://github.com/echobind/react-native-template`
 2. Change directories into your new app: `cd MyApp`
 3. Run the setup script: `node ./setup`. A successful setup will give you the green light: `✅ Setup completed!`
 
