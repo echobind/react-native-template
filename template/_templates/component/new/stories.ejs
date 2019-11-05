@@ -1,7 +1,7 @@
 ---
-to: src/components/<%= h.inflection.undasherize(name) %>/<%= h.inflection.undasherize(name) %>.stories.tsx
+to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>.stories.tsx
 ---
-<% const formattedName = h.inflection.undasherize(name) -%>
+<% const formattedName = h.inflection.transform(name, ['undasherize', 'classify']) -%>
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 
