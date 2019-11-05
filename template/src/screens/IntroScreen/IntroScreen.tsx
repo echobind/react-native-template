@@ -22,7 +22,9 @@ export function IntroScreen(props: NavigationScreenProps) {
       <StatusBar barStyle="light-content" />
       <Screen backgroundColor={colors.transparent} paddingTop={60}>
         <View alignItems="center">
-          <Text testID="introScreenText" fontSize={5}>Welcome to the intro Screen!</Text>
+          <Text testID="introScreenText" fontSize={5} color={colors.white}>
+            Welcome to the intro Screen!
+          </Text>
         </View>
       </Screen>
     </BackgroundImage>

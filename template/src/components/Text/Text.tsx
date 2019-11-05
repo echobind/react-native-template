@@ -9,6 +9,7 @@ import {
   TextStyleProps,
   TypographyProps,
 } from 'styled-system';
+
 import { colors } from '../../styles';
 
 interface TextProps {}

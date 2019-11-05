@@ -43,12 +43,12 @@ export const Screen: FC<ComponentProps> = ({
 );
 
 SafeAreaView.defaultProps = {
-  backgroundColor: colors.white,
+  bg: colors.white,
 };
 
 VerticallyPaddedView.defaultProps = {
-  paddingTop: theme.space[2],
-  paddingBottom: theme.space[2],
+  pt: theme.space[2],
+  pb: theme.space[2],
 };
 
 InnerView.defaultProps = {};
