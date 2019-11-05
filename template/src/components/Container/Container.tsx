@@ -13,7 +13,7 @@ import styled from '@emotion/native';
 
 import { margins } from '../../styles';
 
-interface ViewProps {
+interface ContainerProps {
   /** applies "flex: 1" style */
   fill?: boolean;
   /** applies "width: 100%" style */
@@ -27,12 +27,12 @@ interface ViewProps {
   screenMargins?: boolean;
 }
 
-type ComponentProps = ViewProps & BorderProps & ColorProps & FlexProps & SpaceProps;
+type ComponentProps = ContainerProps & BorderProps & ColorProps & FlexProps & SpaceProps;
 
 /**
  * This is our primitive View component with styled-system props applied
  */
-export const View = styled.View<ComponentProps>`
+export const Container = styled.View<ComponentProps>`
   ${space};
   ${color};
   ${borders};
@@ -61,4 +61,4 @@ export const View = styled.View<ComponentProps>`
     `}
 `;
 
-View.defaultProps = {};
+Container.defaultProps = {};
