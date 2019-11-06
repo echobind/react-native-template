@@ -5,4 +5,4 @@ skip_if: components/<%= h.inflection.transform(name, ['undasherize', 'classify']
 append: true
 ---
 <% formattedName = h.inflection.transform(name, ['undasherize', 'classify']) -%>
-import '../../src/components/<%= formattedName %>/<%= formattedName %>.stories'
+import '../../src/components/<%= formattedName %>/<%= formattedName %>.stories';
