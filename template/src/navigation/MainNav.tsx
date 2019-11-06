@@ -1,6 +1,8 @@
-import { colors } from '../styles';
 import { createBottomTabNavigator } from 'react-navigation';
+
 import { createFakeScreen } from '../navigation/createFakeScreen';
+import { colors } from '../styles';
+
 /**
  * Main Nav is main interface of the app, defaults to tabs.
  */

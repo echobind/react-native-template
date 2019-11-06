@@ -1,4 +1,4 @@
 ---
-to: src/components/<%= h.inflection.undasherize(name) %>/index.ts
+to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>/index.ts
 ---
-export * from "./component";
+export * from './<%= h.inflection.transform(name, ['undasherize', 'classify']) %>';

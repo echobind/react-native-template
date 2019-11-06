@@ -50,7 +50,6 @@ async function setup() {
   });
 
   console.log('🔄  Setting up...');
-
   console.log('\n🛠  Setting up fastlane and installing app icons...');
   const rootDirectory = path.join(__dirname, '../');
   execSync('bundle install', { cwd: rootDirectory });
@@ -74,6 +73,7 @@ async function setup() {
   execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', {
     cwd: rootDirectory,
   });
+
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
@@ -111,7 +111,6 @@ async function setup() {
   }
 
   console.log(`\n✅  Setup completed!`);
-
   console.log('\n\n------------------------');
   console.log('** PostInstall Notes: **');
   console.log('------------------------\n\n');

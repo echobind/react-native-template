@@ -1,7 +1,8 @@
-import { IntroScreen } from '../screens/IntroScreen';
-import { RegistrationScreen } from '../../src/screens/RegistrationScreen';
-import { LoginScreen } from '../screens/LoginScreen';
 import { createStackNavigator } from 'react-navigation';
+
+import { IntroScreen } from '../screens/IntroScreen';
+import { LoginScreen } from '../screens/LoginScreen';
+import { RegistrationScreen } from '../screens/RegistrationScreen';
 import { OnboardingNav } from './OnboardingNav';
 
 /**
@@ -10,7 +11,6 @@ import { OnboardingNav } from './OnboardingNav';
  *   Registration
  *   Login
  *   Forgot Password
- *
  */
 export const GuestNav = createStackNavigator(
   {

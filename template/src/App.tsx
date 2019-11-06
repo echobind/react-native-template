@@ -2,8 +2,10 @@
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import { createRootNav } from './navigation/RootNav';
+import { ThemeProvider } from 'emotion-theming';
 
+import { createRootNav } from './navigation/RootNav';
+import { theme } from './styles';
 import Storybook from '../storybook';
 
 interface State {
@@ -42,7 +44,9 @@ class App extends Component<{}, State> {
 
       // Apollo Provider:
       // <ApolloProvider client={client}
-      <RootNav />
+      <ThemeProvider theme={theme}>
+        <RootNav />
+      </ThemeProvider>
       // </ApolloProvider>
     );
   }

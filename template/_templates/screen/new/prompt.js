@@ -7,8 +7,8 @@ module.exports = [
   {
     type: "list",
     name: "componentType",
-    message: "SFC or Class?",
-    choices: ["SFC", "Class"],
-    default: "SFC"
+    message: "FC or Class?",
+    choices: ["FC", "Class"],
+    default: "FC"
   }
 ];

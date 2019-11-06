@@ -1,6 +1,10 @@
-import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
-import { GuestNav } from './GuestNav';
+import {
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator,
+} from 'react-navigation';
 
+import { GuestNav } from './GuestNav';
 import { MainNav } from './MainNav';
 
 /**
