@@ -1,14 +1,23 @@
 import React from 'react';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 
 import { name as appName } from '../app.json';
+import { Container } from '../src/components/Container';
 
 // addons!
 import './rn-addons';
 
+// adding a centered-view layout!
+const CenterView = ({ children }) => (
+  <Container fill fullWidth centerContent>
+    {children}
+  </Container>
+);
+
 // global decorators!
+addDecorator(getStory => <CenterView>{getStory()}</CenterView>);
 addDecorator(
   withBackgrounds([
     { name: 'light', value: '#fff', default: true },
@@ -30,8 +39,4 @@ const StorybookUIRoot = getStorybookUI({});
 // If you use Expo you can safely remove this line.
 AppRegistry.registerComponent(appName, () => StorybookUIRoot);
 
-export default () => (
-  <View style={{ flex: 1, backgroundColor: '#fff' }}>
-    <StorybookUIRoot />
-  </View>
-);
+export default StorybookUIRoot;
