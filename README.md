@@ -35,7 +35,7 @@
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Usage](#usage)
-- [CI/Deployment](#ci-/-deployment)
+- [CI/Deployment](#ci--deployment)
 - [Docs](#docs)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
