@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
+import { addParameters, getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 
 import { name as appName } from '../app.json';
@@ -18,13 +18,14 @@ const CenterView = ({ children }) => (
 
 // global decorators!
 addDecorator(getStory => <CenterView>{getStory()}</CenterView>);
-addDecorator(
-  withBackgrounds([
+addDecorator(withBackgrounds);
+addParameters({
+  backgrounds: [
     { name: 'light', value: '#fff', default: true },
     { name: 'gray', value: '#808080' },
     { name: 'dark', value: '#000' },
-  ]),
-);
+  ],
+});
 
 // stories!
 configure(() => {
