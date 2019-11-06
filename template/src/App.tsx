@@ -8,6 +8,9 @@ import { createRootNav } from './navigation/RootNav';
 import { theme } from './styles';
 import Storybook from '../storybook';
 
+// NOTE: Change this boolean to true to render the Storybook view for development!
+const RENDER_STORYBOOK = false;
+
 interface State {
   removeWhenYouveAddedStateManagement?: true;
   /** The root store or stores to inject into the app. ONLY USED WITH MST / REDUX APPS */
@@ -45,7 +48,11 @@ class App extends Component<{}, State> {
       // Apollo Provider:
       // <ApolloProvider client={client}
       <ThemeProvider theme={theme}>
-        <RootNav />
+        {RENDER_STORYBOOK ? (
+          <Storybook />
+        ) : (
+          <RootNav />
+        )}
       </ThemeProvider>
       // </ApolloProvider>
     );
