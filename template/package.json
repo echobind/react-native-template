@@ -7,7 +7,6 @@
     "test": "jest",
     "test:watch": "jest --changedSince=master --watch",
     "lint": "eslint . --ext .ts,.tsx",
-    "storybook": "storybook start -p 7007",
     "g:component": "hygen component new --name",
     "g:screen": "hygen screen new --name",
     "g:util": "hygen util new --name",
