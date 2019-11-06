@@ -61,7 +61,7 @@ export const Login: FC<ComponentProps> = ({
       {...props}
     >
       <Text fontSize={32} fontWeight={'bold'} marginBottom={'10%'} marginTop={'10%'}>
-        Welcome, please sign in.
+      Welcome, please {'\n'}sign in.
       </Text>
       <TextInput
         placeholder="✉️ User name"
