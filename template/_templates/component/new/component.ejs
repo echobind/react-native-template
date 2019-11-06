@@ -2,7 +2,7 @@
 to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>.tsx
 ---
 <% const formattedName = h.inflection.transform(name, ['undasherize', 'classify']) -%>
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import { View } from './View';
 
@@ -18,7 +18,7 @@ const DEFAULT_PROPS: Partial<Props> = {
 /**
  * Component docs: what does this component do?
  */
-export const <%= formattedName %>: SFC<Props> = (props = DEFAULT_PROPS) => {
+export const <%= formattedName %>: FC<Props> = (props = DEFAULT_PROPS) => {
   const { children } = props;
 
   return (

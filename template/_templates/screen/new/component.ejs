@@ -35,7 +35,7 @@ export class <%= comp %> extends Component<Props, State> {
   }
 }
 <% } else { %>
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/native';
 
 import { Screen } from '../../components/Screen';
@@ -46,7 +46,7 @@ interface Props {
   myProp: string;
 }
 
-export const <%= comp %>: SFC<Props> = () => {
+export const <%= comp %>: FC<Props> = () => {
   return (
     <Screen backgroundColor="green">
       <Text><%= comp %> Screen</Text>
