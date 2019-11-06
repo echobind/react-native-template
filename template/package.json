@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --changedSince=master --watch",
-    "lint": "tslint -p .",
+    "lint": "eslint . --ext .ts,.tsx",
     "storybook": "storybook start -p 7007",
     "g:component": "hygen component new --name",
     "g:screen": "hygen screen new --name",
@@ -58,6 +58,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.4.0",
+    "eslint-plugin-echobind": "^0.1.0",
     "solidarity": "^2.3.1"
   },
   "jest": {
