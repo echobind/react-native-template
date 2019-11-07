@@ -28,13 +28,6 @@ interface RegistrationProps {
 
 type ComponentProps = RegistrationProps & FlexProps & SpaceProps & BorderProps & ColorProps;
 
-const Divider = styled(Container)`
-  ${color}
-  ${borders}
-  ${space}
-  ${layout}
-  ${flexbox}
-`;
 export const Registration: FC<ComponentProps> = ({ createPress, goBack, children, ...props }) => {
   return (
     <Container
