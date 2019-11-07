@@ -36,16 +36,6 @@ type ComponentProps = TextInputProps &
   LayoutProps &
   FlexProps;
 
-const Wrapper = styled(Container)`
-  ${props =>
-    props.grow &&
-    `
-      flex: 1;
-    `}
-`;
-
-
-
 const Input = styled.TextInput`
   ${flex};
   ${borders};
