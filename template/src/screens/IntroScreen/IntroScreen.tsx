@@ -3,6 +3,7 @@ import { ImageBackground, StatusBar, StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import styled from '@emotion/native';
 
+import { Button } from '../../components/Button';
 import { Screen } from '../../components/Screen';
 import { Text } from '../../components/Text';
 import { Container } from '../../components/Container';
@@ -25,6 +26,13 @@ export function IntroScreen(props: NavigationScreenProps) {
           <Text testID="introScreenText" fontSize={5} color={colors.white}>
             Welcome to the intro Screen!
           </Text>
+          <Button
+            label="Login"
+            backgroundColor={colors.primary}
+            color={colors.white}
+            onPress={() => props.navigation.navigate('Login')}
+            borderRadius={5}
+          />
         </Container>
       </Screen>
     </BackgroundImage>
