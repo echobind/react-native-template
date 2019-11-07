@@ -2,19 +2,12 @@ import React, { FC } from 'react';
 import { ActivityIndicator } from 'react-native';
 import {
   backgroundColor,
-  borderColor,
-  color,
-  space,
-  layout,
-  flexbox,
-  borders,
   BorderProps,
   ColorProps,
   SpaceProps,
   FlexProps,
   LayoutProps,
 } from 'styled-system';
-import styled from '@emotion/native';
 
 import { Container } from '../Container';
 import { Text } from '../Text';
@@ -61,7 +54,8 @@ export const Button: FC<ComponentProps> = ({
       height={50}
       width={0.6}
       accessibilityLabel={accessibilityLabel}
-      onPress={disabled ? null : onPressAction}
+      onPress={onPressAction}
+      disabled={disabled}
       {...props}
     >
       {loading ? (

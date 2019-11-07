@@ -1,16 +1,10 @@
 import React, { FC } from 'react';
 import {
-  color,
-  space,
-  layout,
-  flexbox,
-  borders,
   BorderProps,
   ColorProps,
   SpaceProps,
   FlexProps,
 } from 'styled-system';
-import styled from '@emotion/native';
 import { Icon } from 'react-native-elements';
 import { Button } from '../Button';
 import { Text } from '../Text';
@@ -19,8 +13,6 @@ import { Touchable } from '../Touchable';
 import { Container } from '../Container';
 
 import { colors } from '../../styles';
-import { Alert } from 'react-native';
-import { NavigationScreenProps } from 'react-navigation';
 
 interface LoginProps {
   /** the callbacks to be invoked onPress */
@@ -31,13 +23,6 @@ interface LoginProps {
 
 type ComponentProps = LoginProps & FlexProps & SpaceProps & BorderProps & ColorProps;
 
-const Divider = styled(Container)`
-  ${color}
-  ${borders}
-  ${space}
-  ${layout}
-  ${flexbox}
-`;
 export const Login: FC<ComponentProps> = ({
   loginPress,
   registrationPress,
@@ -97,11 +82,11 @@ export const Login: FC<ComponentProps> = ({
         }}
       />
 
-      <Divider flexDirection={'row'} marginTop={20}>
+      <Container flexDirection={'row'} marginTop={20}>
         <Container top={-9} flex={1} borderBottomWidth={1} borderBottomColor={colors.gray} />
         <Text color={colors.gray}>&nbsp; or &nbsp;</Text>
         <Container top={-9} flex={1} borderBottomWidth={1} borderBottomColor={colors.gray} />
-      </Divider>
+      </Container>
       <Button
         width={'100%'}
         marginTop={20}
@@ -109,9 +94,9 @@ export const Login: FC<ComponentProps> = ({
         borderRadius={5}
         backgroundColor={colors.white}
         color={colors.gray}
-        borderColor={colors.gray}
+        borderColor={colors.lightGray}
         elevation={6}
-        borderWidth={.5}
+        borderWidth={1}
         onPress={() => {
           registrationPress();
         }}

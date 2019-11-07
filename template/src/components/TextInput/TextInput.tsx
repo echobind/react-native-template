@@ -6,6 +6,7 @@ import {
   color,
   layout,
   space,
+  flex,
   typography,
   textStyle,
   BorderProps,
@@ -36,22 +37,13 @@ type ComponentProps = TextInputProps &
   LayoutProps &
   FlexProps;
 
-const Wrapper = styled(Container)`
-  ${layout};
-  ${props =>
-    props.grow &&
-    `
-      flex: 1;
-    `}
-`;
-const InnerWrapper = styled(Container)`
-  ${borders};
-`;
-
-const TopLabel = styled(Text)``;
+const InputContainer = styled(Container)``;
 
 const Input = styled.TextInput`
+  ${flex};
+  ${borders};
   ${color};
+  ${layout};
   ${space};
   ${textStyle};
   ${typography};
@@ -66,9 +58,13 @@ export const TextInput: FC<ComponentProps> = ({
   borderRadius,
   ...inputProps
 }) => (
-  <Wrapper grow={multiline}>
-    {topLabel ? <TopLabel>{topLabel}</TopLabel> : null}
-    <InnerWrapper borderRadius={borderRadius} borderColor={borderColor}>
+  <Container fill={multiline} fullWidth my={1}>
+    {topLabel ? (
+      <Text color={colors.gray} fontSize={2} marginVertical={0.5}>
+        {topLabel}
+      </Text>
+    ) : null}
+    <InputContainer borderRadius={borderRadius} borderColor={borderColor}>
       {icon ? icon : null}
       <Input
         autoCapitalize="none"
@@ -77,26 +73,11 @@ export const TextInput: FC<ComponentProps> = ({
         multiline={multiline}
         {...inputProps}
       />
-    </InnerWrapper>
-  </Wrapper>
+    </InputContainer>
+  </Container>
 );
 
-// grow to the full width of its parent container
-Wrapper.defaultProps = {
-  width: '100%',
-  grow: false,
-  my:1,
-};
-
-TopLabel.defaultProps = {
-  color: colors.gray,
-  fontSize: 2,
-  my: 0.5,
-  bg: colors.transparent,
-  minHeight: 40,
-};
-
-InnerWrapper.defaultProps = {
+InputContainer.defaultProps = {
   flexDirection: 'row',
   bg: colors.white,
   borderWidth: 1,

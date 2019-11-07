@@ -20,6 +20,7 @@ export function LoginScreen(props: NavigationScreenProps) {
   const registrationClick = () => {
     props.navigation.navigate('Registration');
   };
+  
   const forgotPwdClick = () => {
     Alert.alert('Forgot Pwd Clicked!', 'Further implement screen');
   };
