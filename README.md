@@ -35,9 +35,10 @@
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Usage](#usage)
-- [CI/Deployment](#ci-/-deployment)
+- [CI/Deployment](#ci--deployment)
 - [Docs](#docs)
 - [Contributing](#contributing)
+- [Publishing New Release](#publish-new-release)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
@@ -152,6 +153,27 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## Publish New Release
+
+This template is available on npm at [`@echobind/react-native-template`](https://www.npmjs.com/package/@echobind/react-native-template). In order to publish a new release, please follow this process:
+
+### Prerequisites
+
+1. You must be an Echobind employee
+2. You must have an [npm registry account](https://www.npmjs.com/signup)
+2. You must be a member of the @echobind organization on npm
+
+### Create a New Release
+
+Eventually, this process will be handled with CI and `semantic-release` but for now, follow these steps:
+
+1. Make sure `master` is up-to-date: `git checkout master && git pull origin master`
+2. Create a new branch: `git checkout -b release`
+3. Following [semver](https://semver.org/), create bump the version using `npm version <MAJOR | MINOR | PATCH>`
+4. Open a PR to merge into `master`
+5. Once the PR is merged, locally run `npm publish`
+6. After you publish, our `postpublish` script will automatically push our new git tag to GitHub
 
 ## Acknowledgements
 
