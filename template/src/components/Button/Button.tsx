@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { ActivityIndicator } from 'react-native';
 import {
   backgroundColor,
+  borderColor,
   color,
   space,
   layout,
@@ -35,31 +36,6 @@ interface ButtonProps {
 
 type ComponentProps = ButtonProps & BorderProps & ColorProps & SpaceProps & FlexProps & LayoutProps;
 
-const Wrapper = styled(Touchable)`
-  ${color}
-  
-  ${borders}
-  ${space}
-  ${layout}
-  ${flexbox}
-`;
-
-const DisabledWrapper = styled(Container)`
-  ${color}
-  ${borders}
-  ${space}
-  ${layout}
-  ${flexbox}
-`;
-
-const Label = styled(Text)`
-  ${props =>
-    props.disabled &&
-    `
-      color: ${props.theme.colors.gray9};
-    `}
-`;
-
 /**
  * notes:
  * - restricting inner text style from being directly configurable to avoid style prop conflicts
@@ -73,46 +49,35 @@ export const Button: FC<ComponentProps> = ({
   loading,
   color: componentColor,
   ...props
-}) =>
-  disabled ? (
-    <DisabledWrapper accessibilityLabel={accessibilityLabel} {...props}>
-      {loading ? <ActivityIndicator /> : <Label disabled>{label}</Label>}
-    </DisabledWrapper>
-  ) : (
-    <Wrapper
+}) => {
+  const ButtonContainer = disabled ? Container : Touchable;
+  const onPressAction = loading ? null : onPress;
+
+  return (
+    <ButtonContainer
+      centerContent
+      bg={disabled ? colors.disabled : backgroundColor}
+      borderRadius={40}
+      height={50}
+      width={0.6}
       accessibilityLabel={accessibilityLabel}
-      onPress={loading ? null : onPress}
-      bg={backgroundColor}
+      onPress={disabled ? null : onPressAction}
       {...props}
     >
-      {loading ? <ActivityIndicator /> : <Label color={componentColor}>{label}</Label>}
-    </Wrapper>
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <Text color={disabled ? colors.gray : componentColor} fontWeight="bold" fontSize={2}>
+          {label}
+        </Text>
+      )}
+    </ButtonContainer>
   );
-
-Wrapper.defaultProps = {
-  alignItems: 'center',
-  bg: colors.orange,
-  borderRadius: 40,
-  height: 50,
-  justifyContent: 'center',
-  width: 0.6,
-};
-
-DisabledWrapper.defaultProps = {
-  alignItems: 'center',
-  bg: colors.gray,
-  borderRadius: 40,
-  height: 50,
-  justifyContent: 'center',
-  width: 0.6,
-};
-
-Label.defaultProps = {
-  color: colors.white,
-  fontWeight: 'bold',
-  fontSize: 2,
 };
 
 Button.defaultProps = {
   disabled: false,
+  borderColor: colors.transparent,
+  borderWidth: 1,
+  backgroundColor: colors.orange,
 };

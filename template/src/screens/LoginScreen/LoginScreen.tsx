@@ -26,13 +26,13 @@ export function LoginScreen(props: NavigationScreenProps) {
 
   return (
     <BackgroundImage source={bgImage} resizeMode="cover">
-        <StatusBar
-          translucent
-          animated
-          backgroundColor="rgba(0, 0, 0, 0.20)"
-          barStyle="light-content"
-        />
-        <Screen backgroundColor={colors.transparent} paddingTop={60} margin={20}>
+      <StatusBar
+        translucent
+        animated
+        backgroundColor="rgba(0, 0, 0, 0.20)"
+        barStyle="light-content"
+      />
+      <Screen backgroundColor={colors.transparent} paddingTop={60} margin={20}>
         <Login
           loginPress={loginClick}
           registrationPress={registrationClick}

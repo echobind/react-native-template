@@ -61,7 +61,7 @@ export const Login: FC<ComponentProps> = ({
       {...props}
     >
       <Text fontSize={32} fontWeight={'bold'} marginBottom={'10%'} marginTop={'10%'}>
-      Welcome, please {'\n'}sign in.
+        Welcome, please {'\n'}sign in.
       </Text>
       <TextInput
         placeholder="✉️ User name"
@@ -107,7 +107,7 @@ export const Login: FC<ComponentProps> = ({
         marginTop={20}
         label={'Create Account'}
         borderRadius={5}
-        bg={colors.white}
+        backgroundColor={colors.white}
         color={colors.gray}
         borderColor={colors.lightGray}
         elevation={6}

@@ -12,6 +12,7 @@ export const colors = {
   black,
   blue,
   bgGray,
+  disabled: gray,
   gray,
   grayText,
   lightGray,
