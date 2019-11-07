@@ -5,7 +5,7 @@ to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify'])
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 
-import { <%= formattedName %> } from './component';
+import { <%= formattedName %> } from './<%= formattedName %>';
 
 storiesOf('components/<%= formattedName %>', module).add('Default', () => (
   <<%= formattedName %> />
