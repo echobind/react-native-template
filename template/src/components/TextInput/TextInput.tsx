@@ -44,7 +44,7 @@ const Wrapper = styled(Container)`
     `}
 `;
 
-const TopLabel = styled(Text)``;
+
 
 const Input = styled.TextInput`
   ${flex};
@@ -59,7 +59,7 @@ const Input = styled.TextInput`
 // NOTE: for layout and dimensioning of TextInput, wrap it in a Container
 export const TextInput: FC<ComponentProps> = ({ topLabel, multiline, ...inputProps }) => (
   <Container fill={multiline} fullWidth>
-    {topLabel ? <TopLabel>{topLabel}</TopLabel> : null}
+    {topLabel ? <Text color={colors.gray} fontSize={2} marginVertical={0.5}>{topLabel}</Text> : null}
     <Input
       autoCapitalize="none"
       underlineColorAndroid={colors.transparent}
@@ -67,20 +67,9 @@ export const TextInput: FC<ComponentProps> = ({ topLabel, multiline, ...inputPro
       multiline={multiline}
       {...inputProps}
     />
-  </Wrapper>
+  </Container>
 );
 
-// grow to the full width of its parent container
-Wrapper.defaultProps = {
-  width: '100%',
-  grow: false,
-};
-
-TopLabel.defaultProps = {
-  color: colors.gray,
-  fontSize: 2,
-  my: 0.5,
-};
 
 TextInput.defaultProps = {
   bg: colors.white,

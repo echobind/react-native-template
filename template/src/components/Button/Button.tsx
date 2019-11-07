@@ -61,7 +61,8 @@ export const Button: FC<ComponentProps> = ({
       height={50}
       width={0.6}
       accessibilityLabel={accessibilityLabel}
-      onPress={disabled ? null : onPressAction}
+      onPress={onPressAction}
+      disabled={disabled}
       {...props}
     >
       {loading ? (
