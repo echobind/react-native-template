@@ -58,7 +58,7 @@ const Input = styled.TextInput`
 
 // NOTE: for layout and dimensioning of TextInput, wrap it in a Container
 export const TextInput: FC<ComponentProps> = ({ topLabel, multiline, ...inputProps }) => (
-  <Wrapper grow={multiline}>
+  <Container fill={multiline} fullWidth>
     {topLabel ? <TopLabel>{topLabel}</TopLabel> : null}
     <Input
       autoCapitalize="none"
