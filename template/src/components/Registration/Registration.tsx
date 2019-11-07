@@ -41,8 +41,6 @@ export const Registration: FC<ComponentProps> = ({ createPress, goBack, children
       bg={colors.bgGray}
       borderRadius={20}
       height={'85%'}
-      marginBottom={'5%'}
-      centerContent
       elevation={4}
       overflow="visible"
       padding={4}

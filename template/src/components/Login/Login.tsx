@@ -11,6 +11,7 @@ import {
   FlexProps,
 } from 'styled-system';
 import styled from '@emotion/native';
+import { Icon } from 'react-native-elements';
 import { Button } from '../Button';
 import { Text } from '../Text';
 import { TextInput } from '../TextInput';
@@ -48,9 +49,6 @@ export const Login: FC<ComponentProps> = ({
     <Container
       bg={colors.bgGray}
       borderRadius={20}
-      height={'85%'}
-      marginBottom={'5%'}
-      centerContent
       elevation={4}
       overflow="visible"
       padding={4}
@@ -64,13 +62,15 @@ export const Login: FC<ComponentProps> = ({
         Welcome, please {'\n'}sign in.
       </Text>
       <TextInput
-        placeholder="✉️ User name"
+        placeholder="User name"
+        icon={<Icon name="envelope" type={'font-awesome'} color={colors.lightGray} />}
         marginTop={2}
         borderRadius={5}
         borderColor={colors.lightGray}
       />
       <TextInput
-        placeholder="🔑 Password"
+        placeholder="Password"
+        icon={<Icon name="key" type={'font-awesome'} color={colors.lightGray} />}
         marginTop={2}
         borderRadius={5}
         borderColor={colors.lightGray}
@@ -109,9 +109,9 @@ export const Login: FC<ComponentProps> = ({
         borderRadius={5}
         backgroundColor={colors.white}
         color={colors.gray}
-        borderColor={colors.lightGray}
+        borderColor={colors.gray}
         elevation={6}
-        borderWidth={1}
+        borderWidth={.5}
         onPress={() => {
           registrationPress();
         }}
