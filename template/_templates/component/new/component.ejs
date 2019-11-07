@@ -4,7 +4,7 @@ to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify'])
 <% const formattedName = h.inflection.transform(name, ['undasherize', 'classify']) -%>
 import React, { FC } from 'react';
 
-import { View } from './View';
+import { Container } from './Container';
 
 interface Props {
   /** prop info */
@@ -22,9 +22,9 @@ export const <%= formattedName %>: FC<Props> = (props = DEFAULT_PROPS) => {
   const { children } = props;
 
   return (
-    <View>
+    <Container>
       {children}
-    </View>
+    </Container>
   );
 };
 
