@@ -17,7 +17,7 @@ import {
   TextStyleProps,
   TypographyProps,
 } from 'styled-system';
-
+import { Icon } from 'react-native-elements';
 import { Container } from '../Container';
 import { Text } from '../Text';
 import { colors } from '../../styles';
@@ -25,6 +25,7 @@ import { colors } from '../../styles';
 interface TextInputProps extends TextInputBaseProps {
   /** An optional header label to render about the input */
   topLabel?: string;
+  icon?: Icon;
 }
 
 type ComponentProps = TextInputProps &
@@ -35,6 +36,8 @@ type ComponentProps = TextInputProps &
   BorderProps &
   LayoutProps &
   FlexProps;
+
+const InputContainer = styled(Container)``;
 
 const Input = styled.TextInput`
   ${flex};
@@ -47,25 +50,44 @@ const Input = styled.TextInput`
 `;
 
 // NOTE: for layout and dimensioning of TextInput, wrap it in a Container
-export const TextInput: FC<ComponentProps> = ({ topLabel, multiline, ...inputProps }) => (
-  <Container fill={multiline} fullWidth>
-    {topLabel ? <Text color={colors.gray} fontSize={2} marginVertical={0.5}>{topLabel}</Text> : null}
-    <Input
-      autoCapitalize="none"
-      underlineColorAndroid={colors.transparent}
-      selectionColor={colors.primary}
-      multiline={multiline}
-      {...inputProps}
-    />
+export const TextInput: FC<ComponentProps> = ({
+  topLabel,
+  icon,
+  multiline,
+  borderColor,
+  borderRadius,
+  ...inputProps
+}) => (
+  <Container fill={multiline} fullWidth my={1}>
+    {topLabel ? (
+      <Text color={colors.gray} fontSize={2} marginVertical={0.5}>
+        {topLabel}
+      </Text>
+    ) : null}
+    <InputContainer borderRadius={borderRadius} borderColor={borderColor}>
+      {icon ? icon : null}
+      <Input
+        autoCapitalize="none"
+        underlineColorAndroid={colors.transparent}
+        selectionColor={colors.primary}
+        multiline={multiline}
+        {...inputProps}
+      />
+    </InputContainer>
   </Container>
 );
 
-
-TextInput.defaultProps = {
+InputContainer.defaultProps = {
+  flexDirection: 'row',
   bg: colors.white,
   borderWidth: 1,
   borderColor: colors.black,
   minHeight: 40,
+  paddingLeft: 10,
+  alignItems: 'center',
+};
+
+TextInput.defaultProps = {
   p: 2,
   textAlignVertical: 'center',
   width: '100%',

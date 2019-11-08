@@ -2,19 +2,12 @@ import React, { FC } from 'react';
 import { ActivityIndicator } from 'react-native';
 import {
   backgroundColor,
-  borderColor,
-  color,
-  space,
-  layout,
-  flexbox,
-  borders,
   BorderProps,
   ColorProps,
   SpaceProps,
   FlexProps,
   LayoutProps,
 } from 'styled-system';
-import styled from '@emotion/native';
 
 import { Container } from '../Container';
 import { Text } from '../Text';

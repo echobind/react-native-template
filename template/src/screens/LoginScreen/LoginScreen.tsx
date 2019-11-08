@@ -33,7 +33,7 @@ export function LoginScreen(props: NavigationScreenProps) {
         backgroundColor="rgba(0, 0, 0, 0.20)"
         barStyle="light-content"
       />
-      <Screen backgroundColor={colors.transparent} paddingTop={60} margin={20}>
+      <Screen testID="registrationScreen"  backgroundColor={colors.transparent} paddingTop={60} margin={20}>
         <Login
           loginPress={loginClick}
           registrationPress={registrationClick}
