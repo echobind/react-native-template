@@ -47,7 +47,7 @@ export const Login: FC<ComponentProps> = ({
         Welcome, please {'\n'}sign in.
       </Text>
       <TextInput
-        placeholder="User name"
+        placeholder="Email"
         icon={<Icon name="envelope" type={'font-awesome'} color={colors.lightGray} />}
         marginTop={2}
         borderRadius={5}
