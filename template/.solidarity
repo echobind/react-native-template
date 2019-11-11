@@ -67,17 +67,11 @@
       }
     ],
     "React Native": [
-      {
-        "rule": "cli",
-        "binary": "react-native",
-        "semver": ">=2.0.1"
-      },
-      {
-        "rule": "cli",
-        "binary": "react-native",
-        "semver": "^0.61.1",
-        "line": 2,
-        "error": "react-native@{{wantedVersion}} is required (you have {{installedVersion}}). Check your `package.json` and run `yarn install`."
+     {
+        "rule": "shell",
+        "command": "which react-native",
+        "match": "node_modules/.bin/react-native",
+        "error": "It looks like you have react-native-cli installed globally. Use 'yarn global remove react-native' or 'npm uninstall -g react-native'. See: 'https://github.com/react-native-community/cli#about'"
       }
     ],
     "Detox": [
