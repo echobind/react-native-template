@@ -79,6 +79,7 @@
         "rule": "cli",
         "binary": "applesimutils",
         "semver": ">=0.7.4",
+        "error": "To install, use 'yarn solidarity --fix'. To upgrade, use 'brew upgrade applesimutils'. If you get errors, try 'brew untap wix/brew && brew tap wix/brew'",
         "fix": "brew tap wix/brew && brew install applesimutils"
       }
     ],
