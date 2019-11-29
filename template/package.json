@@ -16,7 +16,7 @@
     "android": "react-native run-android",
     "simulators": "xcrun simctl list",
     "emulators": "emulator -list-avds",
-    "emulator:start": "emulator -avd", 
+    "emulator:start": "emulator -avd",
     "e2e:ios-debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug --cleanup",
     "e2e:ios": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
     "e2e:android-debug": "detox build -c android.emu.debug && detox test -c android.emu.debug -l trace --cleanup",
@@ -48,11 +48,15 @@
     "@types/react-native": "^0.60.15",
     "detox": "^14.5.1",
     "enquirer": "^2.3.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-echobind": "^0.2.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^1.2.1",
     "hygen": "^2.0.4",
     "jest": "24.9.0",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
+    "lint-staged": "^10.0.0-beta.3",
+    "prettier": "^1.19.1",
     "ts-jest": "^23.10.5",
     "typescript": "^3.2.2",
     "typescript-styled-plugin": "^0.13.0",
@@ -60,9 +64,6 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
-    "eslint": "^6.4.0",
-    "eslint-plugin-echobind": "^0.1.0",
-    "eslint-plugin-import": "^2.18.2",
     "solidarity": "^2.3.1"
   },
   "jest": {
@@ -91,7 +92,12 @@
     ],
     "cacheDirectory": ".jest/cache"
   },
-  "lint-staged": {},
+  "lint-staged": {
+    "**/*.{ts, tsx}": [
+      "yarn lint --fix",
+      "git add"
+    ]
+  },
   "detox": {
     "configurations": {
       "ios.sim.debug": {
