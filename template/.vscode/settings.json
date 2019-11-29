@@ -6,5 +6,25 @@
     "titleBar.inactiveBackground": "#8CCBDF"
   },
   "editor.formatOnSave": true,
-  "editor.rulers": [100]
+  "editor.rulers": [100],
+  "eslint.autoFixOnSave": true,
+  "prettier.trailingComma": "all",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  }
 }
