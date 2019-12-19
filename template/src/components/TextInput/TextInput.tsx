@@ -23,9 +23,15 @@ import { Text } from '../Text';
 import { colors } from '../../styles';
 
 interface TextInputProps extends TextInputBaseProps {
-  /** An optional header label to render about the input */
+  /** An optional header label to render above the input */
   topLabel?: string;
+  //** An option icon to be displayed to the left of the input box */
   icon?: Icon;
+  /**
+  * Overrides the text that's read by the screen reader when the user interacts with the element. By default, the
+  * label is constructed by traversing all the children and accumulating all the Text nodes separated by space.
+  */
+   accessibilityLabel?: string;
 }
 
 type ComponentProps = TextInputProps &
@@ -53,6 +59,7 @@ const Input = styled.TextInput`
 export const TextInput: FC<ComponentProps> = ({
   topLabel,
   icon,
+  accessibilityLabel,
   multiline,
   borderColor,
   borderRadius,
@@ -71,6 +78,7 @@ export const TextInput: FC<ComponentProps> = ({
         underlineColorAndroid={colors.transparent}
         selectionColor={colors.primary}
         multiline={multiline}
+        accessibilityLabel={accessibilityLabel}
         {...inputProps}
       />
     </InputContainer>
