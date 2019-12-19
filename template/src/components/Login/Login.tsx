@@ -48,6 +48,7 @@ export const Login: FC<ComponentProps> = ({
       </Text>
       <TextInput
         placeholder="Email"
+        accessibilityLabel="Email Address Input"
         icon={<Icon name="envelope" type={'font-awesome'} color={colors.lightGray} />}
         marginTop={2}
         borderRadius={5}
@@ -55,6 +56,7 @@ export const Login: FC<ComponentProps> = ({
       />
       <TextInput
         placeholder="Password"
+        accessibilityLabel="Password Input"
         icon={<Icon name="key" type={'font-awesome'} color={colors.lightGray} />}
         marginTop={2}
         borderRadius={5}
@@ -66,6 +68,8 @@ export const Login: FC<ComponentProps> = ({
         }}
         fullWidth
         alignItems={'flex-end'}
+        accessibilityLabel="Forgot Password Button"
+        accessbilityRole="button"
       >
         <Text fontSize={1} marginTop={2} color={colors.blue}>
           Forgot Password?
@@ -80,6 +84,7 @@ export const Login: FC<ComponentProps> = ({
         onPress={() => {
           loginPress();
         }}
+        accessibilityLabel="Login Button"
       />
 
       <Container flexDirection={'row'} marginTop={20}>
@@ -100,6 +105,7 @@ export const Login: FC<ComponentProps> = ({
         onPress={() => {
           registrationPress();
         }}
+        accessibilityLabel="Create Account Button"
       />
     </Container>
   );
