@@ -172,8 +172,10 @@ This is handled by `semantic-release` and CircleCI. When a commit is merged into
 
 We'd like to thank the internal team for making this template, and the following organizations:
 
+- React Native Team
 - React Native Community
 - [Img Shields](https://shields.io)
+
 
 ## License
 
