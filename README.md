@@ -41,6 +41,7 @@
 - [Publishing New Release](#publish-new-release)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
+- [Contributors](#contributors)
 
 ## Quickstart
 
@@ -180,3 +181,13 @@ We'd like to thank the internal team for making this template, and the following
 ## License
 
 The Echobind React Native template is open source software [licensed as MIT](./LICENSE.md).
+
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
