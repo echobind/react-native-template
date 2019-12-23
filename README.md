@@ -166,14 +166,7 @@ This template is available on npm at [`@echobind/react-native-template`](https:/
 
 ### Create a New Release
 
-Eventually, this process will be handled with CI and `semantic-release` but for now, follow these steps:
-
-1. Make sure `master` is up-to-date: `git checkout master && git pull origin master`
-2. Create a new branch: `git checkout -b release`
-3. Following [semver](https://semver.org/), create bump the version using `npm version <MAJOR | MINOR | PATCH>`
-4. Open a PR to merge into `master`
-5. Once the PR is merged, locally run `npm publish`
-6. After you publish, our `postpublish` script will automatically push our new git tag to GitHub
+This is handled by `semantic-release` and CircleCI. When a commit is merged into `master`, it analyzes it, then runs a new release based on the type of commit (i.e fix is a patch whereas feat is considered a minor or feature relase).
 
 ## Acknowledgements
 
