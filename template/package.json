@@ -4,7 +4,9 @@
   "description": "a React Native app bootstrapped with the Echobind template",
   "private": true,
   "scripts": {
+    "start": "react-native start --reset-cache",
     "test": "jest",
+    "test:ci": "jest", 
     "test:watch": "jest --changedSince=master --watch",
     "lint": "eslint . --ext .ts,.tsx",
     "g:component": "hygen component new --name",
