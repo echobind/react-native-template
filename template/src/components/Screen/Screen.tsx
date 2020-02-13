@@ -8,11 +8,6 @@ import { Container } from '../Container';
 import { theme } from '../../styles';
 import { colors } from '../../styles';
 
-const SafeAreaView = styled.SafeAreaView`
-  flex: 1;
-  ${color};
-`;
-
 const VerticallyPaddedView = styled.View`
   flex: 1;
   ${space};
