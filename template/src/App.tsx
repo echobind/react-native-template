@@ -2,6 +2,7 @@
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'emotion-theming';
 
 import { createRootNav } from './navigation/RootNav';
@@ -47,13 +48,15 @@ class App extends Component<{}, State> {
 
       // Apollo Provider:
       // <ApolloProvider client={client}
-      <ThemeProvider theme={theme}>
-        {RENDER_STORYBOOK ? (
-          <Storybook />
-        ) : (
-          <RootNav />
-        )}
-      </ThemeProvider>
+      <SafeAreaProvider>
+        <ThemeProvider theme={theme}>
+          {RENDER_STORYBOOK ? (
+            <Storybook />
+          ) : (
+            <RootNav />
+          )}
+        </ThemeProvider>
+      </SafeAreaProvider>
       // </ApolloProvider>
     );
   }
