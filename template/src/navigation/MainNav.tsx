@@ -9,16 +9,23 @@ import { colors } from '../styles';
 export const MainNav = createBottomTabNavigator(
   {
     Tab1: {
-      screen: createFakeScreen('Tab 1', colors.black),
+      screen: createFakeScreen('1', colors.white),
       navigationOptions: {
         tabBarTestID: 'tab1',
         // tabBarIcon: ({ tintColor }) => <Icon name="search" size={32} color={tintColor} />,
       },
     },
     Tab2: {
-      screen: createFakeScreen('Tab 2', colors.gray),
+      screen: createFakeScreen('2', colors.gray),
       navigationOptions: {
         tabBarTestID: 'tab2',
+        // tabBarIcon: ({ tintColor }) => <Icon name="search" size={32} color={tintColor} />,
+      },
+    },
+    Tab3: {
+      screen: createFakeScreen('3', colors.orange),
+      navigationOptions: {
+        tabBarTestID: 'tab3',
         // tabBarIcon: ({ tintColor }) => <Icon name="search" size={32} color={tintColor} />,
       },
     },
