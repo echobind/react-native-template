@@ -26,6 +26,8 @@
       {
         "rule": "cli",
         "binary": "bundle",
+        "version": "version",
+        "semver": ">=2.0.2",
         "error": "Bundler is used to install RubyGems"
       },
       {
