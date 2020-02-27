@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ImageBackground, StatusBar, StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import styled from '@emotion/native';
@@ -17,7 +17,7 @@ const BackgroundImage = styled(ImageBackground)`
 /**
  * First screen a logged out user sees, welcoming them to the app.
  */
-export function IntroScreen(props: NavigationScreenProps) {
+export const IntroScreen: FC<NavigationScreenProps> = ({ navigation }) => {
   return (
     <BackgroundImage source={bgImage} resizeMode="cover">
       <StatusBar barStyle="light-content" />
@@ -30,11 +30,11 @@ export function IntroScreen(props: NavigationScreenProps) {
             label="Login"
             backgroundColor={colors.primary}
             color={colors.white}
-            onPress={() => props.navigation.navigate('Login')}
+            onPress={() => navigation.navigate('Login')}
             borderRadius={5}
           />
         </Container>
       </Screen>
     </BackgroundImage>
   );
-}
+};
