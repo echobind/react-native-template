@@ -1,6 +1,8 @@
 ---
-to: e2e/<%= h.inflection.camelize(name) %>.spec.js
+to: e2e/<%= h.inflection.camelize(name) %>.spec.ts
 ---
+import { device, expect, element, by } from 'detox';
+
 describe('<%= h.inflection.titleize(name) %>', () => {
   beforeEach(async () => {
     await device.reloadReactNative();

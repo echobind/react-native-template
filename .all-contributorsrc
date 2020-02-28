@@ -14,6 +14,16 @@
         "code",
         "review"
       ]
+    },
+     {
+      "login": "cball",
+      "name": "Chris Ball",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14339?v=4",
+      "profile": "http://echobind.com",
+      "contributions": [
+        "code",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
