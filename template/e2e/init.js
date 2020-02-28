@@ -1,10 +1,12 @@
-const detox = require('detox');
-const config = require('../package.json').detox;
-const adapter = require('detox/runners/jest/adapter');
-const specReporter = require('detox/runners/jest/specReporter');
+/*global jasmine */
+/*eslint no-undef: "error"*/
+import detox, { device } from 'detox';
+import adapter from 'detox/runners/jest/adapter';
+import specReporter from 'detox/runners/jest/specReporter';
+import config from '../package.json'; // .detox;
 
 // Set the default timeout
-const defaultTestTimeout = jest.setTimeout(120000);
+jest.setTimeout(120000);
 jasmine.getEnv().addReporter(adapter);
 
 // This takes care of generating status logs on a per-spec basis. By default, jest only reports at file-level.
@@ -12,8 +14,12 @@ jasmine.getEnv().addReporter(adapter);
 jasmine.getEnv().addReporter(specReporter);
 
 beforeAll(async () => {
-  defaultTestTimeout;
-  await detox.init(config);
+  await detox.init(config.detox, { launchApp: false });
+  await device.launchApp({
+    /** this is where you can set what permissions might be needed */
+    // permissions: { notifications: 'YES', camera: 'YES' },
+    newInstance: true,
+  });
 });
 
 beforeEach(async () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ImageBackground, StatusBar, StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import styled from '@emotion/native';
@@ -13,9 +13,9 @@ const BackgroundImage = styled(ImageBackground)`
   ${StyleSheet.absoluteFillObject};
 `;
 
-export function RegistrationScreen(props: NavigationScreenProps) {
+export const RegistrationScreen: FC<NavigationScreenProps> = ({ navigation }) => {
   const createClick = () => {
-    props.navigation.navigate('Intro');
+    navigation.navigate('Intro');
   };
   return (
     <BackgroundImage source={bgImage} resizeMode="cover">
@@ -25,9 +25,14 @@ export function RegistrationScreen(props: NavigationScreenProps) {
         backgroundColor="rgba(0, 0, 0, 0.20)"
         barStyle="light-content"
       />
-      <Screen testID="registrationScreen" backgroundColor={colors.transparent} paddingTop={60} margin={20}>
-        <Registration createPress={createClick} goBack={()=>props.navigation.goBack()}/>
+      <Screen
+        testID="registrationScreen"
+        backgroundColor={colors.transparent}
+        paddingTop={60}
+        margin={20}
+      >
+        <Registration createPress={createClick} goBack={() => navigation.goBack()} />
       </Screen>
     </BackgroundImage>
   );
-}
+};

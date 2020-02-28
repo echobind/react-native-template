@@ -16,6 +16,7 @@
     "ios": "react-native run-ios --simulator='iPhone X'",
     "preandroid": "adb reverse tcp:3030 tcp:3030 && adb reverse tcp:9090 tcp:9090",
     "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean && cd ..",
     "simulators": "xcrun simctl list",
     "emulators": "emulator -list-avds",
     "emulator:start": "emulator -avd",
@@ -126,7 +127,7 @@
         "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
         "device": {
-          "avdName": "Pixel_2_API_28"
+          "avdName": "Pixel_2_API_29"
         }
       },
       "android.emu.release": {
@@ -134,7 +135,7 @@
         "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
         "type": "android.emulator",
         "device": {
-          "avdName": "Pixel_2_API_28"
+          "avdName": "Pixel_2_API_29"
         }
       }
     },
