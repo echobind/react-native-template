@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Alert, ImageBackground, StatusBar, StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import styled from '@emotion/native';
@@ -11,17 +11,16 @@ import { colors } from '../../styles';
 const BackgroundImage = styled(ImageBackground)`
   ${StyleSheet.absoluteFillObject};
 `;
-
-export function LoginScreen(props: NavigationScreenProps) {
-  const loginClick = () => {
-    props.navigation.navigate('Intro');
+export const LoginScreen: FC<NavigationScreenProps> = ({ navigation }) => {
+  const loginClick = (): void => {
+    navigation.navigate('Intro');
   };
 
-  const registrationClick = () => {
-    props.navigation.navigate('Registration');
+  const registrationClick = (): void => {
+    navigation.navigate('Registration');
   };
 
-  const forgotPwdClick = () => {
+  const forgotPwdClick = (): void => {
     Alert.alert('Forgot Pwd Clicked!', 'Further implement screen');
   };
 
@@ -34,6 +33,7 @@ export function LoginScreen(props: NavigationScreenProps) {
         barStyle="light-content"
       />
       <Screen testID="loginScreen" backgroundColor={colors.transparent} paddingTop={60} margin={20}>
+
         <Login
           loginPress={loginClick}
           registrationPress={registrationClick}
@@ -42,4 +42,4 @@ export function LoginScreen(props: NavigationScreenProps) {
       </Screen>
     </BackgroundImage>
   );
-}
+};
