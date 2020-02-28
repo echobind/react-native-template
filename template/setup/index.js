@@ -67,6 +67,7 @@ async function setup() {
   );
 
   console.log('\n☕  Installing Cocoapods...');
+  execSync('bundle install', { cwd: 'ios' });
   execSync('bundle exec pod install', { cwd: 'ios' });
 
   console.log('\n🍎🌊  Setting up ios splash screens...');

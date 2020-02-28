@@ -32,12 +32,8 @@ export const LoginScreen: FC<NavigationScreenProps> = ({ navigation }) => {
         backgroundColor="rgba(0, 0, 0, 0.20)"
         barStyle="light-content"
       />
-      <Screen
-        testID="registrationScreen"
-        backgroundColor={colors.transparent}
-        paddingTop={60}
-        margin={20}
-      >
+      <Screen testID="loginScreen" backgroundColor={colors.transparent} paddingTop={60} margin={20}>
+
         <Login
           loginPress={loginClick}
           registrationPress={registrationClick}

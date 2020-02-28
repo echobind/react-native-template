@@ -21,12 +21,13 @@ export const IntroScreen: FC<NavigationScreenProps> = ({ navigation }) => {
   return (
     <BackgroundImage source={bgImage} resizeMode="cover">
       <StatusBar barStyle="light-content" />
-      <Screen backgroundColor={colors.transparent} paddingTop={60}>
+      <Screen testID="introScreen" backgroundColor={colors.transparent} paddingTop={60}>
         <Container alignItems="center">
           <Text testID="introScreenText" fontSize={5} color={colors.white}>
             Welcome to the intro Screen!
           </Text>
           <Button
+            testID="login-button"
             label="Login"
             backgroundColor={colors.primary}
             color={colors.white}
