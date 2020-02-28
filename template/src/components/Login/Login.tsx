@@ -74,7 +74,7 @@ export const Login: FC<ComponentProps> = ({
         </Text>
       </Touchable>
       <Button
-        testID="login-button"
+        testID="loginButton"
         width={'100%'}
         marginTop={40}
         label="Login"
