@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "cball",
+      "name": "Chris Ball",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14339?v=4",
+      "profile": "http://echobind.com",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "react-native-template",
+  "projectOwner": "echobind",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
