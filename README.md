@@ -1,6 +1,6 @@
 # `react-native-template`
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <br />
@@ -209,6 +209,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://echobind.com"><img src="https://avatars1.githubusercontent.com/u/14339?v=4" width="100px;" alt=""/><br /><sub><b>Chris Ball</b></sub></a><br /><a href="https://github.com/echobind/react-native-template/commits?author=cball" title="Code">💻</a> <a href="https://github.com/echobind/react-native-template/pulls?q=is%3Apr+reviewed-by%3Acball" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/rynatk/"><img src="https://avatars0.githubusercontent.com/u/13787517?v=4" width="100px;" alt=""/><br /><sub><b>Ryan Atkinson</b></sub></a><br /><a href="https://github.com/echobind/react-native-template/commits?author=rynatk" title="Code">💻</a> <a href="https://github.com/echobind/react-native-template/pulls?q=is%3Apr+reviewed-by%3Arynatk" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
