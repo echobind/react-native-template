@@ -6,6 +6,16 @@
   "commit": false,
   "contributors": [
     {
+
+      "login": "cmejet",
+      "name": "Jenn",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7119624?v=4",
+      "profile": "https://github.com/cmejet",
+      "contributions": [
+        "code",
+        "review"
+      ],
+     {
       "login": "mcavaliere",
       "name": "Mike Cavaliere",
       "avatar_url": "https://avatars3.githubusercontent.com/u/147237?v=4",
