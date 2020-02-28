@@ -1,10 +1,5 @@
 import React, { FC } from 'react';
-import {
-  BorderProps,
-  ColorProps,
-  SpaceProps,
-  FlexProps,
-} from 'styled-system';
+import { BorderProps, ColorProps, SpaceProps, FlexProps } from 'styled-system';
 import { Icon } from 'react-native-elements';
 import { Button } from '../Button';
 import { Text } from '../Text';
@@ -47,6 +42,7 @@ export const Login: FC<ComponentProps> = ({
         Welcome, please {'\n'}sign in.
       </Text>
       <TextInput
+        testID="email-input"
         placeholder="Email"
         accessibilityLabel="Email Address Input"
         icon={<Icon name="envelope" type={'font-awesome'} color={colors.lightGray} />}
@@ -55,6 +51,7 @@ export const Login: FC<ComponentProps> = ({
         borderColor={colors.lightGray}
       />
       <TextInput
+        testID="password-input"
         placeholder="Password"
         accessibilityLabel="Password Input"
         icon={<Icon name="key" type={'font-awesome'} color={colors.lightGray} />}
@@ -63,7 +60,8 @@ export const Login: FC<ComponentProps> = ({
         borderColor={colors.lightGray}
       />
       <Touchable
-        onPress={() => {
+        testID="forgotpwd-link"
+        onPress={(): void => {
           forgotPasswordPress();
         }}
         fullWidth
@@ -76,12 +74,13 @@ export const Login: FC<ComponentProps> = ({
         </Text>
       </Touchable>
       <Button
+        testID="login-button"
         width={'100%'}
         marginTop={40}
         label="Login"
         color={colors.white}
         borderRadius={5}
-        onPress={() => {
+        onPress={(): void => {
           loginPress();
         }}
         accessibilityLabel="Login Button"
@@ -93,6 +92,7 @@ export const Login: FC<ComponentProps> = ({
         <Container top={-9} flex={1} borderBottomWidth={1} borderBottomColor={colors.gray} />
       </Container>
       <Button
+        testID="registration-button"
         width={'100%'}
         marginTop={20}
         label={'Create Account'}
@@ -102,7 +102,7 @@ export const Login: FC<ComponentProps> = ({
         borderColor={colors.lightGray}
         elevation={6}
         borderWidth={1}
-        onPress={() => {
+        onPress={(): void => {
           registrationPress();
         }}
         accessibilityLabel="Create Account Button"

@@ -20,7 +20,7 @@ export function LoginScreen(props: NavigationScreenProps) {
   const registrationClick = () => {
     props.navigation.navigate('Registration');
   };
-  
+
   const forgotPwdClick = () => {
     Alert.alert('Forgot Pwd Clicked!', 'Further implement screen');
   };
@@ -33,7 +33,7 @@ export function LoginScreen(props: NavigationScreenProps) {
         backgroundColor="rgba(0, 0, 0, 0.20)"
         barStyle="light-content"
       />
-      <Screen testID="registrationScreen"  backgroundColor={colors.transparent} paddingTop={60} margin={20}>
+      <Screen testID="loginScreen" backgroundColor={colors.transparent} paddingTop={60} margin={20}>
         <Login
           loginPress={loginClick}
           registrationPress={registrationClick}
