@@ -6,6 +6,16 @@
   "commit": false,
   "contributors": [
     {
+      "login": "mcavaliere",
+      "name": "Mike Cavaliere",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/147237?v=4",
+      "profile": "http://mikecavaliere.com/",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+     {
       "login": "cball",
       "name": "Chris Ball",
       "avatar_url": "https://avatars1.githubusercontent.com/u/14339?v=4",

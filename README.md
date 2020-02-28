@@ -190,6 +190,18 @@ The Echobind React Native template is open source software [licensed as MIT](./L
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://mikecavaliere.com/"><img src="https://avatars3.githubusercontent.com/u/147237?v=4" width="100px;" alt=""/><br /><sub><b>Mike Cavaliere</b></sub></a><br /><a href="https://github.com/echobind/react-native-template/commits?author=mcavaliere" title="Code">💻</a> <a href="https://github.com/echobind/react-native-template/pulls?q=is%3Apr+reviewed-by%3Amcavaliere" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
