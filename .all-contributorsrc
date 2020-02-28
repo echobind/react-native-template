@@ -6,10 +6,40 @@
   "commit": false,
   "contributors": [
     {
+
       "login": "cmejet",
       "name": "Jenn",
       "avatar_url": "https://avatars3.githubusercontent.com/u/7119624?v=4",
       "profile": "https://github.com/cmejet",
+      "contributions": [
+        "code",
+        "review"
+      ],
+     {
+      "login": "mcavaliere",
+      "name": "Mike Cavaliere",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/147237?v=4",
+      "profile": "http://mikecavaliere.com/",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+     {
+      "login": "cball",
+      "name": "Chris Ball",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14339?v=4",
+      "profile": "http://echobind.com",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "rynatk",
+      "name": "Ryan Atkinson",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13787517?v=4",
+      "profile": "https://www.linkedin.com/in/rynatk/",
       "contributions": [
         "code",
         "review"
