@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 def add_flipper_pods!(versions = {})
   versions['Flipper'] ||= '~> 0.33.1'
@@ -97,12 +97,3 @@ target 'HelloWorld' do
   end
 end
 
-target 'HelloWorld-tvOS' do
-  # Pods for HelloWorld-tvOS
-
-  target 'HelloWorld-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
