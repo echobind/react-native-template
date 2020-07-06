@@ -22,7 +22,6 @@ export const GuestNav = (): ReactElement => {
       <Stack.Screen name="Onboard" component={OnboardingNav} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Registration" component={RegistrationScreen} />
-      {/* If you need a top level modal, for logged in users, put it here */}
     </Stack.Navigator>
   );
 };
