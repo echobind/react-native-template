@@ -1,13 +1,16 @@
 // import { Provider } from 'mobx-react';
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import React, { Component } from 'react';
+import React, { Component, ReactElement } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'emotion-theming';
 
-import { createRootNav } from './navigation/RootNav';
-import { theme } from './styles';
 import Storybook from '../storybook';
+import { AppNav } from './navigation/AppNav';
+import { GuestNav } from './navigation/GuestNav';
+
+import { theme } from './styles';
 
 // NOTE: Change this boolean to true to render the Storybook view for development!
 const RENDER_STORYBOOK = false;
@@ -20,48 +23,11 @@ interface State {
   // client: ApolloClient<InMemoryCache>;
 }
 
+// TODO(ratkinson): convert to FC
 class App extends Component<{}, State> {
   public state = {};
 
-  public async componentDidMount() {
-    this.setupApp();
-  }
-
-  public render() {
-    // uncomment the rest of this method when setting up Apollo or MST/Redux
-    const isLoaded = this.state; // && this.state.client or this.state.store
-
-    if (!isLoaded) {
-      // render nothing by default, should be covered by the splash screen
-      return null;
-    }
-
-    // Generate the root nav of the app based on presence of a user (restored in setup functions above)
-    const currentUser = false;
-    const RootNav = createRootNav({ currentUser });
-
-    return (
-      // MST/Redux Provider:
-      // <Provider store={rootStore}>
-      //   <RootNav />
-      // </Provider>
-
-      // Apollo Provider:
-      // <ApolloProvider client={client}
-      <SafeAreaProvider>
-        <ThemeProvider theme={theme}>
-          {RENDER_STORYBOOK ? (
-            <Storybook />
-          ) : (
-            <RootNav />
-          )}
-        </ThemeProvider>
-      </SafeAreaProvider>
-      // </ApolloProvider>
-    );
-  }
-
-  private setupApp() {
+  private setupApp = (): void => {
     try {
       // Use this block to setup either the store or the apollo client
       // const rootStore = await setupRootStore();
@@ -75,6 +41,45 @@ class App extends Component<{}, State> {
       // Now that everything is hydrated, hide the splashscreen
       SplashScreen.hide();
     }
+  };
+
+  public componentDidMount = async (): Promise<void> => {
+    this.setupApp();
+  };
+
+  public renderNavigation = (): ReactElement => {
+    // Generate the root nav of the app based on presence of a user (restored in setup functions above)
+    const currentUser = true;
+
+    return currentUser ? <AppNav /> : <GuestNav />;
+  };
+
+  public render(): ReactElement | null {
+    // uncomment the rest of this method when setting up Apollo or MST/Redux
+    const isLoaded = this.state; // && this.state.client or this.state.store
+
+    if (!isLoaded) {
+      // render nothing by default, should be covered by the splash screen
+      return null;
+    }
+
+    return (
+      // MST/Redux Provider:
+      // <Provider store={rootStore}>
+      //   <RootNav />
+      // </Provider>
+
+      // Apollo Provider:
+      // <ApolloProvider client={client}
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <ThemeProvider theme={theme}>
+            {RENDER_STORYBOOK ? <Storybook /> : this.renderNavigation()}
+          </ThemeProvider>
+        </SafeAreaProvider>
+      </NavigationContainer>
+      // </ApolloProvider>
+    );
   }
 }
 
