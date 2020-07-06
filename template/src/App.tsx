@@ -49,7 +49,7 @@ class App extends Component<{}, State> {
 
   public renderNavigation = (): ReactElement => {
     // Generate the root nav of the app based on presence of a user (restored in setup functions above)
-    const currentUser = true;
+    const currentUser = false;
 
     return currentUser ? <AppNav /> : <GuestNav />;
   };
