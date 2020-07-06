@@ -23,7 +23,6 @@ interface State {
   // client: ApolloClient<InMemoryCache>;
 }
 
-// TODO(ratkinson): convert to FC
 class App extends Component<{}, State> {
   public state = {};
 
