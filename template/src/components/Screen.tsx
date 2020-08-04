@@ -3,10 +3,9 @@ import styled from '@emotion/native';
 import SafeAreaView from 'react-native-safe-area-view';
 import { color, space, FlexProps, SpaceProps } from 'styled-system';
 
-import { Container } from '../Container';
+import { theme, colors } from '../styles';
 
-import { theme } from '../../styles';
-import { colors } from '../../styles';
+import { Container } from './Container';
 
 const VerticallyPaddedView = styled.View`
   flex: 1;
@@ -23,7 +22,7 @@ interface ScreenProps {
   /** The content to render within the screen */
   children?: ReactNode;
   /** Whether to force the topInset. Use to prevent screen jank on tab screens */
-  forceTopInset?: Boolean;
+  forceTopInset?: boolean;
 }
 
 type ComponentProps = ScreenProps & FlexProps & SpaceProps;

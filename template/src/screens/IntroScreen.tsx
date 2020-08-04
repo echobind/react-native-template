@@ -3,12 +3,12 @@ import { ImageBackground, StatusBar, StyleSheet } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import styled from '@emotion/native';
 
-import { Button } from '../../components/Button';
-import { Screen } from '../../components/Screen';
-import { Text } from '../../components/Text';
-import { Container } from '../../components/Container';
-import { colors } from '../../styles';
-import bgImage from '../../assets/images/background.png';
+import { Button } from '../components/Button';
+import { Screen } from '../components/Screen';
+import { Text } from '../components/Text';
+import { Container } from '../components/Container';
+import { colors } from '../styles';
+import bgImage from '../assets/images/background.png';
 
 const BackgroundImage = styled(ImageBackground)`
   ${StyleSheet.absoluteFillObject};

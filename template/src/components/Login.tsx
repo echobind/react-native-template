@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import { BorderProps, ColorProps, SpaceProps, FlexProps } from 'styled-system';
 import { Icon } from 'react-native-elements';
-import { Button } from '../Button';
-import { Text } from '../Text';
-import { TextInput } from '../TextInput';
-import { Touchable } from '../Touchable';
-import { Container } from '../Container';
-
-import { colors } from '../../styles';
+import { colors } from '../styles';
+import { Button } from './Button';
+import { Text } from './Text';
+import { TextInput } from './TextInput';
+import { Touchable } from './Touchable';
+import { Container } from './Container';
 
 interface LoginProps {
   /** the callbacks to be invoked onPress */

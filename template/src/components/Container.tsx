@@ -11,7 +11,7 @@ import {
 } from 'styled-system';
 import styled from '@emotion/native';
 
-import { margins } from '../../styles';
+import { margins } from '../styles';
 
 interface ContainerProps {
   /** applies "flex: 1" style */

@@ -21,7 +21,7 @@ const App = (): ReactElement | null => {
 
   const renderNavigation = (): ReactElement => {
     // replace with actual user profile data once loaded, or fallback to guest nav
-    const currentUser = false;
+    const currentUser = true;
 
     return currentUser ? <AppNav /> : <GuestNav />;
   };
