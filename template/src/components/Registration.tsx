@@ -12,13 +12,12 @@ import {
 } from 'styled-system';
 import styled from '@emotion/native';
 import { Icon, Input } from 'react-native-elements';
-import { Button } from '../Button';
-import { Text } from '../Text';
-import { TextInput } from '../TextInput';
-import { Touchable } from '../Touchable';
-import { Container } from '../Container';
-
-import { colors } from '../../styles';
+import { colors } from '../styles';
+import { Button } from './Button';
+import { Text } from './Text';
+import { TextInput } from './TextInput';
+import { Touchable } from './Touchable';
+import { Container } from './Container';
 
 interface RegistrationProps {
   /** the callbacks to be invoked onPress */

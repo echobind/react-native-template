@@ -10,7 +10,7 @@ import {
   TypographyProps,
 } from 'styled-system';
 
-import { colors } from '../../styles';
+import { colors } from '../styles';
 
 interface TextProps {}
 

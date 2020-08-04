@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 
-import { Text } from './Text';
+import { Text } from '../../src/components/Text';
 
 storiesOf('components/Text', module)
   .add('Default', () => <Text />)
