@@ -1,6 +1,4 @@
-// import { Provider } from 'mobx-react';
-// import ApolloClient, { InMemoryCache } from 'apollo-boost';
-import React, { Component, ReactElement } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,13 +13,11 @@ import { theme } from './styles';
 // NOTE: Change this boolean to true to render the Storybook view for development!
 const RENDER_STORYBOOK = false;
 
-interface State {
-  removeWhenYouveAddedStateManagement?: true;
-  /** The root store or stores to inject into the app. ONLY USED WITH MST / REDUX APPS */
-  // store: any; // if you use this, type it to your root store
-  /** The configured Apollo client. ONLY USED WITH APOLLO / GRAPHQL APPS */
-  // client: ApolloClient<InMemoryCache>;
-}
+const App = (): ReactElement | null => {
+  // hide the splashscreen on mount
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
 class App extends Component<{}, State> {
   public state = {};
@@ -53,34 +49,15 @@ class App extends Component<{}, State> {
     return currentUser ? <AppNav /> : <GuestNav />;
   };
 
-  public render(): ReactElement | null {
-    // uncomment the rest of this method when setting up Apollo or MST/Redux
-    const isLoaded = this.state; // && this.state.client or this.state.store
+  return (
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <ThemeProvider theme={theme}>
+          {RENDER_STORYBOOK ? <Storybook /> : renderNavigation()}
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
+  );
+};
 
-    if (!isLoaded) {
-      // render nothing by default, should be covered by the splash screen
-      return null;
-    }
-
-    return (
-      // MST/Redux Provider:
-      // <Provider store={rootStore}>
-      //   <RootNav />
-      // </Provider>
-
-      // Apollo Provider:
-      // <ApolloProvider client={client}
-      <NavigationContainer>
-        <SafeAreaProvider>
-          <ThemeProvider theme={theme}>
-            {RENDER_STORYBOOK ? <Storybook /> : this.renderNavigation()}
-          </ThemeProvider>
-        </SafeAreaProvider>
-      </NavigationContainer>
-      // </ApolloProvider>
-    );
-  }
-}
-
-// tslint:disable-next-line
 export default App;
