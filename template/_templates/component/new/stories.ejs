@@ -1,11 +1,11 @@
 ---
-to: src/components/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>.stories.tsx
+to: storybook/stories/<%= h.inflection.transform(name, ['undasherize', 'classify']) %>.stories.tsx
 ---
 <% const formattedName = h.inflection.transform(name, ['undasherize', 'classify']) -%>
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
 
-import { <%= formattedName %> } from './<%= formattedName %>';
+import { <%= formattedName %> } from '../../src/components/<%= formattedName %>';
 
 storiesOf('components/<%= formattedName %>', module).add('Default', () => (
   <<%= formattedName %> />
