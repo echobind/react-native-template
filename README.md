@@ -129,6 +129,11 @@ During the setup process we will do the following:
 - Setup placeholder icon and a splash screen
 - Setup the first integration test which can be run with the scripts from your package.json with `yarn e2e:ios-debug` or `yarn e2e:android-debug` (android emulator must be setup and open)
 
+## Template Preview
+on an iPhone 12: 
+
+<img src="template/splashScreenPreview/SplashScreens-iPhone12.gif" alt="iphone12 splash screen preview" height="600px"  />
+
 ## CI / Deployment:
 
 In order to set up CI/Deployment, we've created custom hygen templates to save you time. These live in our [`hygen-templates-echobind` repository](https://github.com/echobind/hygen-echobind-templates). You'll find installation instructions, which will allow you to set up the following:
