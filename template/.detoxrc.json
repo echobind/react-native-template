@@ -1,0 +1,38 @@
+{
+    "testRunner": "jest",
+    "runnerConfig": "e2e/config.json",
+    "configurations": {
+      "ios.sim.debug": {
+        "type": "ios.simulator",
+        "build": "xcodebuild -workspace ios/HelloWorld.xcworkspace -configuration Debug -scheme HelloWorld -destination name='iPhone 11' -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/HelloWorld.app",
+        "device": {
+          "type": "iPhone 11"
+        }
+      },
+      "ios.sim.release": {
+        "type": "ios.simulator",
+        "build": "xcodebuild -workspace ios/HelloWorld.xcworkspace -configuration Release -scheme HelloWorld -destination name='iPhone 11' -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/HelloWorld.app",
+        "device": {
+          "type": "iPhone 11"
+        }
+      },
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Pixel_3_API_28"
+        }
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Pixel_3_API_28"
+        }
+      }
+    }
+  }

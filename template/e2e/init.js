@@ -3,9 +3,10 @@
 import detox, { device } from 'detox';
 import adapter from 'detox/runners/jest/adapter';
 import specReporter from 'detox/runners/jest/specReporter';
-import config from '../package.json'; // .detox;
+import config from '../.detoxrc.json'; // .detox;
 
 // Set the default timeout
+
 jest.setTimeout(120000);
 jasmine.getEnv().addReporter(adapter);
 
