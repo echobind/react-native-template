@@ -1,7 +1,7 @@
 // import { Provider } from 'mobx-react';
 // import ApolloClient, { InMemoryCache } from 'apollo-boost';
 import React, { Component, ReactElement } from 'react';
-import SplashScreen from 'react-native-splash-screen';
+import RNBootSplash from 'react-native-bootsplash';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'emotion-theming';
@@ -38,7 +38,7 @@ class App extends Component<{}, State> {
       throw error;
     } finally {
       // Now that everything is hydrated, hide the splashscreen
-      SplashScreen.hide();
+      RNBootSplash.hide({ fade: true });
     }
   };
 
