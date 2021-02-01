@@ -136,6 +136,10 @@ If you get an error with an iOS Release build for `ios/Pods/OpenSSL-Universal/io
 ![image](images/ios-release-build-error.png)
 
 
+## Template Preview
+on an iPhone 12: 
+
+<img src="template/splashScreenPreview/SplashScreens-iPhone12.gif" alt="iphone12 splash screen preview" height="600px"  />
 
 ## CI / Deployment:
 
