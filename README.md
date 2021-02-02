@@ -37,6 +37,7 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
+  - [Troubleshooting](#troubleshooting)
 - [Usage](#usage)
 - [CI/Deployment](#ci--deployment)
 - [Docs](#docs)
@@ -128,6 +129,12 @@ During the setup process we will do the following:
 - Run `bundle install` and `pod install` so you don't have to
 - Setup placeholder icon and a splash screen
 - Setup the first integration test which can be run with the scripts from your package.json with `yarn e2e:ios-debug` or `yarn e2e:android-debug` (android emulator must be setup and open)
+
+## Troubleshooting
+
+If you get an error with an iOS Release build for `ios/Pods/OpenSSL-Universal/ios/lib/libcrypto.a(cryptlib.o)` You should be able to resolve by updating the build settings 
+![image](images/ios-release-build-error.png)
+
 
 ## Template Preview
 on an iPhone 12: 

@@ -1,5 +1,5 @@
-import React, { useEffect, ReactElement } from 'react';
-import SplashScreen from 'react-native-splash-screen';
+import React, { ReactElement, useEffect } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'emotion-theming';
@@ -16,7 +16,7 @@ const RENDER_STORYBOOK = false;
 const App = (): ReactElement | null => {
   // hide the splashscreen on mount
   useEffect(() => {
-    SplashScreen.hide();
+    RNBootSplash.hide({ fade: true });
   }, []);
 
   const renderNavigation = (): ReactElement => {

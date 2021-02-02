@@ -70,11 +70,6 @@ async function setup() {
   execSync('bundle install', { cwd: 'ios' });
   execSync('bundle exec pod install', { cwd: 'ios' });
 
-  console.log('\n🍎🌊  Setting up ios splash screens...');
-  execSync('rm -rf ios/FamilyDirectedTest/Base.lproj/LaunchScreen.xib', {
-    cwd: rootDirectory,
-  });
-
   execSync(
     `HYGEN_OVERWRITE=1 yarn hygen setup splashscreen ios --displayName ${displayName} --bundleIdentifer ${bundleIdentifer}`,
   );
