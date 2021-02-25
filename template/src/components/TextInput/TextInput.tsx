@@ -1,59 +1,51 @@
-import React, { FC } from 'react';
-import { TextInputProps as TextInputBaseProps } from 'react-native';
-import styled from '@emotion/native';
 import {
-  borders,
-  color,
-  layout,
-  space,
-  flex,
-  typography,
-  textStyle,
+  border,
   BorderProps,
-  FlexProps,
+  color,
   ColorProps,
+  createRestyleComponent,
+  layout,
   LayoutProps,
-  SpaceProps,
-  TextStyleProps,
+  spacing,
+  SpacingProps,
+  typography,
   TypographyProps,
-} from 'styled-system';
-import { Icon } from 'react-native-elements';
+} from '@shopify/restyle';
+import React, { FC } from 'react';
+import {
+  TextInput as ReactNativeTextInput,
+  TextInputProps as TextInputBaseProps,
+} from 'react-native';
+
+import { colors } from '../../styles';
+import { Theme } from '../../theme';
 import { Container } from '../Container';
 import { Text } from '../Text';
-import { colors } from '../../styles';
 
 interface TextInputProps extends TextInputBaseProps {
   /** An optional header label to render above the input */
   topLabel?: string;
   //** An option icon to be displayed to the left of the input box */
-  icon?: Icon;
+  icon?: JSX.Element;
   /**
-  * Overrides the text that's read by the screen reader when the user interacts with the element. By default, the
-  * label is constructed by traversing all the children and accumulating all the Text nodes separated by space.
-  */
-   accessibilityLabel?: string;
+   * Overrides the text that's read by the screen reader when the user interacts with the element. By default, the
+   * label is constructed by traversing all the children and accumulating all the Text nodes separated by space.
+   */
+  accessibilityLabel?: string;
 }
 
 type ComponentProps = TextInputProps &
-  ColorProps &
-  SpaceProps &
-  TextStyleProps &
-  TypographyProps &
-  BorderProps &
-  LayoutProps &
-  FlexProps;
+  SpacingProps<Theme> &
+  BorderProps<Theme> &
+  ColorProps<Theme> &
+  LayoutProps<Theme> &
+  TypographyProps<Theme> &
+  LayoutProps<Theme>;
 
-const InputContainer = styled(Container)``;
-
-const Input = styled.TextInput`
-  ${flex};
-  ${borders};
-  ${color};
-  ${layout};
-  ${space};
-  ${textStyle};
-  ${typography};
-`;
+const Input = createRestyleComponent<ComponentProps, Theme>(
+  [spacing, border, color, layout, typography, layout],
+  ReactNativeTextInput
+);
 
 // NOTE: for layout and dimensioning of TextInput, wrap it in a Container
 export const TextInput: FC<ComponentProps> = ({
@@ -61,42 +53,41 @@ export const TextInput: FC<ComponentProps> = ({
   icon,
   accessibilityLabel,
   multiline,
-  borderColor,
-  borderRadius,
+  borderColor = 'backgroundSecondary',
+  borderRadius = 'md',
   ...inputProps
 }) => (
-  <Container fill={multiline} fullWidth my={1}>
+  <Container flex={multiline ? 1 : undefined} width={'100%'} m={1}>
     {topLabel ? (
-      <Text color={colors.gray} fontSize={2} marginVertical={0.5}>
+      <Text color={'backgroundSecondary'} fontSize={20} style={{ marginVertical: 0.5 }}>
         {topLabel}
       </Text>
     ) : null}
-    <InputContainer borderRadius={borderRadius} borderColor={borderColor}>
+    <Container
+      alignItems={'center'}
+      backgroundColor="textInputBackground"
+      borderColor={borderColor}
+      borderRadius={borderRadius}
+      borderWidth={1}
+      flexDirection={'row'}
+      minHeight={40}
+      paddingLeft={3}
+    >
       {icon ? icon : null}
       <Input
         autoCapitalize="none"
+        color={'textPrimary'}
         underlineColorAndroid={colors.transparent}
-        selectionColor={colors.primary}
         multiline={multiline}
         accessibilityLabel={accessibilityLabel}
         {...inputProps}
       />
-    </InputContainer>
+    </Container>
   </Container>
 );
 
-InputContainer.defaultProps = {
-  flexDirection: 'row',
-  bg: colors.white,
-  borderWidth: 1,
-  borderColor: colors.black,
-  minHeight: 40,
-  paddingLeft: 10,
-  alignItems: 'center',
-};
-
 TextInput.defaultProps = {
-  p: 2,
+  padding: 2,
   textAlignVertical: 'center',
   width: '100%',
 };

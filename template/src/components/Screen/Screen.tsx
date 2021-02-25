@@ -1,62 +1,43 @@
-import React, { ReactNode, FC } from 'react';
-import styled from '@emotion/native';
+import React, { FC, ReactNode } from 'react';
+import { StatusBar } from 'react-native';
+import { useDarkMode } from 'react-native-dynamic';
 import SafeAreaView from 'react-native-safe-area-view';
-import { color, space, FlexProps, SpaceProps } from 'styled-system';
 
-import { Container } from '../Container';
-
-import { theme } from '../../styles';
-import { colors } from '../../styles';
-
-const VerticallyPaddedView = styled.View`
-  flex: 1;
-  ${space};
-  ${color};
-`;
-
-const InnerView = styled.View`
-  flex: 1;
-  ${space};
-`;
+import { Container, ContainerProps } from '../Container';
 
 interface ScreenProps {
   /** The content to render within the screen */
   children?: ReactNode;
   /** Whether to force the topInset. Use to prevent screen jank on tab screens */
-  forceTopInset?: Boolean;
+  forceTopInset?: boolean;
 }
 
-type ComponentProps = ScreenProps & FlexProps & SpaceProps;
+type ComponentProps = ScreenProps & ContainerProps;
 
 export const Screen: FC<ComponentProps> = ({
-  backgroundColor,
   paddingTop,
   paddingBottom,
   forceTopInset,
   children,
   ...screenProps
-}) => (
-  <Container fill bg={backgroundColor}>
-    <SafeAreaView
-      style={{ flex: 1 }}
-      forceInset={{ top: forceTopInset ? 'always' : 'never', bottom: 'never' }}
-    >
-      <VerticallyPaddedView pt={paddingTop} pb={paddingBottom}>
-        <InnerView {...screenProps}>{children}</InnerView>
-      </VerticallyPaddedView>
-    </SafeAreaView>
-  </Container>
-);
+}) => {
+  const isDarkMode = useDarkMode();
 
-SafeAreaView.defaultProps = {
-  bg: colors.white,
+  return (
+    <>
+      <StatusBar barStyle={isDarkMode ? 'dark-content' : 'light-content'} />
+      <Container flex={1} bg={'backgroundPrimary'}>
+        <SafeAreaView
+          style={{ flex: 1 }}
+          forceInset={{ top: forceTopInset ? 'always' : 'never', bottom: 'never' }}
+        >
+          <Container flex={1} pt={paddingTop} pb={paddingBottom}>
+            <Container flex={1} {...screenProps}>
+              {children}
+            </Container>
+          </Container>
+        </SafeAreaView>
+      </Container>
+    </>
+  );
 };
-
-VerticallyPaddedView.defaultProps = {
-  pt: theme.space[2],
-  pb: theme.space[2],
-};
-
-InnerView.defaultProps = {};
-
-Screen.defaultProps = {};

@@ -1,32 +1,7 @@
-import styled from '@emotion/native';
-import {
-  color,
-  space,
-  typography,
-  textStyle,
-  ColorProps,
-  SpaceProps,
-  TextStyleProps,
-  TypographyProps,
-} from 'styled-system';
-
-import { colors } from '../../styles';
-
-interface TextProps {}
-
-type ComponentProps = TextProps & ColorProps & SpaceProps & TextStyleProps & TypographyProps;
+import { createText } from '@shopify/restyle';
+import { Theme } from '../../theme';
 
 /**
- * This is our primitive Text component with styled-system props applied
+ * Renders a Text component with @shopify/restyle functionality.
  */
-export const Text = styled.Text<ComponentProps>`
-  ${space};
-  ${color};
-  ${typography};
-  ${textStyle};
-`;
-
-Text.defaultProps = {
-  color: colors.black,
-  fontSize: 3,
-};
+export const Text = createText<Theme>();
