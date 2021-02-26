@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Icon } from 'react-native-elements';
-import { BorderProps, ColorProps, FlexProps, SpaceProps } from 'styled-system';
 
 import { useColor } from '../../theme';
 import { Button } from '../Button';
@@ -16,13 +15,7 @@ interface LoginProps {
   forgotPasswordPress: () => void;
 }
 
-type ComponentProps = LoginProps & FlexProps & SpaceProps & BorderProps & ColorProps;
-
-export const Login: FC<ComponentProps> = ({
-  loginPress,
-  registrationPress,
-  forgotPasswordPress,
-}) => {
+export const Login: FC<LoginProps> = ({ loginPress, registrationPress, forgotPasswordPress }) => {
   const textSecondary = useColor('textSecondary');
 
   return (
@@ -45,10 +38,8 @@ export const Login: FC<ComponentProps> = ({
         onPress={(): void => {
           forgotPasswordPress();
         }}
-        fullWidth
         alignItems={'flex-end'}
         accessibilityLabel="Forgot Password Button"
-        accessbilityRole="button"
       >
         <Text fontSize={1} marginTop={2} color={'blue'}>
           Forgot Password?
@@ -93,10 +84,4 @@ export const Login: FC<ComponentProps> = ({
       </Button>
     </Container>
   );
-};
-
-Login.defaultProps = {
-  loginPress: console.log('implement login press'),
-  forgotPasswordPress: console.log('implement forgot password press'),
-  registrationPress: console.log('implement registration press'),
 };
