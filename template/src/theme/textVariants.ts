@@ -2,19 +2,18 @@ const baseTextStyles = {
   fontFamily: 'Helvetica',
   color: 'textPrimary',
   fontSize: 16,
-  lineHeight: 24,
 };
 
 export const textVariants = {
   defaults: baseTextStyles,
   regular: {},
   bold: {
-    fontWeight: 700
+    fontWeight: 700,
   },
   semibold: {
-    fontWeight: 500
+    fontWeight: 500,
   },
   medium: {
-    fontWeight: 600
-  }
+    fontWeight: 600,
+  },
 };

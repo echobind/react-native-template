@@ -22,31 +22,23 @@ export const Login: FC<ComponentProps> = ({
   loginPress,
   registrationPress,
   forgotPasswordPress,
-  ...props
 }) => {
-  const backgroundSecondary = useColor('textSecondary');
+  const textSecondary = useColor('textSecondary');
 
   return (
-    <Container
-      alignItems={'center'}
-      borderRadius={'md'}
-      elevation={4}
-      overflow="visible"
-      padding={4}
-      {...props}
-    >
+    <Container alignItems={'center'} padding={5}>
       <Text style={{ marginBottom: '10%', marginTop: '10%' }}>Welcome, please sign in.</Text>
       <TextInput
         testID="email-input"
         placeholder="Email"
         accessibilityLabel="Email Address Input"
-        icon={<Icon name="envelope" type={'font-awesome'} color={backgroundSecondary} />}
+        icon={<Icon name="envelope" type={'font-awesome'} color={textSecondary} />}
       />
       <TextInput
         testID="password-input"
         placeholder="Password"
         accessibilityLabel="Password Input"
-        icon={<Icon name="key" type={'font-awesome'} color={backgroundSecondary} />}
+        icon={<Icon name="key" type={'font-awesome'} color={textSecondary} />}
       />
       <Touchable
         testID="forgotpwd-link"

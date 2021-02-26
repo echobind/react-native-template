@@ -13,8 +13,6 @@ export type ContainerProps = React.ComponentProps<typeof Container> & BoxProps<T
 /**
  * Renders a container with children that are horizontally and vertically centered.
  */
-export const CenteredContainer = (
-  props: ContainerProps
-): React.ReactElement => (
+export const CenteredContainer = (props: ContainerProps): React.ReactElement => (
   <Container alignItems="center" justifyContent="center" {...props} />
 );
