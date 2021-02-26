@@ -25,7 +25,7 @@ export const Screen: FC<ComponentProps> = ({
 
   return (
     <>
-      <StatusBar barStyle={isDarkMode ? 'dark-content' : 'light-content'} />
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <Container flex={1} bg={'backgroundPrimary'} width={'100%'}>
         <SafeAreaView
           style={{ flex: 1 }}

@@ -16,7 +16,7 @@ const TabScreen3 = createFakeScreen('Tab Screen 3', 'blue');
 export const MainNav = (): ReactElement => {
   const textColor = useColor('textPrimary');
   const inactiveTintColor = useColor('textSecondary');
-  const backgroundColor = useColor('backgroundSecondary');
+  const backgroundColor = useColor('backgroundTertiary');
 
   return (
     <Tab.Navigator
