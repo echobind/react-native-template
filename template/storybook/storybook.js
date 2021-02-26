@@ -1,19 +1,19 @@
-import React from 'react';
-import { AppRegistry } from 'react-native';
-import { addParameters, getStorybookUI, configure, addDecorator } from '@storybook/react-native';
-import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
-
-import { name as appName } from '../app.json';
-import { Container } from '../src/components/Container';
-
 // addons!
 import './rn-addons';
 
+import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
+import { addDecorator, addParameters, configure, getStorybookUI } from '@storybook/react-native';
+import React from 'react';
+import { AppRegistry } from 'react-native';
+
+import { name as appName } from '../app.json';
+import { Screen } from '../src/components/Screen';
+
 // adding a centered-view layout!
 const CenterView = ({ children }) => (
-  <Container fill fullWidth centerContent>
+  <Screen alignItems={'center'} justifyContent={'center'}>
     {children}
-  </Container>
+  </Screen>
 );
 
 // global decorators!

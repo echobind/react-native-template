@@ -8,12 +8,12 @@ export const textVariants = {
   defaults: baseTextStyles,
   regular: {},
   bold: {
-    fontWeight: 700,
+    fontWeight: '700',
   },
   semibold: {
-    fontWeight: 500,
+    fontWeight: '500',
   },
   medium: {
-    fontWeight: 600,
+    fontWeight: '600',
   },
 };

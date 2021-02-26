@@ -72,7 +72,6 @@ export const TextInput: FC<ComponentProps> = ({
       flexDirection={'row'}
       minHeight={40}
       paddingLeft={3}
-      width={'100%'}
     >
       {icon ? icon : null}
       <Input
@@ -81,7 +80,6 @@ export const TextInput: FC<ComponentProps> = ({
         underlineColorAndroid={colors.transparent}
         multiline={multiline}
         accessibilityLabel={accessibilityLabel}
-        width={'100%'}
         {...inputProps}
       />
     </Container>

@@ -10,7 +10,7 @@ export const RegistrationScreen: FC<{ navigation: any }> = ({ navigation }) => {
 
   return (
     <Screen testID="registrationScreen" alignItems={'center'} justifyContent={'center'}>
-      <Registration createPress={createClick} goBack={navigation.goBack} />
+      <Registration createPress={createClick} />
     </Screen>
   );
 };

@@ -14,9 +14,10 @@ const getVariantValue = <T extends keyof SafeVariants<Theme>>(
   }
 
   if (typeof variant === 'object') {
-    const sortedEntries = Object.entries(breakpoints).sort(
-      (a, b) => b[1] - a[1]
-    ) as [keyof typeof breakpoints, number][];
+    const sortedEntries = Object.entries(breakpoints).sort((a, b) => b[1] - a[1]) as [
+      keyof typeof breakpoints,
+      number
+    ][];
 
     const width = Dimensions.get('window').width;
 
@@ -38,10 +39,7 @@ const getVariantValue = <T extends keyof SafeVariants<Theme>>(
 export const useVariantValue = <T extends keyof SafeVariants<Theme>>(
   themeKey: T,
   key: string,
-  responsiveVariantValue?: ResponsiveValue<
-    keyof Omit<Theme[T], 'defaults'>,
-    Theme
-  >
+  responsiveVariantValue?: ResponsiveValue<keyof Omit<Theme[T], 'defaults'>, Theme>
 ) => {
   const theme = useTheme();
   const variant = getVariantValue(responsiveVariantValue);

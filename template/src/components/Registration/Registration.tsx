@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Icon } from 'react-native-elements';
-import { BorderProps, ColorProps, FlexProps, SpaceProps } from 'styled-system';
 
 import { useColor } from '../../theme';
 import { Button } from '../Button';
@@ -11,12 +10,9 @@ import { TextInput } from '../TextInput';
 interface RegistrationProps {
   /** the callbacks to be invoked onPress */
   createPress: () => void;
-  goBack: () => void;
 }
 
-type ComponentProps = RegistrationProps & FlexProps & SpaceProps & BorderProps & ColorProps;
-
-export const Registration: FC<ComponentProps> = ({ createPress }) => {
+export const Registration: FC<RegistrationProps> = ({ createPress }) => {
   const textSecondary = useColor('textSecondary');
 
   return (
@@ -46,8 +42,4 @@ export const Registration: FC<ComponentProps> = ({ createPress }) => {
       </Button>
     </Container>
   );
-};
-
-Registration.defaultProps = {
-  createPress: console.log('implement event'),
 };
