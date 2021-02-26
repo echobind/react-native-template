@@ -1,0 +1,23 @@
+name: PR Verify
+
+on:
+  push:
+    branches-ignore:
+      - 'master'
+      - 'main'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: PR Verify
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.16.0
+    - name: Verify lint, TS, and tests
+      run: |
+        yarn
+        yarn ci

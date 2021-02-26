@@ -1,1 +1,1 @@
-export { default } from './trimText';
+export * from './trimText';

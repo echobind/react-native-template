@@ -1,31 +1,35 @@
-import React, { ReactElement } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, { ReactElement } from 'react';
 
 import { createFakeScreen } from '../navigation/createFakeScreen';
-import { colors } from '../styles';
+import { useColor } from '../theme';
 
 const Tab = createBottomTabNavigator();
 
-const TabScreen1 = createFakeScreen('Tab Screen 1', colors.white);
-const TabScreen2 = createFakeScreen('Tab Screen 2', colors.gray);
-const TabScreen3 = createFakeScreen('Tab Screen 3', colors.orange);
+const TabScreen1 = createFakeScreen('Tab Screen 1', 'backgroundPrimary');
+const TabScreen2 = createFakeScreen('Tab Screen 2', 'backgroundSecondary');
+const TabScreen3 = createFakeScreen('Tab Screen 3', 'blue');
 
 /**
  * Main Nav is main interface of the app, defaults to tabs.
  */
 export const MainNav = (): ReactElement => {
+  const textColor = useColor('textPrimary');
+  const inactiveTintColor = useColor('textSecondary');
+  const backgroundColor = useColor('backgroundTertiary');
+
   return (
     <Tab.Navigator
       initialRouteName="Tab1"
       tabBarOptions={{
-        activeTintColor: colors.white,
-        inactiveTintColor: colors.lightGray,
+        activeTintColor: textColor,
+        inactiveTintColor: inactiveTintColor,
         labelStyle: {
-          fontSize: 12,
+          fontSize: 16,
         },
         style: {
-          backgroundColor: colors.blue,
-          paddingVertical: 10,
+          backgroundColor,
+          paddingVertical: 5,
           height: 70,
         },
       }}

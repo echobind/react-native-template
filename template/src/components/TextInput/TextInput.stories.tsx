@@ -3,4 +3,6 @@ import React from 'react';
 
 import { TextInput } from './TextInput';
 
-storiesOf('components/TextInput', module).add('Default', () => <TextInput />);
+storiesOf('components/TextInput', module).add('Default', () => (
+  <TextInput placeholder={'Type here'} width={'90%'} />
+));

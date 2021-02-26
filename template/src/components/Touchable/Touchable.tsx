@@ -1,55 +1,25 @@
-import styled from '@emotion/native';
 import {
-  color,
-  borders,
-  space,
+  createRestyleComponent,
   layout,
-  flexbox,
-  BorderProps,
-  ColorProps,
-  SpaceProps,
-  FlexProps,
-} from 'styled-system';
+  LayoutProps,
+  spacing,
+  SpacingProps,
+} from '@shopify/restyle';
+import { ReactNode } from 'react';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
-interface TouchableProps {
-  /** applies "flex: 1" style **/
-  fill?: boolean;
-  /** applies "width: 100%" style **/
-  fullWidth?: boolean;
-  /** centers content both vertically and horizontally **/
-  centerContent?: boolean;
+import { Theme } from '../../theme';
+
+type RestyleProps = TouchableOpacityProps & LayoutProps<Theme> & SpacingProps<Theme>;
+
+export interface TouchableProps extends RestyleProps {
+  children: ReactNode;
 }
 
-type ComponentProps = TouchableProps & BorderProps & ColorProps & FlexProps & SpaceProps;
-
 /**
- * This is our primitive TouchableOpacity component with styled-system props applied
+ * This is our primitive TouchableOpacity component with restyle props applied
  */
-export const Touchable = styled.TouchableOpacity<ComponentProps>`
-  ${space};
-  ${color};
-  ${borders};
-  ${layout};
-  ${flexbox};
-
-  ${props =>
-    props.fill &&
-    `
-      flex: 1;
-    `}
-
-  ${props =>
-    props.fullWidth &&
-    `
-      width: 100%;
-    `}
-
-  ${props =>
-    props.centerContent &&
-    `
-      justifyContent: center;
-      alignItems: center;
-    `}
-`;
-
-Touchable.defaultProps = {};
+export const Touchable = createRestyleComponent<TouchableProps, Theme>(
+  [layout, spacing],
+  TouchableOpacity
+);

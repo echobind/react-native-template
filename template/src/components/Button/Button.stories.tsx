@@ -4,5 +4,5 @@ import React from 'react';
 import { Button } from './Button';
 
 storiesOf('components/Button', module).add('Default', () => (
-  <Button label="Button" />
+  <Button onPress={() => console.log('Button pressed!')}>{'Hello World'}</Button>
 ));

@@ -1,4 +1,4 @@
-/** 
+/**
  * Accessbility Role communicates the purpose of a component to the user of an assistive technology,
  * This tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on.
  * values pulled from official react native docs
